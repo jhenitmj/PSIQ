@@ -1,3 +1,2 @@
 # PSIQ
-tcc para a disciplina de desenvolvimento WEB SENAI PR
-
+TCC para a disciplina de Desenvolvimento Web do SENAI PR
