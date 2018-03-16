@@ -1,0 +1,5 @@
+c:\users\aluno\documents\visual studio 2015\Projects2\PSIQ\PSIQ.Models\bin\Debug\PSIQ.Models.dll
+c:\users\aluno\documents\visual studio 2015\Projects2\PSIQ\PSIQ.Models\bin\Debug\PSIQ.Models.pdb
+c:\users\aluno\documents\visual studio 2015\Projects2\PSIQ\PSIQ.Models\obj\Debug\PSIQ.Models.csprojResolveAssemblyReference.cache
+c:\users\aluno\documents\visual studio 2015\Projects2\PSIQ\PSIQ.Models\obj\Debug\PSIQ.Models.dll
+c:\users\aluno\documents\visual studio 2015\Projects2\PSIQ\PSIQ.Models\obj\Debug\PSIQ.Models.pdb

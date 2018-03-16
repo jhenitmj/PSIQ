@@ -1,0 +1,5 @@
+c:\users\aluno\documents\visual studio 2015\Projects2\PSIQ\PSIQ.DataAccess\bin\Debug\PSIQ.DataAccess.dll
+c:\users\aluno\documents\visual studio 2015\Projects2\PSIQ\PSIQ.DataAccess\bin\Debug\PSIQ.DataAccess.pdb
+c:\users\aluno\documents\visual studio 2015\Projects2\PSIQ\PSIQ.DataAccess\obj\Debug\PSIQ.DataAccess.csprojResolveAssemblyReference.cache
+c:\users\aluno\documents\visual studio 2015\Projects2\PSIQ\PSIQ.DataAccess\obj\Debug\PSIQ.DataAccess.dll
+c:\users\aluno\documents\visual studio 2015\Projects2\PSIQ\PSIQ.DataAccess\obj\Debug\PSIQ.DataAccess.pdb
