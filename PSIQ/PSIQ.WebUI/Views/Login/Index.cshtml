@@ -1,5 +1,5 @@
 ﻿@using PSIQ.Models
-@model Usuario
+@model Terapeuta
 @{
     Layout = string.Empty;
 }
@@ -36,8 +36,8 @@
                         <div class="col-md-12">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <label class="control-label">Login:</label>
-                                    @Html.TextBoxFor(m => m.Login, new { @class = "form-control" })
+                                    <label class="control-label">CMP:</label>
+                                    @Html.TextBoxFor(m => m.CRP, new { @class = "form-control" })
                                 </div>
                             </div>
                             <div class="row">
@@ -47,10 +47,20 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-12 text-center">
+                                <div class="col-md-12 ">
                                     <br />
-                                    <label><input type="radio" name="optradio">Paciente</label>    
-                                    <label><input type="radio" name="optradio">Terapeuta</label>
+                                    <div class="radio">
+                                        <label><input type="radio" name="optradio">Esqueci a senha</label>
+                                    </div>
+                                    <div class="radio">
+                                        <label><input type="radio" name="optradio">Relembrar</label>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12 text-center">
+                                    <button class="btn btn-primary text-right">
+                                        Entrar
+                                    </button>
                                 </div>
                             </div>
                         </div>
