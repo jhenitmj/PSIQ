@@ -3,3 +3,8 @@ c:\users\aluno\documents\visual studio 2015\Projects2\PSIQ\PSIQ.Models\bin\Debug
 c:\users\aluno\documents\visual studio 2015\Projects2\PSIQ\PSIQ.Models\obj\Debug\PSIQ.Models.csprojResolveAssemblyReference.cache
 c:\users\aluno\documents\visual studio 2015\Projects2\PSIQ\PSIQ.Models\obj\Debug\PSIQ.Models.dll
 c:\users\aluno\documents\visual studio 2015\Projects2\PSIQ\PSIQ.Models\obj\Debug\PSIQ.Models.pdb
+C:\Users\Aluno\Documents\GitHub\PSIQ\PSIQ\PSIQ.Models\bin\Debug\PSIQ.Models.dll
+C:\Users\Aluno\Documents\GitHub\PSIQ\PSIQ\PSIQ.Models\bin\Debug\PSIQ.Models.pdb
+C:\Users\Aluno\Documents\GitHub\PSIQ\PSIQ\PSIQ.Models\obj\Debug\PSIQ.Models.csprojResolveAssemblyReference.cache
+C:\Users\Aluno\Documents\GitHub\PSIQ\PSIQ\PSIQ.Models\obj\Debug\PSIQ.Models.dll
+C:\Users\Aluno\Documents\GitHub\PSIQ\PSIQ\PSIQ.Models\obj\Debug\PSIQ.Models.pdb

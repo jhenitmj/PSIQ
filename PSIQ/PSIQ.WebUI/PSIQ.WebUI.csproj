@@ -149,6 +149,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -158,7 +159,10 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
+    <Content Include="Images\giphy.gif" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Images\login.jpg" />
+    <Content Include="Images\PSIQ.jpg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
@@ -192,8 +196,18 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\PSIQ.DataAccess\PSIQ.DataAccess.csproj">
+      <Project>{457b74bf-2825-43b7-970b-d14589248038}</Project>
+      <Name>PSIQ.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PSIQ.Models\PSIQ.Models.csproj">
+      <Project>{aedca8ad-1aca-47ca-b0ea-344e5c0cc133}</Project>
+      <Name>PSIQ.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
