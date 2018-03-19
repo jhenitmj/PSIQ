@@ -10,3 +10,10 @@ C:\Users\Aluno\Documents\GitHub\PSIQ\PSIQ\PSIQ.DataAccess\bin\Debug\PSIQ.Models.
 C:\Users\Aluno\Documents\GitHub\PSIQ\PSIQ\PSIQ.DataAccess\obj\Debug\PSIQ.DataAccess.csprojResolveAssemblyReference.cache
 C:\Users\Aluno\Documents\GitHub\PSIQ\PSIQ\PSIQ.DataAccess\obj\Debug\PSIQ.DataAccess.dll
 C:\Users\Aluno\Documents\GitHub\PSIQ\PSIQ\PSIQ.DataAccess\obj\Debug\PSIQ.DataAccess.pdb
+C:\Users\Particular\Documents\GitHub\PSIQ\PSIQ\PSIQ.DataAccess\bin\Debug\PSIQ.DataAccess.dll
+C:\Users\Particular\Documents\GitHub\PSIQ\PSIQ\PSIQ.DataAccess\bin\Debug\PSIQ.DataAccess.pdb
+C:\Users\Particular\Documents\GitHub\PSIQ\PSIQ\PSIQ.DataAccess\bin\Debug\PSIQ.Models.dll
+C:\Users\Particular\Documents\GitHub\PSIQ\PSIQ\PSIQ.DataAccess\bin\Debug\PSIQ.Models.pdb
+C:\Users\Particular\Documents\GitHub\PSIQ\PSIQ\PSIQ.DataAccess\obj\Debug\PSIQ.DataAccess.csprojResolveAssemblyReference.cache
+C:\Users\Particular\Documents\GitHub\PSIQ\PSIQ\PSIQ.DataAccess\obj\Debug\PSIQ.DataAccess.dll
+C:\Users\Particular\Documents\GitHub\PSIQ\PSIQ\PSIQ.DataAccess\obj\Debug\PSIQ.DataAccess.pdb

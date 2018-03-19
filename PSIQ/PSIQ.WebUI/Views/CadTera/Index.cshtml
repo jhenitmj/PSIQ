@@ -16,11 +16,37 @@
             @Html.LabelFor(m => m.Nome, "Nome", new { @class = "control-label" })
             @Html.TextBoxFor(m => m.Nome, new { @class = "form-control" })
         </div>
-        div class="form-group">
-        @Html.LabelFor(m => m.Nome, "Nome", new { @class = "control-label" })
-        @Html.TextBoxFor(m => m.Nome, new { @class = "form-control" })
+        <div class="form-group">
+            <div class="col-md-6">
+                @Html.LabelFor(m => m.CRP, "CRP:", new { @class = "control-label" })
+                @Html.TextBoxFor(m => m.CRP, new { @class = "form-control" })
+            </div>
+       
+            <div class="col-md-6">
+                @Html.LabelFor(m => m.COD, "Cod:", new { @class = "control-label" })
+                @Html.TextBoxFor(m => m.COD, new { @class = "form-control" })
+            </div>
     </div>
+        <div class="form-group">
+            <div class="col-md-6">
+                @Html.LabelFor(m => m.DtNasciento, "Data de nascimento:", new { @class = "control-label" })
+                @Html.TextBoxFor(m => m.DtNasciento, new { @class = "form-control" })
+            </div>
 
+            <div class="col-md-6">
+                <label class="control-label">Inserir imagem:
+            </label>
+                <button class="btn btn-link glyphicon glyphicon-picture"></button>
+            </div>
+
+        </div>
+        <div class="form-group">
+            <div class="col-md-6">
+                @Html.LabelFor(m=>m.Senha, "Senha:", new {@class="control-label" })
+                @Html.TextBoxFor(m => m.Senha, new { @class = "form-control" })
+
+            </div>
+        </div>
     </div>
 
 </div>

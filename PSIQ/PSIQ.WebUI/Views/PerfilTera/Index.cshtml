@@ -1,0 +1,78 @@
+﻿@using PSIQ.Models
+@model Terapeuta
+@{
+    Layout = string.Empty;
+}
+
+<div class="container">
+
+    <div class="row text-center ">
+        <div class="col-md-12">
+            <img src="lolo.png" id="col12" />
+        </div>
+
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-3">
+            <img src="download.jpg" />
+        </div>
+
+        <div class="col-md-9">
+            @Html.LabelFor(m => m.Nome, "Nome", new { @class = "control-label" })
+            <br />
+            
+            <br />
+            <a href="#"> <label id="h3">Sair</label></a>
+            <br />
+            <label id="h3">Terapeuta:</label></a>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+        </div>
+
+    </div>
+    <div class="row">
+
+        <textarea class="form-control" rows="8" style="text-align:center" size="10" style=" border 2px;
+                  border-style solid; border-color black; ">
+            "Escreva o que sente:"
+        </textarea>
+        <br />
+        <div class="row">
+            <div class="col-md-12 text-right ">
+                <button type="button" class="btn btn-default" aria-label="Alinhar na esquerda">
+                    <span class="glyphicon glyphicon-picture" aria-hidden="true"></span>
+                </button>
+
+                <button class="btn btn-primary"> Publicar</button>
+            </div>
+
+        </div>
+
+    </div>
+
+    <br />
+    <br />
+
+    <div class="row" style=" border 2px;
+         border-style solid; border-color black; border-radius 10px; backgroud-color #6E6E6E;">
+        <div class="col-md-12 ">
+            <p id="1">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc placerat tincidunt metus, non pretium nunc elementum a. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Ut auctor orci non vestibulum vulputate. Vestibulum nec neque aliquam lorem accumsan rutrum vel in ipsum. Nam ut mollis mi, feugiat imperdiet lorem. Vivamus tortor magna, molestie non elit et, sollicitudin consectetur tellus. Vestibulum lorem nulla, condimentum nec ante quis, aliquam accumsan dui. Proin pellentesque orci sit amet diam tincidunt placerat. Praesent volutpat scelerisque sem dignissim consectetur. Nulla euismod magna ut metus blandit bibendum. Ut odio quam, auctor non congue sit amet, porta id sapien.</p>
+        </div>
+        <div class="col-md-1  ">
+            <a href="#">
+                <label class="form-control"> EDITAR</label>
+            </a>
+        </div>
+    </div>
+
+
+
+
+</div>
+
+
+
