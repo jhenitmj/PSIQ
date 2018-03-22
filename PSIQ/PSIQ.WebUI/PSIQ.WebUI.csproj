@@ -173,8 +173,8 @@
     <Content Include="Images\PSIQ.jpg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="lolo.png" />
-    <Content Include="perfil-blog.png" />
+    <Content Include="Images\lolo.png" />
+    <Content Include="Images\perfil-blog.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -192,7 +192,7 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <None Include="Style1" />
+    <Content Include="Content\Style1.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
