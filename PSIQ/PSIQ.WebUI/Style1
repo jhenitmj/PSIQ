@@ -1,0 +1,58 @@
+﻿#h1 {
+    font-size: 25px;
+}
+
+#h2 {
+    font-size: 25px;
+}
+
+#h3 {
+    font-size: 25px;
+}
+
+#cordif {
+    background-color: blue;
+}
+
+body {
+    background-image:;
+}
+
+#colb12 {
+    left: 50px;
+    margin: 4px 7px 3px 4px;
+}
+
+#col12 {
+    padding-bottom: 50px;
+}
+
+#cordif {
+    background-color: blue;
+}
+
+body {
+    background-image:;
+}
+
+#colb12 {
+    margin-bottom: 0px;
+    height: auto;
+    border-bottom: 2px groove #000;
+}
+
+#colunameio {
+    border-right: 2px solid #000;
+}
+
+
+#colunameio {
+    border-right: 2px solid #000;
+}
+
+#1 {
+    border: 10px;
+    border-style: solid;
+    border-color: black;
+    border-radius: 20px;
+}

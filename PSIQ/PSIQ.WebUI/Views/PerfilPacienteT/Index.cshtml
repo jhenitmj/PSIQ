@@ -1,0 +1,51 @@
+﻿@using PSIQ.Models
+@model Pacientes
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row">
+    <div class="col-md-12">
+        <form class="form-horizontal">
+            <div class="form-group">
+                <div class="col-md-12 text-center">
+                    <img src="~/lolo.png" />
+                    <p><b>A rede social para o lado mais expressivo do ser</b></p>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-4 text-center">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <img src="~/perfil-blog.png" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            @Html.LabelFor(m => m.Nome, "Nome", new { @class = "control-label" })
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <input class="form-control" type="text" name="texto" id="texto" placeholder="Digite a pesquisa" />
+                            <button class="btn btn-primary" type="submit">Filtrar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="row">
+                        <div class="col-md-12 ">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc placerat tincidunt metus, non pretium nunc elementum a. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Ut auctor orci non vestibulum vulputate. Vestibulum nec neque aliquam lorem accumsan rutrum vel in ipsum. Nam ut mollis mi, feugiat imperdiet lorem. Vivamus tortor magna, molestie non elit et, sollicitudin consectetur tellus. Vestibulum lorem nulla, condimentum nec ante quis, aliquam accumsan dui. Proin pellentesque orci sit amet diam tincidunt placerat. Praesent volutpat scelerisque sem dignissim consectetur. Nulla euismod magna ut metus blandit bibendum. Ut odio quam, auctor non congue sit amet, porta id sapien.</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <a class="btn btn-primary" href="#">
+                                Ver Edições
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

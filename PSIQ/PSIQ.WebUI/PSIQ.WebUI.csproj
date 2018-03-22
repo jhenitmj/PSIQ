@@ -148,10 +148,16 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CadastroPController.cs" />
     <Compile Include="Controllers\CadTeraController.cs" />
+    <Compile Include="Controllers\DiagnosticoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\LoginPController.cs" />
+    <Compile Include="Controllers\PerfilPacientePController.cs" />
+    <Compile Include="Controllers\PerfilPacienteTController.cs" />
     <Compile Include="Controllers\PerfilTeraController.cs" />
+    <Compile Include="Controllers\PreCadastroPacienteController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -168,6 +174,7 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="lolo.png" />
+    <Content Include="perfil-blog.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -185,6 +192,7 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
+    <None Include="Style1" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -200,6 +208,13 @@
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\CadTera\Index.cshtml" />
     <Content Include="Views\PerfilTera\Index.cshtml" />
+    <Content Include="Views\PreCadastroPaciente\Index.cshtml" />
+    <Content Include="Views\PerfilPacienteT\Index.cshtml" />
+    <Content Include="Views\LoginP\Index.cshtml" />
+    <Content Include="Views\CadastroP\Index.cshtml" />
+    <Content Include="Views\PerfilPacienteP\Index.cshtml" />
+    <Content Include="Views\Diagnostico\Diagnostico.cshtml" />
+    <Content Include="Views\Diagnostico\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PSIQ.DataAccess\PSIQ.DataAccess.csproj">

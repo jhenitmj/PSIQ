@@ -1,78 +1,65 @@
 ﻿@using PSIQ.Models
-@model Terapeuta
+@model  List<Pacientes>
 @{
-    Layout = string.Empty;
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div class="row">
+    <form class="form-horizontal">
+        <div class="form-group">
+            <div class="col-md-12 text-center">
 
-<div class="container">
-
-    <div class="row text-center ">
-        <div class="col-md-12">
-            <img src="lolo.png" id="col12" />
+                <img src="~/lolo.png" />
+                <p><b>A rede social para o lado mais expressivo do ser</b></p>
+            </div>
         </div>
-
-    </div>
-
-    <div class="form-group">
-        <div class="col-md-3">
-            <img src="download.jpg" />
-        </div>
-
-        <div class="col-md-9">
-            @Html.LabelFor(m => m.Nome, "Nome", new { @class = "control-label" })
-            <br />
-            
-            <br />
-            <a href="#"> <label id="h3">Sair</label></a>
-            <br />
-            <label id="h3">Terapeuta:</label></a>
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-        </div>
-
-    </div>
-    <div class="row">
-
-        <textarea class="form-control" rows="8" style="text-align:center" size="10" style=" border 2px;
-                  border-style solid; border-color black; ">
-            "Escreva o que sente:"
-        </textarea>
-        <br />
-        <div class="row">
-            <div class="col-md-12 text-right ">
-                <button type="button" class="btn btn-default" aria-label="Alinhar na esquerda">
-                    <span class="glyphicon glyphicon-picture" aria-hidden="true"></span>
-                </button>
-
-                <button class="btn btn-primary"> Publicar</button>
+        <div class="form-group text-right">
+            <div class="col-md-4">
+                <img src="~/perfil-blog.png" />
+            </div>
+            <div class="col-md-4 text-left">
+                <label class="control-label" id="h1">Nome:</label>
+                <br />
+                <label class="control-label" id="h2">CRP:</label>
+                <br />
+                <a href="@Url.Action("Index", "Login")" id="h3">Sair</a>
             </div>
 
+            <div class="col-md-12">
+                <button class="btn btn-primary text-right" style="margin-top: 150px; ">Cadastrar Paciente</button>
+            </div>
+            <div class="col-md-4 text-right">
+                <input type="text" class="form-control" name="texto" id="texto" placeholder="Digite a pesquisa" />
+                <div><button type="submit" class="btn btn-primary">Filtrar</button></div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="table-responsive">
+                        <br />
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th style="width:35%">Nome</th>
+                                    <th style="width:15%">Idade</th>
+                                    <th style="width:15%">Estado</th>
+                                    <th style="width:35%">Diagnostico</th>
+                                </tr>
+                            </thead>
+                            @*<tbody>
+                                @foreach (Pacientes item in Model ?? new List<Pacientes>)
+                                {
+                                    <tr>
+                                        <td>@item.Nome</td>
+                                        <td>@item.Idade</td>
+                                        <td>@item.Estado</td>
+                                        <td>@item.Diagnostico</td>
+                                    </tr>
+
+                                }*@
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
-
-    </div>
-
-    <br />
-    <br />
-
-    <div class="row" style=" border 2px;
-         border-style solid; border-color black; border-radius 10px; backgroud-color #6E6E6E;">
-        <div class="col-md-12 ">
-            <p id="1">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc placerat tincidunt metus, non pretium nunc elementum a. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Ut auctor orci non vestibulum vulputate. Vestibulum nec neque aliquam lorem accumsan rutrum vel in ipsum. Nam ut mollis mi, feugiat imperdiet lorem. Vivamus tortor magna, molestie non elit et, sollicitudin consectetur tellus. Vestibulum lorem nulla, condimentum nec ante quis, aliquam accumsan dui. Proin pellentesque orci sit amet diam tincidunt placerat. Praesent volutpat scelerisque sem dignissim consectetur. Nulla euismod magna ut metus blandit bibendum. Ut odio quam, auctor non congue sit amet, porta id sapien.</p>
-        </div>
-        <div class="col-md-1  ">
-            <a href="#">
-                <label class="form-control"> EDITAR</label>
-            </a>
-        </div>
-    </div>
-
-
-
-
+    </form>
 </div>
-
-
-

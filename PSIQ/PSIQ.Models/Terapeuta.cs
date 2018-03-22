@@ -13,6 +13,8 @@ namespace PSIQ.Models
         public string   Senha       { get; set; }
         public DateTime DtNasciento { get; set; }
         public int      Idade       { get; set; }
-        public int COD { get; set; }
+        public int      COD         { get; set; }
+        public Pacientes Paciente   { get; set; }
+
     }
 }
