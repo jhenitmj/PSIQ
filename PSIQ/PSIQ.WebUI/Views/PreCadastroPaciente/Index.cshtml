@@ -1,72 +1,66 @@
 ﻿@using PSIQ.Models
-@model Pacientes
+@model Paciente
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div class="row">
+    <div class="col-md-12 text-center">
+        <img src="@Url.Content("~/Images/lolo.png")" />
+        <h3>Pré  Cadastro  Paciente</h3>
+        <hr />
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <form class="form-horizontal">
 
+            <div class="form-group">
+                <div class="col-md-12">
+                    @Html.LabelFor(m => m.Nome, "Nome", new { @class = "control-label" })
+                    @Html.TextBoxFor(m => m.Nome, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-2">
+                    @Html.LabelFor(m => m.Idade, "Idade:", new { @class = "control-label" })
+                    @Html.TextBoxFor(m => m.Idade, new { @class = "form-control" })
+                </div>
 
+                <div class="col-md-10">
+                    @Html.LabelFor(m => m.Estado, "Estado:", new { @class = "control-label" })
+                    @Html.TextBoxFor(m => m.Estado, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-12  ">
+                    @Html.LabelFor(m => m.Diagnostico, "Diagnostico:", new { @class = "control-label" })
+                    @Html.TextAreaFor(m => m.Diagnostico, new { @class = "form-control" })
 
+                </div>
 
-    <div class="row">
-        <div class="col-md-12 text-center">
+            </div>
+            <div class="form-group">
+                <div class="col-md-12  ">
+                    @Html.LabelFor(m => m.DescricaoD, "Diagnostico Descricao:", new { @class = "control-label" })
+                    @Html.TextAreaFor(m => m.DescricaoD, new { @class = "form-control", @rows = 10 })
 
-            <img src="~/lolo.png" />
-            <h3>Pré  Cadastro  Paciente</h3>
-            <hr />
+                </div>
 
-        </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <form class="form-horizontal">
-
-                    <div class="form-group">
-                        <div class="col-md-12">
-                            @Html.LabelFor(m => m.Nome, "Nome", new { @class = "control-label" })
-                            @Html.TextBoxFor(m => m.Nome, new { @class = "form-control" })
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-md-2">
-                            @Html.LabelFor(m => m.Idade, "Idade:", new { @class = "control-label" })
-                            @Html.TextBoxFor(m => m.Idade, new { @class = "form-control" })
-                        </div>
-
-                        <div class="col-md-10">
-                            @Html.LabelFor(m => m.Estado, "Estado:", new { @class = "control-label" })
-                            @Html.TextBoxFor(m => m.Estado, new { @class = "form-control" })
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-md-12  ">
-                            @Html.LabelFor(m => m.Diagnostico, "Diagnostico:", new { @class = "control-label" })
-                            @Html.TextAreaFor(m => m.Diagnostico, new { @class = "form-control" })
-
-                        </div>
-
-                    </div>
-                    <div class="form-group">
-                        <div class="col-md-12  ">
-                            @Html.LabelFor(m => m.DescricaoD, "Diagnostico Descricao:", new { @class = "control-label" })
-                            @Html.TextAreaFor(m => m.DescricaoD, new { @class = "form-control", @rows = 10 })
-
-                        </div>
-
-                    </div>
-
-                    <div class="form-group">
-
-
-
-                        <div class="col-md-12 text-right">
-                            <button type="submit" class="btn btn-primary">Salvar</button>
-                        </div>
-
-                    </div>
-                </form>
             </div>
 
-        </div>
+            <div class="form-group">
+
+
+
+                <div class="col-md-12 text-right">
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                </div>
+
+            </div>
+        </form>
+    </div>
+
+</div>
 
 
 

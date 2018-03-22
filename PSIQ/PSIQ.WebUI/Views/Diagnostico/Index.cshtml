@@ -6,38 +6,37 @@
 
 <div class="row">
     <div class="col-md-12 text-center">
-
-        <img src="~/lolo.png" />
+        <img src="@Url.Content("~/Images/lolo.png")" />
         <h3>Diagnóstico</h3>
         <hr />
     </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            <form class="form-horizontal">
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <form class="form-horizontal">
 
-                <div class="form-group">
-                    <div class="col-md-12">
-                        @Html.LabelFor(m => m.Nome, "Nome", new { @class = "control-label" })
-                        @Html.TextBoxFor(m => m.Nome, new { @class = "form-control" })
-                    </div>
+            <div class="form-group">
+                <div class="col-md-12">
+                    @Html.LabelFor(m => m.Nome, "Nome", new { @class = "control-label" })
+                    @Html.TextBoxFor(m => m.Nome, new { @class = "form-control" })
                 </div>
-               
-
-            
-
-                <div class="form-group">
+            </div>
 
 
 
-                    <div class="col-md-12 text-right">
-                        <button type="submit" class="btn btn-primary">Salvar</button>
-                    </div>
 
+            <div class="form-group">
+
+
+
+                <div class="col-md-12 text-right">
+                    <button type="submit" class="btn btn-primary">Salvar</button>
                 </div>
-            </form>
-        </div>
 
+            </div>
+        </form>
     </div>
+
+</div>
 
 

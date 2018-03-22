@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PSIQ.DataAccess
 {
-    public class Class1
+    class TerapeutaDAO
     {
     }
 }

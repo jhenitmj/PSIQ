@@ -14,7 +14,7 @@ namespace PSIQ.Models
         public DateTime DtNasciento { get; set; }
         public int      Idade       { get; set; }
         public int      COD         { get; set; }
-        public Pacientes Paciente   { get; set; }
+        public Paciente Paciente   { get; set; }
 
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PSIQ.Models
 {
-    public class Pacientes
+    public class Paciente
     {   public string CPF { get; set; }
         public string Nome { get; set; }
         public Estado Estado { get; set; }
