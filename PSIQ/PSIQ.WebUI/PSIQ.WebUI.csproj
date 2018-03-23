@@ -167,6 +167,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
+    <Content Include="Fundo.PNG" />
     <Content Include="Images\giphy.gif" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Images\login.jpg" />
@@ -213,7 +214,6 @@
     <Content Include="Views\LoginP\Index.cshtml" />
     <Content Include="Views\CadastroP\Index.cshtml" />
     <Content Include="Views\PerfilPacienteP\Index.cshtml" />
-    <Content Include="Views\Diagnostico\Diagnostico.cshtml" />
     <Content Include="Views\Diagnostico\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>

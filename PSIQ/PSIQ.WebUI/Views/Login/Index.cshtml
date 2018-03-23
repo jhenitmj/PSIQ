@@ -1,7 +1,7 @@
 ﻿@using PSIQ.Models
 @model Terapeuta
 @{
-    Layout = string.Empty;
+    Layout = "~/Views/Shared/_Layout.cshtml"; ;
 }
 <!DOCTYPE html>
 <html>
@@ -52,15 +52,14 @@
                                     <div class="radio">
                                         <label><input type="radio" name="optradio">Esqueci a senha</label>
                                     </div>
-                                    <div class="radio">
+                                    @*<div class="radio">
                                         <label><input type="radio" name="optradio">Relembrar</label>
-                                    </div>
+                                    </div>*@
+                                    <a href="@Url.Action("Index", "CadTera")" >Cadastrar-se</a>
                                 </div>
 
                                 <div class="col-md-12 text-center">
-                                    <button class="btn btn-primary text-right">
-                                        Entrar
-                                    </button>
+                                    <a href="@Url.Action("Index", "PerfilTera")" class="btn btn-primary">Entrar</a>
                                 </div>
                             </div>
                         </div>

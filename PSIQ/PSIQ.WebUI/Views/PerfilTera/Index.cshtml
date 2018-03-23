@@ -22,13 +22,20 @@
                 <br />
                 <a href="@Url.Action("Index", "Login")" id="h3">Sair</a>
             </div>
+            <div class="form-group">
+                <div class="col-md-12">
+                    @*<button class="btn btn-primary text-right" ; ">Cadastrar Paciente</button>*@
+                    <a href="@Url.Action("Index", "PreCadastroPaciente")" class="btn btn-primary">Cadastrar Paciente</a>
+                </div>
+                <div class="col-md-12">
+                    @*<button class="btn btn-primary text-right" style="margin-top: 150px; ">Cadastrar Diagnóstico</button>*@
+                    <a href="@Url.Action("Index", "Diagnostico")" class="btn btn-primary">Cadastrar Diagnóstico</a>
+                </div>
+                <div class="col-md-4 text-right">
+                    <input type="text" class="form-control" name="texto" id="texto" placeholder="Digite a pesquisa" />
+                    <div><button type="submit" class="btn btn-primary">Filtrar</button></div>
+                </div>
 
-            <div class="col-md-12">
-                <button class="btn btn-primary text-right" style="margin-top: 150px; ">Cadastrar Paciente</button>
-            </div>
-            <div class="col-md-4 text-right">
-                <input type="text" class="form-control" name="texto" id="texto" placeholder="Digite a pesquisa" />
-                <div><button type="submit" class="btn btn-primary">Filtrar</button></div>
             </div>
             <div class="row">
                 <div class="col-md-12">
@@ -44,7 +51,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach (Paciente item in Model)
+                                @*@foreach (Paciente item in Model)
                                 {
                                     <tr>
                                         <td>@item.Nome</td>
@@ -52,7 +59,7 @@
                                         <td>@item.Estado</td>
                                         <td>@item.Diagnostico</td>
                                     </tr>
-                                }
+                                }*@
                             </tbody>
                         </table>
                     </div>

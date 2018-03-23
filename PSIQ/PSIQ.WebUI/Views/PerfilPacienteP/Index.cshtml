@@ -21,7 +21,7 @@
             <br />
             <label class="control-label" id="h2">CPF:</label>
             <br />
-            <a href="@Url.Action("Index", "Login")" id="h3">Sair</a>
+            <a href="@Url.Action("Index", "LoginP")" id="h3">Sair</a>
             <br />
             <label id="">Terapeuta:</label>
         </div>
@@ -34,7 +34,7 @@
     <div class="row">
 
         @Html.LabelFor(m => m.DescricaoD, "Diagnostico Descricao:", new { @class = "control-label" })
-        @Html.TextAreaFor(m => m.DescricaoD, new { @class = "form-control", @rows = 10, @})
+        @Html.TextAreaFor(m => m.DescricaoD, new { @class = "form-control", @rows = 10})
         <br />
         <div class="row">
             <div class="col-md-12 text-right ">
