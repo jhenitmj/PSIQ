@@ -11,6 +11,23 @@
                 <p><b>A rede social para o lado mais expressivo do ser</b></p>
             </div>
         </div>
+        <div class="form-group">
+            <div class="col-md-12">
+                <div class="masthead">
+                    <nav>
+                        <ul class="nav nav-justified">
+                            <li class="active"><a href="#">Perfil</a></li>
+                            <li><a href="@Url.Action("Index", "PreCadastroPaciente")">Pacientes</a></li>
+                            <li><a href="@Url.Action("Index", "Diagnostico")">Diagnósticos</a></li>
+                            <li><a href="#">Downloads</a></li>
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">Sair</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
         <div class="form-group text-right">
             <div class="col-md-4">
                 <img src="@Url.Content("~/Images/perfil-blog.png")" />
@@ -19,23 +36,19 @@
                 <label class="control-label" id="h1">Nome:</label>
                 <br />
                 <label class="control-label" id="h2">CRP:</label>
-                <br />
-                <a href="@Url.Action("Index", "Login")" id="h3">Sair</a>
             </div>
             <div class="form-group">
-                <div class="col-md-12">
-                    @*<button class="btn btn-primary text-right" ; ">Cadastrar Paciente</button>*@
-                    <a href="@Url.Action("Index", "PreCadastroPaciente")" class="btn btn-primary">Cadastrar Paciente</a>
-                </div>
-                <div class="col-md-12">
-                    @*<button class="btn btn-primary text-right" style="margin-top: 150px; ">Cadastrar Diagnóstico</button>*@
-                    <a href="@Url.Action("Index", "Diagnostico")" class="btn btn-primary">Cadastrar Diagnóstico</a>
-                </div>
                 <div class="col-md-4 text-right">
-                    <input type="text" class="form-control" name="texto" id="texto" placeholder="Digite a pesquisa" />
-                    <div><button type="submit" class="btn btn-primary">Filtrar</button></div>
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="texto" id="texto" placeholder="Digite a pesquisa" />
+                        <div class="input-group-btn">
+                            <button type="submit" class="btn btn-primary">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                Filtrar
+                            </button>
+                        </div>
+                    </div>
                 </div>
-
             </div>
             <div class="row">
                 <div class="col-md-12">
@@ -52,14 +65,14 @@
                             </thead>
                             <tbody>
                                 @*@foreach (Paciente item in Model)
-                                {
-                                    <tr>
-                                        <td>@item.Nome</td>
-                                        <td>@item.Idade</td>
-                                        <td>@item.Estado</td>
-                                        <td>@item.Diagnostico</td>
-                                    </tr>
-                                }*@
+                                    {
+                                        <tr>
+                                            <td>@item.Nome</td>
+                                            <td>@item.Idade</td>
+                                            <td>@item.Estado</td>
+                                            <td>@item.Diagnostico</td>
+                                        </tr>
+                                    }*@
                             </tbody>
                         </table>
                     </div>
