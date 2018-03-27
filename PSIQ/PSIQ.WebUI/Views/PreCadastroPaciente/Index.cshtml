@@ -28,13 +28,13 @@
 
                 <div class="col-md-10">
                     @Html.LabelFor(m => m.Estado, "Estado:", new { @class = "control-label" })
-                    @Html.TextBoxFor(m => m.Estado, new { @class = "form-control" })
+                   @Html.DropDownList(m => m.Estado.Cod, new SelectList(ViewBag.Estado, "Cod", "Descricao "), "-----Select------------", new { @class = "form-control" })
                 </div>
             </div>
             <div class="form-group">
                 <div class="col-md-12  ">
                     @Html.LabelFor(m => m.Diagnostico, "Diagnostico:", new { @class = "control-label" })
-                    @Html.TextAreaFor(m => m.Diagnostico, new { @class = "form-control" })
+                    @Html.DropDownList(m => m.Diagnostico.Cod, new SelectList(ViewBag.Diagnostico, "Cod", "Nome "), "-----Select------------", new { @class="form-control"})
 
                 </div>
 
