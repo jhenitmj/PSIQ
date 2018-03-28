@@ -166,16 +166,17 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="favicon.ico" />
     <Content Include="Fundo.PNG" />
     <Content Include="Images\giphy.gif" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Images\login.jpg" />
+    <Content Include="Images\logo_psiq.png" />
     <Content Include="Images\PSIQ.jpg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Images\lolo.png" />
     <Content Include="Images\perfil-blog.png" />
+    <Content Include="Images\PSIQ.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">

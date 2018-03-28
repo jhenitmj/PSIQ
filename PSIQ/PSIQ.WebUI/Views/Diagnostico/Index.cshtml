@@ -3,10 +3,9 @@
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 <div class="row">
     <div class="col-md-12 text-center">
-        <img src="@Url.Content("~/Images/lolo.png")" />
+        <img src="@Url.Content("~/Images/logo_psiq.png")" />
         <h3>Diagnóstico</h3>
         <hr />
     </div>
@@ -14,29 +13,17 @@
 <div class="row">
     <div class="col-md-12">
         <form class="form-horizontal">
-
             <div class="form-group">
                 <div class="col-md-12">
                     @Html.LabelFor(m => m.Nome, "Nome", new { @class = "control-label" })
                     @Html.TextBoxFor(m => m.Nome, new { @class = "form-control" })
                 </div>
             </div>
-
-
-
-
             <div class="form-group">
-
-
-
                 <div class="col-md-12 text-right">
                     <a href="@Url.Action("Index", "PerfilTera")" class="btn btn-primary">Salvar</a>
                 </div>
-
             </div>
         </form>
     </div>
-
 </div>
-
-
