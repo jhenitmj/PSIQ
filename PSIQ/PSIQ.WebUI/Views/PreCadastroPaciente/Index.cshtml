@@ -5,7 +5,7 @@
 }
 <div class="row">
     <div class="col-md-12 text-center">
-        <img src="@Url.Content("~/Images/lolo.png")" />
+        <img src="@Url.Content("~/Images/logo_psiq.png")" />
         <h3>Pré  Cadastro  Paciente</h3>
         <hr />
     </div>
@@ -13,7 +13,6 @@
 <div class="row">
     <div class="col-md-12">
         <form class="form-horizontal">
-
             <div class="form-group">
                 <div class="col-md-12">
                     @Html.LabelFor(m => m.Nome, "Nome", new { @class = "control-label" })
@@ -25,42 +24,28 @@
                     @Html.LabelFor(m => m.Idade, "Idade:", new { @class = "control-label" })
                     @Html.TextBoxFor(m => m.Idade, new { @class = "form-control" })
                 </div>
-
                 <div class="col-md-10">
-                    @Html.LabelFor(m => m.Estado, "Estado:", new { @class = "control-label" })
-                   @Html.DropDownList(m => m.Estado.Cod, new SelectList(ViewBag.Estado, "Cod", "Descricao "), "-----Select------------", new { @class = "form-control" })
+                    @Html.LabelFor(m => m.Estado.Cod, "Estado:", new { @class = "control-label" })
+                    @Html.DropDownListFor(m => m.Estado.Cod, new SelectList(ViewBag.Estado ?? new List<Estado>(), "Cod", "Descricao "), "-----Select------------", new { @class = "form-control" })
                 </div>
             </div>
             <div class="form-group">
                 <div class="col-md-12  ">
-                    @Html.LabelFor(m => m.Diagnostico, "Diagnostico:", new { @class = "control-label" })
-                    @Html.DropDownList(m => m.Diagnostico.Cod, new SelectList(ViewBag.Diagnostico, "Cod", "Nome "), "-----Select------------", new { @class="form-control"})
-
+                    @Html.LabelFor(m => m.Diagnostico.Cod, "Diagnóstico:", new { @class = "control-label" })
+                    @Html.DropDownListFor(m => m.Diagnostico.Cod, new SelectList(ViewBag.Diagnostico ?? new List<Diagnostico>(), "Cod", "Nome "), "-----Select------------", new { @class = "form-control" })
                 </div>
-
             </div>
             <div class="form-group">
                 <div class="col-md-12  ">
-                    @Html.LabelFor(m => m.DescricaoD, "Diagnostico Descricao:", new { @class = "control-label" })
+                    @Html.LabelFor(m => m.DescricaoD, "Informações sobre o diagnóstico:", new { @class = "control-label" })
                     @Html.TextAreaFor(m => m.DescricaoD, new { @class = "form-control", @rows = 10 })
-
                 </div>
-
             </div>
-
             <div class="form-group">
-
-
-
                 <div class="col-md-12 text-right">
                     <button type="submit" class="btn btn-primary">Salvar</button>
                 </div>
-
             </div>
         </form>
     </div>
-
 </div>
-
-
-

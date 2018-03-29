@@ -46,27 +46,23 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-12 ">
+                                <div class="col-md-6">
                                     <br />
-                                    <div class="radio">
-                                        <label><input type="radio" name="optradio">Esqueci a senha</label>
-                                    </div>
-                                    @*<div class="radio">
-                                        <label><input type="radio" name="optradio">Relembrar</label>
-                                    </div>*@
-                                    <a href="@Url.Action("Index", "CadTera")" >Cadastrar-se</a>
+                                    <label><input type="checkbox" name="optradio">Lembrar a senha?</label>
                                 </div>
-
+                                <div class="col-md-6 text-right">
+                                    <br />
+                                    <a href="@Url.Action("Index", "CadTera")">Cadastrar-se</a>
+                                </div>
+                            </div>
+                            <div class="row">
                                 <div class="col-md-12 text-center">
-                                    <a href="@Url.Action("Index", "PerfilTera")" class="btn btn-primary">Entrar</a>
+                                    <br />
+                                    <a href="@Url.Action("Index", "PerfilTera")" class="btn btn-primary btn-block">Entrar</a>
                                 </div>
                             </div>
                         </div>
-                    </div>
                 </form>
-                <footer class="footer text-center">
-                    <p>&copy; @DateTime.Now.Year JC, Company</p>
-                </footer>
             </div>
         </div>
     </div>
