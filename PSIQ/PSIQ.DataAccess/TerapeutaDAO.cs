@@ -24,7 +24,6 @@ namespace PSIQ.DataAccess
                 {
                     cmd.Connection = conn;
                     cmd.Parameters.Add("@CRP", SqlDbType.VarChar).Value = obj.CRP;
-                    cmd.Parameters.Add("@IDADE", SqlDbType.VarChar).Value = obj.Idade;
                     cmd.Parameters.Add("@DTNASCIMENTO", SqlDbType.DateTime).Value = obj.DtNasciento;
                     cmd.Parameters.Add("@SENHA" , SqlDbType.VarChar).Value = obj.Senha;
 

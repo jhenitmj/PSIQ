@@ -10,7 +10,7 @@
         <hr />
     </div>
     <div class="row">
-        <div class="col-md-12">
+        <iv class="col-md-12">
             <form class="form-horizontal">
                 <div class="form-group">
                     <div class="col-md-12">
@@ -30,8 +30,8 @@
                 </div>
                 <div class="form-group">
                     <div class="col-md-6  ">
-                        @Html.LabelFor(m => m.Senha, "Senha:", new { @class = "control-label" })
-                        @Html.TextBoxFor(m => m.Senha, new { @class = "form-control" })
+                        @Html.LabelFor(m => m.Email, "Email:", new { @class = "control-label" })
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
                     </div>
                     <div class="col-md-6 ">
                         @Html.LabelFor(m => m.DtNasciento, "Data de nascimento:", new { @class = "control-label" })
@@ -40,7 +40,7 @@
                 </div>
                 <div class="form-group">
                     <div class="col-md-6">
-                        @Html.LabelFor(m => m.Senha, "Confirmar Senha:", new { @class = "control-label" })
+                        @Html.LabelFor(m => m.Senha, "Senha:", new { @class = "control-label" })
                         @Html.TextBoxFor(m => m.Senha, new { @class = "form-control" })
                     </div>
                     <div class="col-md-6">
@@ -50,10 +50,17 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <div class="col-md-12 text-right">
+                    <div class="col-md-6">
+                        @Html.LabelFor(m => m.Senha, "Confirmar senha:", new { @class = "control-label" })
+                        @Html.TextBoxFor(m => m.Senha, new { @class = "form-control" })
+                    </div>
+                    <div class="col-md-6 text-right">
                         <a href="@Url.Action("Index", "Login")" class="btn btn-primary">Entrar</a>
                     </div>
                 </div>
+                
+                   
+              
             </form>
         </div>
     </div>

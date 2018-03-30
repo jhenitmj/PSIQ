@@ -25,14 +25,14 @@
                     @Html.TextBoxFor(m => m.CPF, new { @class = "form-control" })
                 </div>
                 <div class="col-md-6">
-                    @Html.LabelFor(m => m.Cod, "Cod:", new { @class = "control-label" })
-                    @Html.TextBoxFor(m => m.Cod, new { @class = "form-control" })
+                    @Html.LabelFor(m => m.COD, "Cod:", new { @class = "control-label" })
+                    @Html.TextBoxFor(m => m.COD, new { @class = "form-control" })
                 </div>
             </div>
             <div class="form-group">
                 <div class="col-md-6  ">
-                    @Html.LabelFor(m => m.Senha, "Senha:", new { @class = "control-label" })
-                    @Html.TextBoxFor(m => m.Senha, new { @class = "form-control" })
+                    @Html.LabelFor(m => m.Email, "Email:", new { @class = "control-label" })
+                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
                 </div>
                 <div class="col-md-6 ">
                     @Html.LabelFor(m => m.DtNasciento, "Data de nascimento:", new { @class = "control-label" })
@@ -41,7 +41,7 @@
             </div>
             <div class="form-group">
                 <div class="col-md-6">
-                    @Html.LabelFor(m => m.Senha, "Confirmar Senha:", new { @class = "control-label" })
+                    @Html.LabelFor(m => m.Senha, "Senha:", new { @class = "control-label" })
                     @Html.TextBoxFor(m => m.Senha, new { @class = "form-control" })
                 </div>
                 <div class="col-md-6">
@@ -51,7 +51,11 @@
                 </div>
             </div>
             <div class="form-group">
-                <div class="col-md-12 text-right">
+                <div class="col-md-6">
+                    @Html.LabelFor(m => m.Senha, "Confirmar Senha:", new { @class = "control-label" })
+                    @Html.TextBoxFor(m => m.Senha, new { @class = "form-control" })
+                </div>
+                <div class="col-md-6 text-right">
                     <a href="@Url.Action("Index", "LoginP")" class="btn btn-primary">Salvar</a>
                 </div>
             </div>

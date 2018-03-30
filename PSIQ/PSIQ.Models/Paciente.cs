@@ -7,15 +7,18 @@ using System.Threading.Tasks;
 namespace PSIQ.Models
 {
     public class Paciente
-    {   public string CPF { get; set; }
-        public string Nome { get; set; }
-        public Estado Estado { get; set; }
-        public int Idade { get; set; }
-        public Diagnostico Diagnostico { get; set; }
+    {
+        public int COD { get; set; }
+        public int CPF { get; set; }
         public string Senha { get; set; }
-        public int Cod { get; set; }
+        public string Nome { get; set; }
+        public string Email { get; set; }
         public DateTime DtNasciento { get; set; }
+        public string Foto { get; set; }
+        public string Caminho_foto { get; set; }
         public string DescricaoD { get; set; }
-
+        public Estado Estado { get; set; }
+        public Diagnostico Diagnostico { get; set; }
+        public Terapeuta   Terapeuta   { get; set; }
     }
 }

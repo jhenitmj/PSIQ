@@ -40,10 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Comentario.cs" />
-    <Compile Include="Curtida.cs" />
     <Compile Include="Diagnostico.cs" />
-    <Compile Include="Edicao.cs" />
     <Compile Include="Estado.cs" />
     <Compile Include="Paciente.cs" />
     <Compile Include="Terapeuta.cs" />

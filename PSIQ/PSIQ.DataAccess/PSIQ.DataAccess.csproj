@@ -40,7 +40,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ComentarioDAO.cs" />
     <Compile Include="DiagnosticoDAO.cs" />
     <Compile Include="EstadoDAO.cs" />
     <Compile Include="PacienteDAO.cs" />
