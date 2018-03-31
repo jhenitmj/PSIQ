@@ -36,7 +36,7 @@ namespace PSIQ.DataAccess
             }
         }
 
-        public void Atualizar(Paciente obj)
+        public void AtualizarPre(Paciente obj)
         {
             //Criando uma conexão com o banco de dados
             using (SqlConnection conn = new SqlConnection(@"Initial Catalog=PSIQ; Data Source=localhost; Integrated Security=SSPI;"))
@@ -145,6 +145,32 @@ namespace PSIQ.DataAccess
                 }
             }
         }
+
+        public void Inserir(Paciente obj)
+        {
+            using (SqlConnection conn =
+                new SqlConnection(@"Initial Catalog=PSIQ 
+                        Data Source= localhost;
+                        Integrated Security = SSPI;"))
+            {
+                string strSQL = @"INSERT INTO PACIENTE(NOME,CPF, COD, EMAIL, DtNacimento, SENHA, FOTO) 
+                                VALUES (@NOME,@CPF,@COD, @EMAIL, @DTNASCIMENTO, @SENHA, @FOTO );";
+                using (SqlCommand cmd = new SqlCommand(strSQL))
+                {
+                    cmd.Connection = conn;
+                    cmd.Parameters.Add("@NOME", SqlDbType.VarChar).Value = obj.Nome;
+                    cmd.Parameters.Add("@COD", SqlDbType.Int).Value = obj.COD;
+                    cmd.Parameters.Add("@CPF", SqlDbType.VarChar).Value = obj.CPF;
+                    cmd.Parameters.Add("@EMAIL", SqlDbType.VarChar).Value = obj.Email;
+                    cmd.Parameters.Add(@"SENHA", SqlDbType.VarChar).Value = obj.Senha;
+                    cmd.Parameters.Add(@"FOTO", SqlDbType.VarChar).Value = obj.Foto;
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                }
+            }
+        }
+
 
 
     }
