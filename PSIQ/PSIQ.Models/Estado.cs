@@ -8,7 +8,10 @@ namespace PSIQ.Models
 {
     public class Estado
     {
+        public Estado Estado;
+
         public int Cod { get; set; }
+        public Diagnostico Diagnostico { get; set; }
         public string Nome { get; set; }
     }
 }
