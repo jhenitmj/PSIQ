@@ -18,20 +18,24 @@ namespace PSIQ.DataAccess
                         Data Source= localhost;
                         Integrated Security = SSPI;"))
             {
-                string strSQL = @"INSERT INTO TERAPEUTA (CRP, IDADE, FOTO, NOME, DTANASCIMENTO, SENHA) 
-                                VALUES (@CRP, @IDADE, @FOTO, @NOME, @DTANASCIMENTO, @SENHA);";
+                string strSQL = @"INSERT INTO PACIENTE(NOME,CRP, COD, EMAIL, DtNacimento, SENHA, FOTO) 
+                                VALUES (@NOME,@CPF,@COD, @EMAIL, @DTNASCIMENTO, @SENHA, @FOTO );";
                 using (SqlCommand cmd = new SqlCommand(strSQL))
                 {
                     cmd.Connection = conn;
+                    cmd.Parameters.Add("@NOME", SqlDbType.VarChar).Value = obj.Nome;
+                    cmd.Parameters.Add("@COD", SqlDbType.Int).Value = obj.COD;
                     cmd.Parameters.Add("@CRP", SqlDbType.VarChar).Value = obj.CRP;
-                    cmd.Parameters.Add("@DTNASCIMENTO", SqlDbType.DateTime).Value = obj.DtNasciento;
-                    cmd.Parameters.Add("@SENHA" , SqlDbType.VarChar).Value = obj.Senha;
-
+                    cmd.Parameters.Add("@EMAIL", SqlDbType.VarChar).Value = obj.Email;
+                    cmd.Parameters.Add(@"SENHA", SqlDbType.VarChar).Value = obj.Senha;
+                    cmd.Parameters.Add(@"FOTO", SqlDbType.VarChar).Value = obj.Foto;
                     conn.Open();
                     cmd.ExecuteNonQuery();
                     conn.Close();
                 }
             }
         }
+
+     
     }
 }
