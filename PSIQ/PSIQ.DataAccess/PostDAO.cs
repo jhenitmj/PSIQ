@@ -99,8 +99,9 @@ namespace PSIQ.DataAccess
                     var row = dt.Rows[0];
                     var post = new Post()
                     {
-                        Id = Convert.ToInt32(row["id"]),
-                        Usuario = new Usuario() { Id = Convert.ToInt32(row["id"]) },
+                        Cod = Convert.ToInt32(row["id"]),
+                        Paciente = new Paciente() { CPF = Convert.ToInt32(row["id"]) },
+                        Terapeuta = new Terapeuta() { CRP = Convert.ToInt32(row["id"]) },
                         DataHora = Convert.ToDateTime(row["data_hora"]),
                         Mensagem = row["mensagem"].ToString()
                     };

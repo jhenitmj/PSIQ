@@ -113,12 +113,14 @@ namespace PSIQ.DataAccess
 
                             },
 
+
+                        };
                         lst.Add(paciente);
                     }
                 }
-            }
 
-            return lst;
+                return lst;
+            }
         }
 
         public void Deletar(Paciente obj)
