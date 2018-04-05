@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace PSIQ.DataAccess
 {
-    class PacienteDAO
+    public class PacienteDAO
     {
         public void InserirPre(Paciente obj)
         {
@@ -74,7 +74,7 @@ namespace PSIQ.DataAccess
             var lst = new List<Paciente>();
 
             //Criando uma conexão com o banco de dados
-            using (SqlConnection conn = new SqlConnection(@"Initial Catalog=Blog; Data Source=localhost; Integrated Security=SSPI;"))
+            using (SqlConnection conn = new SqlConnection(@"Initial Catalog=PSIQ; Data Source=localhost; Integrated Security=SSPI;"))
             {
                 //Criando instrução sql para selecionar todos os registros na tabela de usuarios
                 string strSQL = @"SELECT * FROM Paciente;";

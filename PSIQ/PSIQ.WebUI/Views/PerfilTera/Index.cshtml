@@ -63,15 +63,15 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @*@foreach (Paciente item in Model)
-                                    {
-                                        <tr>
-                                            <td>@item.Nome</td>
-                                            <td>@item.Idade</td>
-                                            <td>@item.Estado</td>
-                                            <td>@item.Diagnostico</td>
-                                        </tr>
-                                    }*@
+                                @foreach (Paciente item in Model)
+                                {
+                                    <tr>
+                                        <td>@item.Nome</td>
+                                        <td>@(DateTime.Now.Year - item.DtNasciento.Year)</td>
+                                        <td>@item.Estado</td>
+                                        <td>@item.Diagnostico</td>
+                                    </tr>
+                                }
                             </tbody>
                         </table>
                     </div>

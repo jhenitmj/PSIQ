@@ -8,7 +8,7 @@ namespace PSIQ.WebUI.Controllers
 {
     public class DiagnosticoController : Controller
     {
-        // GET: Diagnostico
+       
         public ActionResult Index()
         {
             return View();

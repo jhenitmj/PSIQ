@@ -9,10 +9,8 @@ using System.Threading.Tasks;
 
 namespace PSIQ.DataAccess
 {
-    class EstadoDAO
+    public class EstadoDAO
     {
-
-
         public List<Estado> BuscarTodos()
         {
 
@@ -41,7 +39,7 @@ namespace PSIQ.DataAccess
                             {
                                 Cod = Convert.ToInt32(row["Cod"]),
                                 Nome = row["Nome"].ToString(),
-                   
+
 
                             };
 
@@ -54,7 +52,5 @@ namespace PSIQ.DataAccess
 
             }
         }
-
-
     }
 }
