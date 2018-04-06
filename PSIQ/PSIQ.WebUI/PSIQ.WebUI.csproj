@@ -171,6 +171,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Images\login.jpg" />
     <Content Include="Images\logo_psiq.png" />
+    <Content Include="Images\Perfis.jpg" />
     <Content Include="Images\PSIQ.jpg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />

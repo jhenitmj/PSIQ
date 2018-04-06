@@ -18,11 +18,11 @@ namespace PSIQ.WebUI.Controllers
 
         public ActionResult Salvar(Paciente obj)
         {
-            //Chamando a classe de acesso ao banco de dados para inserir o novo registro
-            new PacienteDAO().Inserir(obj);
+            
+            new PacienteDAO().InserirPre(obj);
 
             //Redirecionando para a tela de listagem de Cidades
-            return RedirectToAction("Index", "PreCadastroPaciente");
+            return RedirectToAction("Index", "PerfilTera");
         }
     }
 }

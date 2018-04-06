@@ -17,11 +17,11 @@ namespace PSIQ.DataAccess
             {
                 var lst = new List<Estado>();
 
-                using (SqlConnection conn = new SqlConnection(@"Initial Catalog=PSIQ Data
+                using (SqlConnection conn = new SqlConnection(@"Initial Catalog=PSIQ; 
                                                 Data Source= localhost;
                                                 Integrated Security=SSPI;"))
                 {
-                    string strSQL = @"Select *from ESTADO;";
+                    string strSQL = @"Select * from ESTADO;";
 
                     using (SqlCommand cmd = new SqlCommand(strSQL))
                     {

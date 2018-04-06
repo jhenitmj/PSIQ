@@ -8,7 +8,7 @@ namespace PSIQ.WebUI.Controllers
 {
     public class DiagnosticoController : Controller
     {
-       
+
         public ActionResult Index()
         {
             return View();
@@ -17,7 +17,7 @@ namespace PSIQ.WebUI.Controllers
         public ActionResult Salvar(Diagnostico obj)
         {
             new DiagnosticoDAO().Inserir(obj);
-            return Index();
+            return RedirectToAction("Index", "PerfilTera");
         }
     }
 }

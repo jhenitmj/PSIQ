@@ -3,9 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PSIQ.DataAccess
 {
@@ -14,12 +11,11 @@ namespace PSIQ.DataAccess
         public void Inserir(Diagnostico obj)
         {
             using (SqlConnection conn =
-                new SqlConnection(@"Initial Catalog=PSIQ 
+                new SqlConnection(@"Initial Catalog=PSIQ; 
                         Data Source= localhost;
                         Integrated Security = SSPI;"))
             {
-                string strSQL = @"INSERT INTO DIAGNOSTICO(NOME) 
-                                VALUES (@NOME);";
+                string strSQL = @"INSERT INTO DIAGNOSTICO (NOME) VALUES (@NOME);";
                 using (SqlCommand cmd = new SqlCommand(strSQL))
                 {
                     cmd.Connection = conn;
@@ -39,11 +35,11 @@ namespace PSIQ.DataAccess
         {
             var lst = new List<Diagnostico>();
 
-            using (SqlConnection conn = new SqlConnection(@"Initial Catalog=PSIQ Data
+            using (SqlConnection conn = new SqlConnection(@"Initial Catalog=PSIQ;
                                                 Data Source= localhost;
                                                 Integrated Security=SSPI;"))
             {
-                string strSQL = @"Select *from DIAGNOSTICO;";
+                string strSQL = @"Select * from DIAGNOSTICO;";
 
                 using (SqlCommand cmd = new SqlCommand(strSQL))
                 {

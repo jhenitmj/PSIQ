@@ -14,11 +14,11 @@ namespace PSIQ.DataAccess
         public void InserirPre(Paciente obj)
         {
             using (SqlConnection conn =
-                new SqlConnection(@"Initial Catalog=PSIQ 
+                new SqlConnection(@"Initial Catalog=PSIQ; 
                         Data Source= localhost;
                         Integrated Security = SSPI;"))
             {
-                string strSQL = @"INSERT INTO PACIENTE(NOME,, COD, COD_ESTADO, COD_DIAGNOSTICO, DESCRICAO ) 
+                string strSQL = @"INSERT INTO PACIENTE(NOME,COD, COD_ESTADO, COD_DIAGNOSTICO, DESCRICAO ) 
                                 VALUES (@NOME,@COD, @COD_ESTADO, @COD_DIAGNOSTICO, @DESCRICAO );";
                 using (SqlCommand cmd = new SqlCommand(strSQL))
                 {
@@ -27,7 +27,7 @@ namespace PSIQ.DataAccess
                     cmd.Parameters.Add("@COD", SqlDbType.Int).Value = obj.COD;          
                     cmd.Parameters.Add("@COD_ESTADO", SqlDbType.Int).Value = obj.Estado.Cod;
                     cmd.Parameters.Add("@COD_DIAGNOSTICO", SqlDbType.Int).Value = obj.Diagnostico.Cod;
-                    cmd.Parameters.Add(@"Dscricao", SqlDbType.VarChar).Value = obj.DescricaoD;
+                    cmd.Parameters.Add(@"Descricao", SqlDbType.VarChar).Value = obj.DescricaoD;
 
                     conn.Open();
                     cmd.ExecuteNonQuery();
