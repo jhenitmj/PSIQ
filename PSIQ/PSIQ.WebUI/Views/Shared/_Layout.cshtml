@@ -7,12 +7,11 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-    <link href="~/Content/bootstrap.css" rel="stylesheet" />
     <title>PSIQ</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
-<body background="~/Fundo.PNG" >
+<body background="@Url.Content("~/Images/Fundo.png")">
     <div class="container">
         @RenderBody()
         <hr />

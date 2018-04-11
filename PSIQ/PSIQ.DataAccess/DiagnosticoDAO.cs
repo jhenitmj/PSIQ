@@ -10,17 +10,14 @@ namespace PSIQ.DataAccess
     {
         public void Inserir(Diagnostico obj)
         {
-            using (SqlConnection conn =
-                new SqlConnection(@"Initial Catalog=PSIQ; 
-                        Data Source= localhost;
-                        Integrated Security = SSPI;"))
+            using (SqlConnection conn = new SqlConnection(@"Initial Catalog=PSIQ; Data Source= localhost; Integrated Security = SSPI;"))
             {
                 string strSQL = @"INSERT INTO DIAGNOSTICO (NOME) VALUES (@NOME);";
+
                 using (SqlCommand cmd = new SqlCommand(strSQL))
                 {
                     cmd.Connection = conn;
                     cmd.Parameters.Add("@NOME", SqlDbType.VarChar).Value = obj.Nome;
-                 
 
                     conn.Open();
                     cmd.ExecuteNonQuery();
@@ -29,17 +26,12 @@ namespace PSIQ.DataAccess
             }
         }
 
-    public List<Diagnostico> BuscarTodos()
-    {
-        
+        public List<Diagnostico> BuscarTodos()
         {
-            var lst = new List<Diagnostico>();
-
-            using (SqlConnection conn = new SqlConnection(@"Initial Catalog=PSIQ;
-                                                Data Source= localhost;
-                                                Integrated Security=SSPI;"))
+            using (SqlConnection conn = new SqlConnection(@"Initial Catalog=PSIQ; Data Source= localhost; Integrated Security=SSPI;"))
             {
-                string strSQL = @"Select * from DIAGNOSTICO;";
+                var lst = new List<Diagnostico>();
+                string strSQL = @"SELECT * FROM DIAGNOSTICO;";
 
                 using (SqlCommand cmd = new SqlCommand(strSQL))
                 {
@@ -55,19 +47,15 @@ namespace PSIQ.DataAccess
                     {
                         var diagnostico = new Diagnostico()
                         {
-                            Cod = Convert.ToInt32(row["Cod"]),
-                            Nome = row["Nome"].ToString()
+                            Cod = Convert.ToInt32(row["COD"]),
+                            Nome = row["NOME"].ToString()
                         };
 
                         lst.Add(diagnostico);
                     }
                 }
+                return lst;
             }
-
-            return lst;
-
         }
     }
-    }
-
 }

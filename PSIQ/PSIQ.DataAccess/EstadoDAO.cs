@@ -3,9 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PSIQ.DataAccess
 {
@@ -13,43 +10,33 @@ namespace PSIQ.DataAccess
     {
         public List<Estado> BuscarTodos()
         {
-
+            using (SqlConnection conn = new SqlConnection(@"Initial Catalog=PSIQ; Data Source=localhost; Integrated Security=SSPI;"))
             {
                 var lst = new List<Estado>();
+                string strSQL = @"SELECT * FROM ESTADO;";
 
-                using (SqlConnection conn = new SqlConnection(@"Initial Catalog=PSIQ; 
-                                                Data Source= localhost;
-                                                Integrated Security=SSPI;"))
+                using (SqlCommand cmd = new SqlCommand(strSQL))
                 {
-                    string strSQL = @"Select * from ESTADO;";
+                    conn.Open();
+                    cmd.Connection = conn;
+                    cmd.CommandText = strSQL;
+                    var dataReader = cmd.ExecuteReader();
+                    var dt = new DataTable();
+                    dt.Load(dataReader);
+                    conn.Close();
 
-                    using (SqlCommand cmd = new SqlCommand(strSQL))
+                    foreach (DataRow row in dt.Rows)
                     {
-                        conn.Open();
-                        cmd.Connection = conn;
-                        cmd.CommandText = strSQL;
-                        var dataReader = cmd.ExecuteReader();
-                        var dt = new DataTable();
-                        dt.Load(dataReader);
-                        conn.Close();
-
-                        foreach (DataRow row in dt.Rows)
+                        var estado = new Estado()
                         {
-                            var estado = new Estado()
-                            {
-                                Cod = Convert.ToInt32(row["Cod"]),
-                                Nome = row["Nome"].ToString(),
+                            Cod = Convert.ToInt32(row["COD"]),
+                            Nome = row["NOME"].ToString()
+                        };
 
-
-                            };
-
-                            lst.Add(estado);
-                        }
+                        lst.Add(estado);
                     }
                 }
-
                 return lst;
-
             }
         }
     }

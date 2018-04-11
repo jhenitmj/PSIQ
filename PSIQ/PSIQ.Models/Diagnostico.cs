@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace PSIQ.Models
 {
@@ -10,6 +9,5 @@ namespace PSIQ.Models
     {
         public int Cod { get; set; }
         public string Nome { get; set; }
-        
     }
 }

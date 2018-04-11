@@ -49,12 +49,12 @@ namespace PSIQ.DataAccess
                             Cod= Convert.ToInt32(row["COD"]),
                             Terapeuta = new Terapeuta()
                             {
-                                COD = Convert.ToInt32(row["COD"]),
+                                Cod = Convert.ToInt32(row["COD"]),
                                 Nome = row["Terapeuta"].ToString()
                             },
                             Paciente = new Paciente()
                             {
-                                COD = Convert.ToInt32(row["COD"]),
+                                Cod = Convert.ToInt32(row["COD"]),
                                 Nome = row["Paciente"].ToString()
                             },
 
@@ -124,8 +124,8 @@ namespace PSIQ.DataAccess
                 {
                     cmd.Connection = conn;
                     //Preenchendo os parâmetros da instrução sql
-                    cmd.Parameters.Add("@cod_paciente", SqlDbType.Int).Value = obj.Paciente.COD;
-                    cmd.Parameters.Add("@cod_terapeuta", SqlDbType.Int).Value = obj.Terapeuta.COD;
+                    cmd.Parameters.Add("@cod_paciente", SqlDbType.Int).Value = obj.Paciente.Cod;
+                    cmd.Parameters.Add("@cod_terapeuta", SqlDbType.Int).Value = obj.Terapeuta.Cod;
                     cmd.Parameters.Add("@data_hora", SqlDbType.DateTime).Value = obj.DataHora;
                     cmd.Parameters.Add("@mensagem", SqlDbType.VarChar).Value = obj.Mensagem;
 
