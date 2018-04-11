@@ -158,6 +158,8 @@
     <Compile Include="Controllers\PerfilPacienteTController.cs" />
     <Compile Include="Controllers\PerfilTeraController.cs" />
     <Compile Include="Controllers\PreCadastroPacienteController.cs" />
+    <Compile Include="CustomPrincipalSerializeModel.cs" />
+    <Compile Include="FormsAuthenticationUtil.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
