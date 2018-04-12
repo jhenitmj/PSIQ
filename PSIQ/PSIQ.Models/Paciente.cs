@@ -12,7 +12,7 @@ namespace PSIQ.Models
         public string Senha { get; set; }
         public string Nome { get; set; }
         public string Email { get; set; }
-        public DateTime DtNasciento { get; set; }
+        public DateTime DtNascimento { get; set; }
         public string Foto { get; set; }
         public string CaminhoFoto { get; set; }
         public string Descricao { get; set; }

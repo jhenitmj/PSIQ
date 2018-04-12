@@ -12,7 +12,7 @@ namespace PSIQ.DataAccess
         {
             using (SqlConnection conn = new SqlConnection(@"Initial Catalog=PSIQ; Data Source=localhost; Integrated Security=SSPI;"))
             {
-                string strSQL = @"INSERT INTO PACIENTE(NOME, COD_ESTADO, COD_DIAGNOSTICO, DESCRICAO) 
+                string strSQL = @"INSERT INTO PACIENTE (NOME, COD_ESTADO, COD_DIAGNOSTICO, DESCRICAO) 
                                 VALUES (@NOME, @COD_ESTADO, @COD_DIAGNOSTICO, @DESCRICAO);";
 
                 using (SqlCommand cmd = new SqlCommand(strSQL))
@@ -21,7 +21,7 @@ namespace PSIQ.DataAccess
                     cmd.Parameters.Add("@NOME", SqlDbType.VarChar).Value = obj.Nome;
                     cmd.Parameters.Add("@COD_ESTADO", SqlDbType.Int).Value = obj.Estado.Cod;
                     cmd.Parameters.Add("@COD_DIAGNOSTICO", SqlDbType.Int).Value = obj.Diagnostico.Cod;
-                    cmd.Parameters.Add(@"DESCRICAO", SqlDbType.VarChar).Value = obj.Descricao;
+                    cmd.Parameters.Add("@DESCRICAO", SqlDbType.VarChar).Value = obj.Descricao;
 
                     conn.Open();
                     cmd.ExecuteNonQuery();
@@ -234,8 +234,9 @@ namespace PSIQ.DataAccess
                     cmd.Parameters.Add("@NOME", SqlDbType.VarChar).Value = obj.Nome;
                     cmd.Parameters.Add("@CPF", SqlDbType.VarChar).Value = obj.CPF;
                     cmd.Parameters.Add("@EMAIL", SqlDbType.VarChar).Value = obj.Email;
-                    cmd.Parameters.Add(@"SENHA", SqlDbType.VarChar).Value = obj.Senha;
-                    cmd.Parameters.Add(@"FOTO", SqlDbType.VarChar).Value = obj.Foto;
+                    cmd.Parameters.Add("@DATA_NASCIMENTO", SqlDbType.DateTime).Value = obj.DtNascimento;
+                    cmd.Parameters.Add("@SENHA", SqlDbType.VarChar).Value = obj.Senha;
+                    cmd.Parameters.Add("@FOTO", SqlDbType.VarChar).Value = obj.Foto ?? string.Empty;
 
                     conn.Open();
                     cmd.ExecuteNonQuery();
@@ -243,5 +244,44 @@ namespace PSIQ.DataAccess
                 }
             }
         }
+
+        //public Paciente Logar(string email, string senha)
+        //{
+        //    using (SqlConnection conn = new SqlConnection(@"Initial Catalog=PSIQ; Data Source=localhost; Integrated Security=SSPI;"))
+        //    {
+        //        string strSQL = @"SELECT * FROM PACIENTE WHERE EMAIL = @EMAIL AND SENHA = @SENHA;";
+
+        //        using (SqlCommand cmd = new SqlCommand(strSQL))
+        //        {
+        //            conn.Open();
+        //            cmd.Connection = conn;
+        //            cmd.Parameters.Add("@EMAIL", SqlDbType.VarChar).Value = email ?? string.Empty;
+        //            cmd.Parameters.Add("@SENHA", SqlDbType.VarChar).Value = senha ?? string.Empty;
+        //            cmd.CommandText = strSQL;
+        //            var dataReader = cmd.ExecuteReader();
+        //            var dt = new DataTable();
+        //            dt.Load(dataReader);
+        //            conn.Close();
+
+        //            if (!(dt != null && dt.Rows.Count > 0))
+        //                return null;
+
+        //            var row = dt.Rows[0];
+        //            var paciente = new Paciente()
+        //            {
+        //                Cod = Convert.ToInt32(row["COD"]),
+        //                Nome = row["NOME"].ToString(),
+        //                CPF = Convert.ToInt32(row["CRP"]),
+        //                Email = row["EMAIL"].ToString(),
+        //                Senha = row["SENHA"].ToString(),
+        //                DtNascimento = Convert.ToDateTime(row["DATA_NASCIMENTO"]),
+        //                Foto = row["FOTO"].ToString(),
+        //                CaminhoFoto = row["CAMINHO_FOTO"].ToString()
+        //            };
+
+        //            return paciente ;
+        //        }
+        //    }
+        //}
     }
 }

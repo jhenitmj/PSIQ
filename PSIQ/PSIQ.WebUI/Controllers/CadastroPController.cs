@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using PSIQ.DataAccess;
+using PSIQ.Models;
 using System.Web.Mvc;
 
 namespace PSIQ.WebUI.Controllers
@@ -12,6 +10,13 @@ namespace PSIQ.WebUI.Controllers
         public ActionResult Index()
         {
             return View();
+        }
+
+        public ActionResult Salvar(Paciente obj)
+        {
+            new PacienteDAO().Inserir(obj);
+
+            return RedirectToAction("Index", "Login");
         }
     }
 }
