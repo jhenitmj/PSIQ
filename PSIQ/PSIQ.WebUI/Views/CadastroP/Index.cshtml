@@ -12,7 +12,7 @@
 </div>
 <div class="row">
     <div class="col-md-12">
-        <form class="form-horizontal">
+        <form class="form-horizontal" action="@Url.Action("Salvar", "CadastroP")">
             <div class="form-group">
                 <div class="col-md-12">
                     @Html.LabelFor(m => m.Nome, "Nome", new { @class = "control-label" })
