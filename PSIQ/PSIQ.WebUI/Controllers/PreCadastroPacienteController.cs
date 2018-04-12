@@ -8,15 +8,14 @@ namespace PSIQ.WebUI.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Estado = new EstadoDAO().BuscarTodos();
+            ViewBag.Estados = new EstadoDAO().BuscarTodos();
             ViewBag.Diagnostico = new DiagnosticoDAO().BuscarTodos();
             return View();
         }
 
         public ActionResult Salvar(Paciente obj)
         {
-
-            new PacienteDAO().InserirPre(obj);
+            new PacienteDAO().Inserir(obj);
 
             //Redirecionando para a tela de listagem de Cidades
             return RedirectToAction("Index", "PerfilTera");

@@ -48,24 +48,24 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-12 text-left">
                     <div class="table-responsive">
                         <br />
                         <table class="table table-hover">
                             <thead>
                                 <tr>
-                                    <th style="width:35%">NOME</th>
-                                    <th style="width:15%">IDADE</th>
-                                    <th style="width:15%">ESTADO</th>
+                                    <th style="width:50%">NOME</th>
+                                    <th style="width:25%">IDADE</th>
+                                    <th style="width:25%">ESTADO</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach (Paciente item in Model)
+                                @foreach (Paciente paciente in Model)
                                 {
                                     <tr>
-                                        <td>@item.Nome</td>
-                                        <td>@(DateTime.Now.Year - item.DtNascimento.Year)</td>
-                                        <td>@item.Estado</td>
+                                        <td style="width:50%">@paciente.Nome</td>
+                                        <td style="width:25%">@(DateTime.Now.Year - paciente.DtNascimento.Year)</td>
+                                        <td style="width:25%">@paciente.Estado</td>
                                     </tr>
                                 }
                             </tbody>
