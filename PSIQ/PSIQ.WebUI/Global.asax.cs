@@ -26,7 +26,7 @@ namespace PSIQ.WebUI
             {
                 var authTicket = FormsAuthentication.Decrypt(authCookie.Value);
                 var serializer = new JavaScriptSerializer();
-                var serializeModel = serializer.Deserialize<Terapeuta>(authTicket.UserData);
+                var serializeModel = serializer.Deserialize<Usuario>(authTicket.UserData);
                 HttpContext.Current.User = serializeModel;
             }
         }

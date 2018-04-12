@@ -3,9 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PSIQ.DataAccess
 {
@@ -25,7 +22,7 @@ namespace PSIQ.DataAccess
                                     A.COD_PACIENTE
                                 FROM post p 
                                 INNER JOIN TERAPEUTA T ON (T.COD = p.COD_TERAPEUTA)
-                                OR INNER JOIN PACIENTE A ON (P.COD_PACIENTE=A.COD);";
+                                INNER JOIN PACIENTE A ON (P.COD_PACIENTE=A.COD);";
 
                 //Criando um comando sql que será executado na base de dados
                 using (SqlCommand cmd = new SqlCommand(strSQL))
@@ -46,7 +43,7 @@ namespace PSIQ.DataAccess
                     {
                         var post = new Post()
                         {
-                            Cod= Convert.ToInt32(row["COD"]),
+                            Cod = Convert.ToInt32(row["COD"]),
                             Terapeuta = new Terapeuta()
                             {
                                 Cod = Convert.ToInt32(row["COD"]),
@@ -99,11 +96,11 @@ namespace PSIQ.DataAccess
                     var row = dt.Rows[0];
                     var post = new Post()
                     {
-                        Cod = Convert.ToInt32(row["id"]),
-                        Paciente = new Paciente() { CPF = Convert.ToInt32(row["id"]) },
-                        Terapeuta = new Terapeuta() { CRP = Convert.ToInt32(row["id"]) },
-                        DataHora = Convert.ToDateTime(row["data_hora"]),
-                        Mensagem = row["mensagem"].ToString()
+                        Cod = Convert.ToInt32(row["COD"]),
+                        Paciente = new Paciente() { Cod = Convert.ToInt32(row["COD_PACIENTE"]) },
+                        Terapeuta = new Terapeuta() { CRP = Convert.ToInt32(row["COD_TERAPEUTA"]) },
+                        DataHora = Convert.ToDateTime(row["DATA_HORA"]),
+                        Mensagem = row["MENSAGEM"].ToString()
                     };
 
                     return post;

@@ -1,17 +1,44 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using PSIQ.DataAccess;
+using PSIQ.Models;
 using System.Web.Mvc;
+using System.Web.Script.Serialization;
 
 namespace PSIQ.WebUI.Controllers
 {
     public class LoginPController : Controller
     {
-        // GET: LoginP
         public ActionResult Index()
         {
             return View();
+        }
+
+        public ActionResult Entrar(Paciente obj)
+        {
+            var usuarioLogado = new PacienteDAO().Logar(obj);
+
+            if (usuarioLogado == null)
+            {
+                return View("Index");
+            }
+
+            var userData = new JavaScriptSerializer().Serialize(new Usuario()
+            {
+                Cod = usuarioLogado.Cod,
+                Nome = usuarioLogado.Nome,
+                Email = usuarioLogado.Email,
+                Senha = usuarioLogado.Senha,
+                Foto = usuarioLogado.Foto
+            });
+            FormsAuthenticationUtil.SetCustomAuthCookie(usuarioLogado.Email, userData, false);
+
+            return RedirectToAction("Index", "PerfilPacienteP");
+        }
+
+        public ActionResult LogOff()
+        {
+            FormsAuthenticationUtil.SignOut();
+
+            return RedirectToAction("Index", "LoginP");
         }
     }
 }

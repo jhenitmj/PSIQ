@@ -18,15 +18,22 @@ namespace PSIQ.WebUI.Controllers
 
         public ActionResult Entrar(Terapeuta obj)
         {
-            var usuario = new TerapeutaDAO().Logar(obj.Email, obj.Senha);
+            var usuarioLogado = new TerapeutaDAO().Logar(obj);
 
-            if (usuario == null)
+            if (usuarioLogado == null)
             {
                 return View("Index");
             }
 
-            var userData = new JavaScriptSerializer().Serialize(usuario);
-            FormsAuthenticationUtil.SetCustomAuthCookie(usuario.Email, userData, false);
+            var userData = new JavaScriptSerializer().Serialize(new Usuario()
+            {
+                Cod = usuarioLogado.Cod,
+                Nome = usuarioLogado.Nome,
+                Email = usuarioLogado.Email,
+                Senha = usuarioLogado.Senha,
+                Foto = usuarioLogado.Foto
+            });
+            FormsAuthenticationUtil.SetCustomAuthCookie(usuarioLogado.Email, userData, false);
 
             return RedirectToAction("Index", "PerfilTera");
         }

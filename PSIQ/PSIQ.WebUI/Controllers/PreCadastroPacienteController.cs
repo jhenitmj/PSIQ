@@ -6,7 +6,6 @@ namespace PSIQ.WebUI.Controllers
 {
     public class PreCadastroPacienteController : Controller
     {
-
         public ActionResult Index()
         {
             ViewBag.Estado = new EstadoDAO().BuscarTodos();
@@ -14,11 +13,9 @@ namespace PSIQ.WebUI.Controllers
             return View();
         }
 
-
-
         public ActionResult Salvar(Paciente obj)
         {
-            
+
             new PacienteDAO().InserirPre(obj);
 
             //Redirecionando para a tela de listagem de Cidades

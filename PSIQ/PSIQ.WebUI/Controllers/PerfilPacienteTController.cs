@@ -6,9 +6,9 @@ using System.Web.Mvc;
 
 namespace PSIQ.WebUI.Controllers
 {
+    [Authorize]
     public class PerfilPacienteTController : Controller
     {
-        // GET: PerfilPacienteT
         public ActionResult Index()
         {
             return View();

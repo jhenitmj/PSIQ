@@ -2,13 +2,11 @@
 using PSIQ.Models;
 using System.Web.Mvc;
 
-
-
 namespace PSIQ.WebUI.Controllers
 {
+    [Authorize]
     public class DiagnosticoController : Controller
     {
-
         public ActionResult Index()
         {
             return View();

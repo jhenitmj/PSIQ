@@ -4,6 +4,7 @@ using PSIQ.DataAccess;
 
 namespace PSIQ.WebUI.Controllers
 {
+    [Authorize]
     public class PerfilTeraController : Controller
     {
         public ActionResult Index()

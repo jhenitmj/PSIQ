@@ -12,15 +12,14 @@ namespace PSIQ.DataAccess
         {
             using (SqlConnection conn = new SqlConnection(@"Initial Catalog=PSIQ; Data Source=localhost; Integrated Security=SSPI;"))
             {
-                string strSQL = @"INSERT INTO PACIENTE (NOME, COD_ESTADO, COD_DIAGNOSTICO, DESCRICAO) 
-                                VALUES (@NOME, @COD_ESTADO, @COD_DIAGNOSTICO, @DESCRICAO);";
+                string strSQL = @"INSERT INTO PACIENTE (NOME, COD_ESTADO, DESCRICAO) 
+                                VALUES (@NOME, @COD_ESTADO, @DESCRICAO);";
 
                 using (SqlCommand cmd = new SqlCommand(strSQL))
                 {
                     cmd.Connection = conn;
                     cmd.Parameters.Add("@NOME", SqlDbType.VarChar).Value = obj.Nome;
                     cmd.Parameters.Add("@COD_ESTADO", SqlDbType.Int).Value = obj.Estado.Cod;
-                    cmd.Parameters.Add("@COD_DIAGNOSTICO", SqlDbType.Int).Value = obj.Diagnostico.Cod;
                     cmd.Parameters.Add("@DESCRICAO", SqlDbType.VarChar).Value = obj.Descricao;
 
                     conn.Open();
@@ -39,7 +38,6 @@ namespace PSIQ.DataAccess
                 string strSQL = @"UPDATE PACIENTE SET 
                                       NOME = @NOME,
                                       COD_ESTADO = @COD_ESTADO,
-                                      COD_DIAGNOSTICO = @COD_DIAGNOSTICO,
                                       DESCRICAO = @DESCRICAO
                                   WHERE COD = @COD;";
 
@@ -51,7 +49,6 @@ namespace PSIQ.DataAccess
                     cmd.Parameters.Add("@NOME", SqlDbType.VarChar).Value = obj.Nome;
                     cmd.Parameters.Add("@COD", SqlDbType.Int).Value = obj.Cod;
                     cmd.Parameters.Add("@COD_ESTADO", SqlDbType.Int).Value = obj.Estado.Cod;
-                    cmd.Parameters.Add("@COD_DIAGNOSTICO", SqlDbType.Int).Value = obj.Diagnostico.Cod;
                     cmd.Parameters.Add("@DESCRICAO", SqlDbType.VarChar).Value = obj.Descricao;
 
                     //Abrindo conexão com o banco de dados
@@ -64,18 +61,26 @@ namespace PSIQ.DataAccess
             }
         }
 
-        public Paciente Logar(string email, string senha)
+        public Paciente Logar(Paciente obj)
         {
             using (SqlConnection conn = new SqlConnection(@"Initial Catalog=PSIQ; Data Source=localhost; Integrated Security=SSPI;"))
             {
-                string strSQL = @"SELECT * FROM TERAPEUTA WHERE EMAIL = @EMAIL AND SENHA = @SENHA;";
+                string strSQL = @"SELECT 
+                                      P.*,
+                                      T.NOME AS NOME_TERAPEUTA,
+                                      E.NOME AS NOME_ESTADO
+                                  FROM PACIENTE P
+                                  INNER JOIN TERAPEUTA T ON (T.COD = P.COD_TERAPEUTA)
+                                  LEFT JOIN ESTADO E ON (E.COD = P.COD_ESTADO) 
+                                  WHERE P.EMAIL = @EMAIL 
+                                  AND P.SENHA = @SENHA;";
 
                 using (SqlCommand cmd = new SqlCommand(strSQL))
                 {
                     conn.Open();
                     cmd.Connection = conn;
-                    cmd.Parameters.Add("@EMAIL", SqlDbType.VarChar).Value = email;
-                    cmd.Parameters.Add("@SENHA", SqlDbType.VarChar).Value = senha;
+                    cmd.Parameters.Add("@EMAIL", SqlDbType.VarChar).Value = obj.Email;
+                    cmd.Parameters.Add("@SENHA", SqlDbType.VarChar).Value = obj.Senha;
                     cmd.CommandText = strSQL;
                     var dataReader = cmd.ExecuteReader();
                     var dt = new DataTable();
@@ -88,17 +93,24 @@ namespace PSIQ.DataAccess
                     var row = dt.Rows[0];
                     var paciente = new Paciente()
                     {
+                        Cod = Convert.ToInt32(row["COD"]),
+                        CPF = row["CPF"].ToString(),
                         Nome = row["NOME"].ToString(),
-                        Estado = new Estado()
+                        Email = row["EMAIL"].ToString(),
+                        Senha = row["SENHA"].ToString(),
+                        DtNascimento = Convert.ToDateTime(row["DATA_NASCIMENTO"]),
+                        Estado = row["COD_ESTADO"] is DBNull ? null : new Estado()
                         {
                             Cod = Convert.ToInt32(row["COD_ESTADO"]),
                             Nome = row["NOME_ESTADO"].ToString(),
                         },
-                        Diagnostico = new Diagnostico()
+                        Terapeuta = row["COD_TERAPEUTA"] is DBNull ? null : new Terapeuta()
                         {
-                            Cod = Convert.ToInt32(row["COD_DIAGNOSTICO"]),
-                            Nome = row["NOME_DIAGNOSTICO"].ToString(),
-                        }
+                            Cod = Convert.ToInt32(row["COD_TERAPEUTA"]),
+                            Nome = row["NOME_TERAPEUTA"].ToString(),
+                        },
+                        Foto = row["FOTO"].ToString(),
+                        Descricao = row["DESCRICAO"].ToString()
                     };
 
                     return paciente;
@@ -110,7 +122,14 @@ namespace PSIQ.DataAccess
         {
             using (SqlConnection conn = new SqlConnection(@"Initial Catalog=PSIQ; Data Source=localhost; Integrated Security=SSPI;"))
             {
-                string strSQL = @"SELECT * FROM TERAPEUTA WHERE COD = @COD;";
+                string strSQL = @"SELECT 
+                                      P.*,
+                                      T.NOME AS NOME_TERAPEUTA,
+                                      E.NOME AS NOME_ESTADO
+                                  FROM PACIENTE P
+                                  INNER JOIN TERAPEUTA T ON (T.COD = P.COD_TERAPEUTA)
+                                  INNER JOIN ESTADO E ON (E.COD = P.COD_ESTADO) 
+                                  WHERE P.COD = @COD;";
 
                 using (SqlCommand cmd = new SqlCommand(strSQL))
                 {
@@ -129,17 +148,24 @@ namespace PSIQ.DataAccess
                     var row = dt.Rows[0];
                     var paciente = new Paciente()
                     {
+                        Cod = Convert.ToInt32(row["COD"]),
+                        CPF = row["CPF"].ToString(),
                         Nome = row["NOME"].ToString(),
-                        Estado = new Estado()
+                        Email = row["EMAIL"].ToString(),
+                        Senha = row["SENHA"].ToString(),
+                        DtNascimento = Convert.ToDateTime(row["DATA_NASCIMENTO"]),
+                        Estado = row["COD_ESTADO"] is DBNull ? null : new Estado()
                         {
                             Cod = Convert.ToInt32(row["COD_ESTADO"]),
                             Nome = row["NOME_ESTADO"].ToString(),
                         },
-                        Diagnostico = new Diagnostico()
+                        Terapeuta = row["COD_TERAPEUTA"] is DBNull ? null : new Terapeuta()
                         {
-                            Cod = Convert.ToInt32(row["COD_DIAGNOSTICO"]),
-                            Nome = row["NOME_DIAGNOSTICO"].ToString(),
-                        }
+                            Cod = Convert.ToInt32(row["COD_TERAPEUTA"]),
+                            Nome = row["NOME_TERAPEUTA"].ToString(),
+                        },
+                        Foto = row["FOTO"].ToString(),
+                        Descricao = row["DESCRICAO"].ToString()
                     };
 
                     return paciente;
@@ -154,7 +180,13 @@ namespace PSIQ.DataAccess
             {
                 var lst = new List<Paciente>();
                 //Criando instrução sql para selecionar todos os registros na tabela de usuarios
-                string strSQL = @"SELECT * FROM PACIENTE;";
+                string strSQL = @"SELECT 
+                                      P.*,
+                                      T.NOME AS NOME_TERAPEUTA,
+                                      E.NOME AS NOME_ESTADO
+                                  FROM PACIENTE P
+                                  INNER JOIN TERAPEUTA T ON (T.COD = P.COD_TERAPEUTA)
+                                  INNER JOIN ESTADO E ON (E.COD = P.COD_ESTADO);";
 
                 //Criando um comando sql que será executado na base de dados
                 using (SqlCommand cmd = new SqlCommand(strSQL))
@@ -175,17 +207,24 @@ namespace PSIQ.DataAccess
                     {
                         var paciente = new Paciente()
                         {
+                            Cod = Convert.ToInt32(row["COD"]),
+                            CPF = row["CPF"].ToString(),
                             Nome = row["NOME"].ToString(),
-                            Estado = new Estado()
+                            Email = row["EMAIL"].ToString(),
+                            Senha = row["SENHA"].ToString(),
+                            DtNascimento = Convert.ToDateTime(row["DATA_NASCIMENTO"]),
+                            Estado = row["COD_ESTADO"] is DBNull ? null : new Estado()
                             {
                                 Cod = Convert.ToInt32(row["COD_ESTADO"]),
                                 Nome = row["NOME_ESTADO"].ToString(),
                             },
-                            Diagnostico = new Diagnostico()
+                            Terapeuta = row["COD_TERAPEUTA"] is DBNull ? null : new Terapeuta()
                             {
-                                Cod = Convert.ToInt32(row["COD_DIAGNOSTICO"]),
-                                Nome = row["NOME_DIAGNOSTICO"].ToString(),
-                            }
+                                Cod = Convert.ToInt32(row["COD_TERAPEUTA"]),
+                                Nome = row["NOME_TERAPEUTA"].ToString(),
+                            },
+                            Foto = row["FOTO"].ToString(),
+                            Descricao = row["DESCRICAO"].ToString()
                         };
 
                         lst.Add(paciente);
@@ -244,44 +283,5 @@ namespace PSIQ.DataAccess
                 }
             }
         }
-
-        //public Paciente Logar(string email, string senha)
-        //{
-        //    using (SqlConnection conn = new SqlConnection(@"Initial Catalog=PSIQ; Data Source=localhost; Integrated Security=SSPI;"))
-        //    {
-        //        string strSQL = @"SELECT * FROM PACIENTE WHERE EMAIL = @EMAIL AND SENHA = @SENHA;";
-
-        //        using (SqlCommand cmd = new SqlCommand(strSQL))
-        //        {
-        //            conn.Open();
-        //            cmd.Connection = conn;
-        //            cmd.Parameters.Add("@EMAIL", SqlDbType.VarChar).Value = email ?? string.Empty;
-        //            cmd.Parameters.Add("@SENHA", SqlDbType.VarChar).Value = senha ?? string.Empty;
-        //            cmd.CommandText = strSQL;
-        //            var dataReader = cmd.ExecuteReader();
-        //            var dt = new DataTable();
-        //            dt.Load(dataReader);
-        //            conn.Close();
-
-        //            if (!(dt != null && dt.Rows.Count > 0))
-        //                return null;
-
-        //            var row = dt.Rows[0];
-        //            var paciente = new Paciente()
-        //            {
-        //                Cod = Convert.ToInt32(row["COD"]),
-        //                Nome = row["NOME"].ToString(),
-        //                CPF = Convert.ToInt32(row["CRP"]),
-        //                Email = row["EMAIL"].ToString(),
-        //                Senha = row["SENHA"].ToString(),
-        //                DtNascimento = Convert.ToDateTime(row["DATA_NASCIMENTO"]),
-        //                Foto = row["FOTO"].ToString(),
-        //                CaminhoFoto = row["CAMINHO_FOTO"].ToString()
-        //            };
-
-        //            return paciente ;
-        //        }
-        //    }
-        //}
     }
 }

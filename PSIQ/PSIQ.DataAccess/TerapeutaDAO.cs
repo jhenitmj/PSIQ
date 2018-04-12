@@ -32,7 +32,7 @@ namespace PSIQ.DataAccess
             }
         }
 
-        public Terapeuta Logar(string email, string senha)
+        public Terapeuta Logar(Terapeuta obj)
         {
             using (SqlConnection conn = new SqlConnection(@"Initial Catalog=PSIQ; Data Source=localhost; Integrated Security=SSPI;"))
             {
@@ -42,8 +42,8 @@ namespace PSIQ.DataAccess
                 {
                     conn.Open();
                     cmd.Connection = conn;
-                    cmd.Parameters.Add("@EMAIL", SqlDbType.VarChar).Value = email ?? string.Empty;
-                    cmd.Parameters.Add("@SENHA", SqlDbType.VarChar).Value = senha ?? string.Empty;
+                    cmd.Parameters.Add("@EMAIL", SqlDbType.VarChar).Value = obj.Email ?? string.Empty;
+                    cmd.Parameters.Add("@SENHA", SqlDbType.VarChar).Value = obj.Senha ?? string.Empty;
                     cmd.CommandText = strSQL;
                     var dataReader = cmd.ExecuteReader();
                     var dt = new DataTable();
@@ -62,8 +62,7 @@ namespace PSIQ.DataAccess
                         Email = row["EMAIL"].ToString(),
                         Senha = row["SENHA"].ToString(),
                         DtNascimento = Convert.ToDateTime(row["DATA_NASCIMENTO"]),
-                        Foto = row["FOTO"].ToString(),
-                        CaminhoFoto = row["CAMINHO_FOTO"].ToString()
+                        Foto = row["FOTO"].ToString()
                     };
 
                     return terapeuta;
@@ -100,8 +99,7 @@ namespace PSIQ.DataAccess
                         Email = row["EMAIL"].ToString(),
                         Senha = row["SENHA"].ToString(),
                         DtNascimento = Convert.ToDateTime(row["DATA_NASCIMENTO"]),
-                        Foto = row["FOTO"].ToString(),
-                        CaminhoFoto = row["CAMINHO_FOTO"].ToString()
+                        Foto = row["FOTO"].ToString()
                     };
 
                     return terapeuta;
@@ -136,8 +134,7 @@ namespace PSIQ.DataAccess
                             Email = row["EMAIL"].ToString(),
                             Senha = row["SENHA"].ToString(),
                             DtNascimento = Convert.ToDateTime(row["DATA_NASCIMENTO"]),
-                            Foto = row["FOTO"].ToString(),
-                            CaminhoFoto = row["CAMINHO_FOTO"].ToString()
+                            Foto = row["FOTO"].ToString()
                         };
 
                         lst.Add(terapeuta);
