@@ -17,14 +17,14 @@ namespace PSIQ.WebUI.Controllers
             return View(lst);
         }
 
-        public ActionResult Enviar(Post obj)
-        {
-            var lstUsuarios = new List<int>() { 1, 2 };
-            obj.DataHora = DateTime.Now;
-            obj.Usuario = new Usuario() { Cod = lstUsuarios[new Random().Next(lstUsuarios.Count)] };
-            new PostDAO().Inserir(obj);
+        //public ActionResult Enviar(Post obj)
+        //{
+        //    var lstUsuarios = new List<int>() { 1, 2 };
+        //    obj.DataHora = DateTime.Now;
+        //    obj.Usuario = new Usuario() { Cod = lstUsuarios[new Random().Next(lstUsuarios.Count)] };
+        //    new PostDAO().Inserir(obj);
 
-            return RedirectToAction("Index", "Home");
-        }
+        //    return RedirectToAction("Index", "Home");
+        //}
     }
 }

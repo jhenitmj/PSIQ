@@ -12,7 +12,7 @@
 </div>
 <div class="row">
     <div class="col-md-12">
-        <form class="form-horizontal" action="@Url.Action("Salvar","PreCadastroPaciente")">
+        <form action="@Url.Action("Salvar","PreCadastroPaciente")" class="form-horizontal" >
            
             <div class="form-group">
                 <div class="col-md-12">
@@ -52,18 +52,24 @@
                 </div>
             </div>
             <div class="form-group">
-                <div class="col-md-12 text-right">
+                <div class="col-md-12">
                     @Html.LabelFor(m => m.Estado.Cod, "Estado:", new { @class = "control-label" })
                     @Html.DropDownListFor(m => m.Estado.Cod, new SelectList(ViewBag.Estados ?? new List<Estado>(), "Cod", "Nome "), "-- [SELECIONE] --", new { @class = "form-control" })
                 </div>
             </div>
-            
+            <div class="form-group">
+                <div class="col-md-6">
+                    @Html.LabelFor(m => m.Terapeuta.Cod, "Código do terapeuta:", new { @class = "control-label" })
+                    @Html.TextBoxFor(m => m.Terapeuta.Cod, new { @class = "form-control" })
+                </div>
+            </div>
+
             <div class="form-group">
 
                 <div class="col-md-12 text-right">
-                    <a href="@Url.Action("Index", "LoginP")" class="btn btn-primary">Salvar</a>
+                    <button type="submit" class="btn btn-primary">Salvar</button>
                 </div>
             </div>
-        </form>
+        </form >
     </div>
 </div>

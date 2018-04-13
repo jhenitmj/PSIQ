@@ -12,20 +12,20 @@ namespace PSIQ.DataAccess
         {
             using (SqlConnection conn = new SqlConnection(@"Initial Catalog=PSIQ; Data Source=localhost; Integrated Security=SSPI;"))
             {
-                string strSQL = @"INSERT INTO PACIENTE (NOME, CPF, EMAIL, SENHA, DATA_NASCIMENTO, FOTO, DESCRICAO) 
-                                VALUES (@NOME, @CPF, @EMAIL, @SENHA, @DATA_NASCIMENTO, @FOTO, @DESCRICAO);";
+                string strSQL = @"INSERT INTO PACIENTE (NOME, CPF, EMAIL, SENHA, DATA_NASCIMENTO, FOTO, COD_ESTADO, COD_TERAPEUTA) 
+                                VALUES (@NOME, @CPF, @EMAIL, @SENHA, @DATA_NASCIMENTO, @FOTO, @COD_ESTADO, @COD_TERAPEUTA);";
 
                 using (SqlCommand cmd = new SqlCommand(strSQL))
                 {
                     cmd.Connection = conn;
                     cmd.Parameters.Add("@NOME", SqlDbType.VarChar).Value = obj.Nome;
-                    cmd.Parameters.Add("@CPF", SqlDbType.VarChar).Value = obj.CPF ?? string.Empty;
+                    cmd.Parameters.Add("@CPF", SqlDbType.VarChar).Value = obj.CPF;
                     cmd.Parameters.Add("@EMAIL", SqlDbType.VarChar).Value = obj.Email;
                     cmd.Parameters.Add("@SENHA", SqlDbType.VarChar).Value = obj.Senha;
                     cmd.Parameters.Add("@DATA_NASCIMENTO", SqlDbType.DateTime).Value = obj.DtNascimento;
                     cmd.Parameters.Add("@FOTO", SqlDbType.VarChar).Value = obj.Foto ?? string.Empty;
-                    cmd.Parameters.Add("@DESCRICAO", SqlDbType.VarChar).Value = obj.Descricao ?? string.Empty;
-
+                    cmd.Parameters.Add("@COD_ESTADO", SqlDbType.Int).Value = obj.Estado.Cod;
+                    cmd.Parameters.Add("@COD_TERAPEUTA", SqlDbType.Int).Value = obj.Terapeuta.Cod;
                     conn.Open();
                     cmd.ExecuteNonQuery();
                     conn.Close();
