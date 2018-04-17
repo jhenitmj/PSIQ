@@ -30,13 +30,13 @@ namespace PSIQ.WebUI.Controllers
         {
             try
             {
-                if (!Directory.Exists(Server.MapPath("~/Images")))
-                    Directory.CreateDirectory(Server.MapPath("~/Images"));
+                if (!Directory.Exists(Server.MapPath("~/Fotos")))
+                    Directory.CreateDirectory(Server.MapPath("~/Fotos"));
 
                 foreach (string fileName in Request.Files)
                 {
                     HttpPostedFileBase f = Request.Files[fileName];
-                    string savedFileName = Path.Combine(Server.MapPath("~/Images"), Path.GetFileName(f.FileName));
+                    string savedFileName = Path.Combine(Server.MapPath("~/Fotos"), Path.GetFileName(f.FileName));
                     FileInfo fi = new FileInfo(savedFileName);
                     f.SaveAs(savedFileName);
                     return Json(fi.Name);

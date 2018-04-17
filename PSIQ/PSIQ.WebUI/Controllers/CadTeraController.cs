@@ -1,5 +1,8 @@
 ﻿using PSIQ.DataAccess;
 using PSIQ.Models;
+using System;
+using System.IO;
+using System.Web;
 using System.Web.Mvc;
 
 namespace PSIQ.WebUI.Controllers
@@ -8,14 +11,43 @@ namespace PSIQ.WebUI.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            var obj = new Terapeuta() { DtNascimento = DateTime.Now };
+            return View(obj);
         }
 
         public ActionResult Salvar(Terapeuta obj)
         {
-            new TerapeutaDAO().Inserir(obj);
+            if (ModelState.IsValid)
+            {
+                new TerapeutaDAO().Inserir(obj);
+                return RedirectToAction("Index", "Login");
+            }
+            return RedirectToAction("Index", "CadTera");
+        }
 
-            return RedirectToAction("Index", "Login");
+        [HttpPost]
+        public JsonResult Upload()
+        {
+            try
+            {
+                if (!Directory.Exists(Server.MapPath("~/Fotos")))
+                    Directory.CreateDirectory(Server.MapPath("~/Fotos"));
+
+                foreach (string fileName in Request.Files)
+                {
+                    HttpPostedFileBase f = Request.Files[fileName];
+                    string savedFileName = Path.Combine(Server.MapPath("~/Fotos"), Path.GetFileName(f.FileName));
+                    FileInfo fi = new FileInfo(savedFileName);
+                    f.SaveAs(savedFileName);
+                    return Json(fi.Name);
+                }
+
+                return Json(null);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

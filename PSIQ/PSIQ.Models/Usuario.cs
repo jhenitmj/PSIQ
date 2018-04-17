@@ -1,4 +1,5 @@
-﻿using System.Runtime.Serialization;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Runtime.Serialization;
 using System.Security.Principal;
 using System.Web.Script.Serialization;
 
@@ -7,9 +8,13 @@ namespace PSIQ.Models
     public class Usuario : ICustomPrincipal
     {
         public int Cod { get; set; }
+        [Required]
         public string Nome { get; set; }
+        [Required]
         public string Email { get; set; }
+        [Required]
         public string Senha { get; set; }
+        [Required]
         public string Foto { get; set; }
 
         [ScriptIgnore]

@@ -21,7 +21,7 @@ namespace PSIQ.DataAccess
                     cmd.Parameters.Add("@NOME", SqlDbType.VarChar).Value = obj.Nome;
                     cmd.Parameters.Add("@CRP", SqlDbType.VarChar).Value = obj.CRP;
                     cmd.Parameters.Add("@EMAIL", SqlDbType.VarChar).Value = obj.Email;
-                    cmd.Parameters.Add("@DATA_NASCIMENTO", SqlDbType.DateTime).Value = obj.DtNascimento;
+                    cmd.Parameters.Add("@DATA_NASCIMENTO", SqlDbType.DateTime).Value = obj.DtNascimento == DateTime.MinValue ? DateTime.Now : obj.DtNascimento;
                     cmd.Parameters.Add("@SENHA", SqlDbType.VarChar).Value = obj.Senha;
                     cmd.Parameters.Add("@FOTO", SqlDbType.VarChar).Value = obj.Foto ?? string.Empty;
 
@@ -58,7 +58,7 @@ namespace PSIQ.DataAccess
                     {
                         Cod = Convert.ToInt32(row["COD"]),
                         Nome = row["NOME"].ToString(),
-                        CRP = Convert.ToInt32(row["CRP"]),
+                        CRP = row["CRP"].ToString(),
                         Email = row["EMAIL"].ToString(),
                         Senha = row["SENHA"].ToString(),
                         DtNascimento = Convert.ToDateTime(row["DATA_NASCIMENTO"]),
@@ -95,7 +95,7 @@ namespace PSIQ.DataAccess
                     {
                         Cod = Convert.ToInt32(row["COD"]),
                         Nome = row["NOME"].ToString(),
-                        CRP = Convert.ToInt32(row["CRP"]),
+                        CRP = row["CRP"].ToString(),
                         Email = row["EMAIL"].ToString(),
                         Senha = row["SENHA"].ToString(),
                         DtNascimento = Convert.ToDateTime(row["DATA_NASCIMENTO"]),
@@ -130,7 +130,7 @@ namespace PSIQ.DataAccess
                         {
                             Cod = Convert.ToInt32(row["COD"]),
                             Nome = row["NOME"].ToString(),
-                            CRP = Convert.ToInt32(row["CRP"]),
+                            CRP = row["CRP"].ToString(),
                             Email = row["EMAIL"].ToString(),
                             Senha = row["SENHA"].ToString(),
                             DtNascimento = Convert.ToDateTime(row["DATA_NASCIMENTO"]),
