@@ -12,5 +12,7 @@ namespace PSIQ.Models
         public Paciente Paciente { get; set; }
 
         public Diagnostico Diagnostico { get; set; }
+
+        public string Descricao { get; set; }
     }
 }
