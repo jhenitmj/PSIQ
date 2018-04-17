@@ -43,6 +43,7 @@
     <Compile Include="DiagnosticoDAO.cs" />
     <Compile Include="EstadoDAO.cs" />
     <Compile Include="PacienteDAO.cs" />
+    <Compile Include="PacienteXDiagnosticoDAO.cs" />
     <Compile Include="PostDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TerapeutaDAO.cs" />

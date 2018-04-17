@@ -1,5 +1,6 @@
 ﻿using PSIQ.Models;
 using System;
+using System.Security.Cryptography;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
@@ -21,13 +22,20 @@ namespace PSIQ.WebUI
 
         protected void Application_PostAuthenticateRequest(Object sender, EventArgs e)
         {
-            var authCookie = Request.Cookies[FormsAuthentication.FormsCookieName];
-            if (authCookie != null)
+            try
             {
-                var authTicket = FormsAuthentication.Decrypt(authCookie.Value);
-                var serializer = new JavaScriptSerializer();
-                var serializeModel = serializer.Deserialize<Usuario>(authTicket.UserData);
-                HttpContext.Current.User = serializeModel;
+                var authCookie = Request.Cookies[FormsAuthentication.FormsCookieName];
+                if (authCookie != null)
+                {
+                    var authTicket = FormsAuthentication.Decrypt(authCookie.Value);
+                    var serializer = new JavaScriptSerializer();
+                    var serializeModel = serializer.Deserialize<Usuario>(authTicket.UserData);
+                    HttpContext.Current.User = serializeModel;
+                }
+            }
+            catch (CryptographicException)
+            {
+                FormsAuthentication.SignOut();
             }
         }
     }

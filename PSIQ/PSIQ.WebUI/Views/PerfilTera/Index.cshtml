@@ -55,7 +55,7 @@
                             <thead>
                                 <tr>
                                     <th style="width:50%">NOME</th>
-                                    <th style="width:25%">IDADE</th>
+                                    <th style="width:25%">DATA DE NASCIMENTO</th>
                                     <th style="width:25%">ESTADO</th>
                                 </tr>
                             </thead>
@@ -64,8 +64,8 @@
                                 {
                                     <tr>
                                         <td style="width:50%">@paciente.Nome</td>
-                                        <td style="width:25%">@(DateTime.Now.Year - paciente.DtNascimento.Year)</td>
-                                        <td style="width:25%">@paciente.Estado</td>
+                                        <td style="width:25%">@string.Format("{0:dd/MM/yyyy}", paciente.DtNascimento)</td>
+                                        <td style="width:25%">@paciente.Estado.Nome</td>
                                     </tr>
                                 }
                             </tbody>

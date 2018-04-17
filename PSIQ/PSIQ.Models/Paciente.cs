@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace PSIQ.Models
 {
@@ -9,6 +10,11 @@ namespace PSIQ.Models
         public string Descricao { get; set; }
         public Terapeuta Terapeuta { get; set; }
         public Estado Estado { get; set; }
-        public Diagnostico Diagnostico { get; set; }
+        public List<PacienteXDiagnostico> Diagnosticos { get; set; }
+
+        public Paciente()
+        {
+            this.Diagnosticos = new List<PacienteXDiagnostico>();
+        }
     }
 }
