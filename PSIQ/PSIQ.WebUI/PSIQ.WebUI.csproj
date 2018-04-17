@@ -229,6 +229,7 @@
     <Content Include="Views\CadastroP\Index.cshtml" />
     <Content Include="Views\PerfilPacienteP\Index.cshtml" />
     <Content Include="Views\Diagnostico\Index.cshtml" />
+    <Content Include="Views\PerfilTera\Chat.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PSIQ.DataAccess\PSIQ.DataAccess.csproj">

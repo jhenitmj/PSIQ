@@ -46,10 +46,12 @@ namespace PSIQ.DataAccess
                 string strSQL = @"SELECT 
                                     P.*,
                                     T.NOME AS TERAPEUTA,
-                                    A.NOME AS PACIENTE
+                                    A.NOME AS PACIENTE,
+                                    T.FOTO AS FOTO_TERAPEUTA,
+                                    A.FOTO AS FOTO_PACIENTE
                                 FROM POST P
-                                INNER JOIN TERAPEUTA T ON (T.COD = P.COD_TERAPEUTA)
-                                INNER JOIN PACIENTE A ON (A.COD = P.COD_PACIENTE)
+                                LEFT JOIN TERAPEUTA T ON (T.COD = P.COD_TERAPEUTA)
+                                LEFT JOIN PACIENTE A ON (A.COD = P.COD_PACIENTE)
                                 WHERE P.COD = @COD;";
 
                 //Criando um comando sql que será executado na base de dados
@@ -73,15 +75,17 @@ namespace PSIQ.DataAccess
                     var post = new Post()
                     {
                         Cod = Convert.ToInt32(row["COD"]),
-                        Terapeuta = new Terapeuta()
+                        Terapeuta = row["COD_TERAPEUTA"] is DBNull ? null : new Terapeuta()
                         {
                             Cod = Convert.ToInt32(row["COD_TERAPEUTA"]),
-                            Nome = row["TERAPEUTA"].ToString()
+                            Nome = row["TERAPEUTA"].ToString(),
+                            Foto = row["FOTO_TERAPEUTA"].ToString()
                         },
-                        Paciente = new Paciente()
+                        Paciente = row["COD_PACIENTE"] is DBNull ? null : new Paciente()
                         {
                             Cod = Convert.ToInt32(row["COD_PACIENTE"]),
-                            Nome = row["PACIENTE"].ToString()
+                            Nome = row["PACIENTE"].ToString(),
+                            Foto = row["FOTO_PACIENTE"].ToString()
                         },
                         DataHora = Convert.ToDateTime(row["DATA_HORA"]),
                         Mensagem = row["MENSAGEM"].ToString()
@@ -103,10 +107,12 @@ namespace PSIQ.DataAccess
                 string strSQL = @"SELECT 
                                     P.*,
                                     T.NOME AS TERAPEUTA,
-                                    A.NOME AS PACIENTE
+                                    A.NOME AS PACIENTE,
+                                    T.FOTO AS FOTO_TERAPEUTA,
+                                    A.FOTO AS FOTO_PACIENTE
                                 FROM POST P
-                                INNER JOIN TERAPEUTA T ON (T.COD = P.COD_TERAPEUTA)
-                                INNER JOIN PACIENTE A ON (A.COD = P.COD_PACIENTE);";
+                                LEFT JOIN TERAPEUTA T ON (T.COD = P.COD_TERAPEUTA)
+                                LEFT JOIN PACIENTE A ON (A.COD = P.COD_PACIENTE);";
 
                 //Criando um comando sql que será executado na base de dados
                 using (SqlCommand cmd = new SqlCommand(strSQL))
@@ -128,15 +134,17 @@ namespace PSIQ.DataAccess
                         var post = new Post()
                         {
                             Cod = Convert.ToInt32(row["COD"]),
-                            Terapeuta = new Terapeuta()
+                            Terapeuta = row["COD_TERAPEUTA"] is DBNull ? null : new Terapeuta()
                             {
                                 Cod = Convert.ToInt32(row["COD_TERAPEUTA"]),
-                                Nome = row["TERAPEUTA"].ToString()
+                                Nome = row["TERAPEUTA"].ToString(),
+                                Foto = row["FOTO_TERAPEUTA"].ToString()
                             },
-                            Paciente = new Paciente()
+                            Paciente = row["COD_PACIENTE"] is DBNull ? null : new Paciente()
                             {
                                 Cod = Convert.ToInt32(row["COD_PACIENTE"]),
-                                Nome = row["PACIENTE"].ToString()
+                                Nome = row["PACIENTE"].ToString(),
+                                Foto = row["FOTO_PACIENTE"].ToString()
                             },
                             DataHora = Convert.ToDateTime(row["DATA_HORA"]),
                             Mensagem = row["MENSAGEM"].ToString()
@@ -161,10 +169,12 @@ namespace PSIQ.DataAccess
                 string strSQL = @"SELECT 
                                     P.*,
                                     T.NOME AS TERAPEUTA,
-                                    A.NOME AS PACIENTE
+                                    A.NOME AS PACIENTE,
+                                    T.FOTO AS FOTO_TERAPEUTA,
+                                    A.FOTO AS FOTO_PACIENTE
                                 FROM POST P
-                                INNER JOIN TERAPEUTA T ON (T.COD = P.COD_TERAPEUTA)
-                                INNER JOIN PACIENTE A ON (A.COD = P.COD_PACIENTE)
+                                LEFT JOIN TERAPEUTA T ON (T.COD = P.COD_TERAPEUTA)
+                                LEFT JOIN PACIENTE A ON (A.COD = P.COD_PACIENTE)
                                 WHERE P.COD_PACIENTE = @COD_PACIENTE;";
 
                 //Criando um comando sql que será executado na base de dados
@@ -173,6 +183,7 @@ namespace PSIQ.DataAccess
                     //Abrindo conexão com o banco de dados
                     conn.Open();
                     cmd.Connection = conn;
+                    cmd.Parameters.Add("@COD_PACIENTE", SqlDbType.Int).Value = paciente;
                     cmd.CommandText = strSQL;
                     //Executando instrução sql
                     var dataReader = cmd.ExecuteReader();
@@ -187,15 +198,17 @@ namespace PSIQ.DataAccess
                         var post = new Post()
                         {
                             Cod = Convert.ToInt32(row["COD"]),
-                            Terapeuta = new Terapeuta()
+                            Terapeuta = row["COD_TERAPEUTA"] is DBNull ? null : new Terapeuta()
                             {
                                 Cod = Convert.ToInt32(row["COD_TERAPEUTA"]),
-                                Nome = row["TERAPEUTA"].ToString()
+                                Nome = row["TERAPEUTA"].ToString(),
+                                Foto = row["FOTO_TERAPEUTA"].ToString()
                             },
-                            Paciente = new Paciente()
+                            Paciente = row["COD_PACIENTE"] is DBNull ? null : new Paciente()
                             {
                                 Cod = Convert.ToInt32(row["COD_PACIENTE"]),
-                                Nome = row["PACIENTE"].ToString()
+                                Nome = row["PACIENTE"].ToString(),
+                                Foto = row["FOTO_PACIENTE"].ToString()
                             },
                             DataHora = Convert.ToDateTime(row["DATA_HORA"]),
                             Mensagem = row["MENSAGEM"].ToString()

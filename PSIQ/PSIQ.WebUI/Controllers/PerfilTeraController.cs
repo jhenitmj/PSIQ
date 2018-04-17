@@ -15,5 +15,11 @@ namespace PSIQ.WebUI.Controllers
             //Retornando uma view chamada 'Index' com a lista de Cidades carregados do banco de dados
             return View(lst);
         }
+
+        public ActionResult Chat(int pacienteId)
+        {
+            var lst = new PostDAO().BuscarPorUsuario(pacienteId);
+            return View(lst);
+        }
     }
 }
