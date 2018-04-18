@@ -1,0 +1,30 @@
+﻿@using PSIQ.Models
+@model Diagnostico
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row">
+    <div class="col-md-12 text-center">
+        <img src="@Url.Content("~/Images/logo_psiq.png")" />
+        <h3>Diagnóstico</h3>
+        <hr />
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <form action="@Url.Action("Salvar", "Diagnostico")" class="form-horizontal">
+            <div class="form-group">
+                <div class="col-md-12">
+               @Html.LabelFor(m => m.Nome, "Nome", new { @class = "control-label" })
+               @Html.TextBoxFor(m => m.Nome, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-12 text-right">
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>

@@ -1,5 +1,5 @@
 ﻿@using PSIQ.Models
-@model Diagnostico
+@model PacienteXDiagnostico
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -15,8 +15,12 @@
         <form action="@Url.Action("Salvar", "Diagnostico")" class="form-horizontal">
             <div class="form-group">
                 <div class="col-md-12">
-                    @Html.LabelFor(m => m.Nome, "Nome", new { @class = "control-label" })
-                    @Html.TextBoxFor(m => m.Nome, new { @class = "form-control" })
+                    @Html.LabelFor(m => m.Diagnostico.Cod, "Diagnostico", new { @class = "control-label" })
+                    @Html.DropDownListFor(m => m.Diagnostico.Cod, new SelectList(ViewBag.Diagnosticos ?? new List<Diagnostico>(), "Cod", "Nome"), "-- [SELECIONE] --", new { @class = "form-control" })
+                </div>
+                <div class="col-md-12">
+                    @Html.LabelFor(m => m.Descricao, "Descrição", new { @class = "control-label" })
+                    @Html.TextBoxFor(m => m.Descricao, new { @class = "form-control" })
                 </div>
             </div>
             <div class="form-group">
@@ -25,5 +29,34 @@
                 </div>
             </div>
         </form>
+
+        <div class="row">
+            <div class="col-md-12 text-left">
+                <div class="table-responsive">
+                    <br />
+                    <table class="table table-hover table-striped">
+                        <thead>
+                            <tr>
+                                <th style="width:20%">DIAGNÓSTICO</th>
+                                <th style="width:80%">DESCRIÇÃO</th>
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @*@foreach (Paciente paciente in Model)
+                            {
+                                <tr>
+                                    <td style="width:20%">@paciente.Diagnosticos</td>
+                                
+                                    <td style="width:80%">@paciente.Descricao</td>
+                                        
+                                </tr>
+                            }*@
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
     </div>
 </div>

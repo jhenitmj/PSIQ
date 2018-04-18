@@ -183,6 +183,7 @@
     <Content Include="Images\lolo.png" />
     <Content Include="Images\perfil-blog.png" />
     <Content Include="Images\PSIQ.png" />
+    <Content Include="Scripts\additional-methods.js" />
     <Content Include="Scripts\bootstrap-datetimepicker.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -230,6 +231,7 @@
     <Content Include="Views\PerfilPacienteP\Index.cshtml" />
     <Content Include="Views\Diagnostico\Index.cshtml" />
     <Content Include="Views\PerfilTera\Chat.cshtml" />
+    <Content Include="Views\Diagnostico\Cadastro.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PSIQ.DataAccess\PSIQ.DataAccess.csproj">
