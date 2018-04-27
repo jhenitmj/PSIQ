@@ -43,15 +43,14 @@ namespace PSIQ.DataAccess
             using (SqlConnection conn = new SqlConnection(@"Initial Catalog=PSIQ; Data Source=localhost; Integrated Security=SSPI;"))
             {
                 //Criando instrução sql para inserir na tabela de categorias
-                string strSQL = @"DELETE FROM PACIENTE_X_DIAGNOSTICO WHERE COD_PACIENTE = @COD_PACIENTE AND COD_DIAGNOSTICO = @COD_DIAGNOSTICO;";
+                string strSQL = @"DELETE FROM PACIENTE_X_DIAGNOSTICO WHERE COD = @COD;";
 
                 //Criando um comando sql que será executado na base de dados
                 using (SqlCommand cmd = new SqlCommand(strSQL))
                 {
                     cmd.Connection = conn;
                     //Preenchendo os parâmetros da instrução sql
-                    cmd.Parameters.Add("@COD_PACIENTE", SqlDbType.VarChar).Value = obj.Paciente.Cod;
-                    cmd.Parameters.Add("@COD_DIAGNOSTICO", SqlDbType.VarChar).Value = obj.Diagnostico.Cod;
+                    cmd.Parameters.Add("@COD", SqlDbType.Int).Value = obj.Cod;
 
                     //Abrindo conexão com o banco de dados
                     conn.Open();
@@ -63,22 +62,20 @@ namespace PSIQ.DataAccess
             }
         }
 
-        public PacienteXDiagnostico BuscarPorId(int paciente, int diagnostico)
+        public PacienteXDiagnostico BuscarPorCod(int cod)
         {
             //Criando uma conexão com o banco de dados
             using (SqlConnection conn = new SqlConnection(@"Initial Catalog=PSIQ; Data Source=localhost; Integrated Security=SSPI;"))
             {
                 //Criando instrução sql para selecionar todos os registros na tabela de Categorias
-                string strSQL = @"SELECT  
+                string strSQL = @"SELECT
                                       PD.DATA_HORA,
                                       PD.DESCRICAO,
                                       P.NOME_PACIENTE AS NOME_PACIENTE,
                                       D.OME_DIAGNOSTICO AS NOME_DIAGNOSTICO
-                                  FROM  PACIENTEXDIAGNOSTICO PD
-                                    INNER JOIN PACIENTE P
-                                    ON COD_PACIENTE = @COD_PACIENTE 
-                                    INNER JOIN DIAGNOSTICO D
-                                    ON COD_DIAGNOSTICO = @COD_DIAGNOSTIC0";
+                                  FROM  PACIENTE_X_DIAGNOSTICO PD
+                                  INNER JOIN PACIENTE P ON P.COD = PD.COD_PACIENTE
+                                  INNER JOIN DIAGNOSTICO D ON D.COD = PD.COD_DIAGNOSTICO;";
 
 
                 //Criando um comando sql que será executado na base de dados
@@ -87,8 +84,7 @@ namespace PSIQ.DataAccess
                     //Abrindo conexão com o banco de dados
                     conn.Open();
                     cmd.Connection = conn;
-                    cmd.Parameters.Add("@COD_PACIENTE", SqlDbType.Int).Value = paciente;
-                    cmd.Parameters.Add("@COD_DIAGNOSTICO", SqlDbType.Int).Value = diagnostico;
+                    cmd.Parameters.Add("@COD", SqlDbType.Int).Value = cod;
                     cmd.CommandText = strSQL;
                     //Executando instrução sql
                     var dataReader = cmd.ExecuteReader();
@@ -143,6 +139,7 @@ namespace PSIQ.DataAccess
                     {
                         var pxd = new PacienteXDiagnostico()
                         {
+                            Cod = Convert.ToInt32(row["COD"]),
                             Paciente = new Paciente() { Cod = Convert.ToInt32(row["COD_PACIENTE"]) },
                             Diagnostico = new Diagnostico() { Cod = Convert.ToInt32(row["COD_DIAGNOSTICO"]) },
                             DataHora = Convert.ToDateTime(row["DATA_HORA"]),
@@ -187,6 +184,7 @@ namespace PSIQ.DataAccess
                     {
                         var pxd = new PacienteXDiagnostico()
                         {
+                            Cod = Convert.ToInt32(row["COD"]),
                             Paciente = new Paciente() { Cod = Convert.ToInt32(row["COD_PACIENTE"]) },
                             Diagnostico = new Diagnostico() { Cod = Convert.ToInt32(row["COD_DIAGNOSTICO"]) },
                             DataHora = Convert.ToDateTime(row["DATA_HORA"]),

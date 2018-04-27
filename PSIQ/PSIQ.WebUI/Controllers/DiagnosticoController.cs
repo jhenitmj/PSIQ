@@ -32,7 +32,7 @@ namespace PSIQ.WebUI.Controllers
             obj.DataHora = DateTime.Now;
             new PacienteXDiagnosticoDAO().Inserir(obj);
             ViewBag.PacXDiags = new PacienteXDiagnosticoDAO().BuscarPorPaciente(obj.Paciente.Cod);
-            return View("Index", new { pacienteId = obj.Paciente.Cod });
+            return RedirectToAction("Index", "Diagnostico", new { pacienteId = obj.Paciente.Cod });
         }
     }
 }

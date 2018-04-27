@@ -7,6 +7,8 @@ namespace PSIQ.Models
 {
     public class PacienteXDiagnostico
     {
+        public int Cod { get; set; }
+
         public DateTime DataHora { get; set; }
 
         public Paciente Paciente { get; set; }
