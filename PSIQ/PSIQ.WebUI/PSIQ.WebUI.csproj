@@ -176,6 +176,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Images\login.jpg" />
     <Content Include="Images\logo_psiq.png" />
+    <Content Include="Images\paciente.jpg" />
     <Content Include="Images\Perfis.jpg" />
     <Content Include="Images\PSIQ.jpg" />
     <Content Include="Global.asax" />
@@ -183,6 +184,7 @@
     <Content Include="Images\lolo.png" />
     <Content Include="Images\perfil-blog.png" />
     <Content Include="Images\PSIQ.png" />
+    <Content Include="Images\terapeuta.gif" />
     <Content Include="Scripts\additional-methods.js" />
     <Content Include="Scripts\bootstrap-datetimepicker.js" />
     <Content Include="Scripts\bootstrap.js" />

@@ -68,7 +68,7 @@
                                         <td style="width:20%">@string.Format("{0:dd/MM/yyyy}", paciente.DtNascimento)</td>
                                         <td style="width:20%">@paciente.Estado.Nome</td>
                                         <td style="width:10%">
-                                            <a href="#">
+                                            <a href="@Url.Action("Index", "Diagnostico", new { @pacienteId = paciente.Cod })">
                                                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                                             </a>
                                             <a href="@Url.Action("Chat", "PerfilTera", new { @pacienteId = paciente.Cod })">

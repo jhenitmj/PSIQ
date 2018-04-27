@@ -12,7 +12,8 @@
 </div>
 <div class="row">
     <div class="col-md-12">
-        <form action="@Url.Action("Salvar", "Diagnostico")" class="form-horizontal">
+        <form action="@Url.Action("SalvarPacXDiag", "Diagnostico")" class="form-horizontal">
+            @Html.HiddenFor(m => m.Paciente.Cod)
             <div class="form-group">
                 <div class="col-md-12">
                     @Html.LabelFor(m => m.Diagnostico.Cod, "Diagnostico", new { @class = "control-label" })
@@ -20,7 +21,7 @@
                 </div>
                 <div class="col-md-12">
                     @Html.LabelFor(m => m.Descricao, "Descrição", new { @class = "control-label" })
-                    @Html.TextBoxFor(m => m.Descricao, new { @class = "form-control" })
+                    @Html.TextAreaFor(m => m.Descricao, new { @class = "form-control", @rows = 10 })
                 </div>
             </div>
             <div class="form-group">
@@ -37,21 +38,22 @@
                     <table class="table table-hover table-striped">
                         <thead>
                             <tr>
+                                <th style="width:10%">DIAGNÓSTICO</th>
                                 <th style="width:20%">DIAGNÓSTICO</th>
-                                <th style="width:80%">DESCRIÇÃO</th>
-                                
+                                <th style="width:70%">DESCRIÇÃO</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @*@foreach (Paciente paciente in Model)
+                            @foreach (PacienteXDiagnostico pxd in (List<PacienteXDiagnostico>)ViewBag.PacXDiags)
                             {
                                 <tr>
-                                    <td style="width:20%">@paciente.Diagnosticos</td>
-                                
-                                    <td style="width:80%">@paciente.Descricao</td>
-                                        
+                                    <td style="width:10%">@pxd.DataHora</td>
+
+                                    <td style="width:20%">@pxd.Diagnostico.Nome</td>
+
+                                    <td style="width:70%">@pxd.Descricao</td>
                                 </tr>
-                            }*@
+                            }
                         </tbody>
                     </table>
                 </div>
