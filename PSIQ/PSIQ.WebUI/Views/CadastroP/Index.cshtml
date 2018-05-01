@@ -69,4 +69,39 @@
         </form>
     </div>
 </div>
+@section Scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#txtDtNascimento").setMask("date");
+            $('#datetimepicker1').datetimepicker({ format: "DD/MM/YYYY", pickTime: false, language: "pt-BR" });
 
+            $('#fupArquivo').change(function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+                var data = new FormData();
+                var files = $(this).get(0).files;
+
+                if (files.length > 0) {
+                    for (var i = 0; i < files.length; i++) {
+                        data.append(files[i].name, files[i]);
+                    }
+                }
+
+                $.ajax({
+                    url: $("#fupArquivo").data("url"),
+                    data: data,
+                    method: "POST",
+                    dataType: "json",
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    success: function (result) {
+                        $("#txtFoto").val(result);
+                    },
+                    error: function (result) {
+                        alert(result);
+                    }
+                });
+            });
+        });
+    </script>

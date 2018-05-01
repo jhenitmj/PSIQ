@@ -21,7 +21,7 @@ namespace PSIQ.WebUI.Controllers
             if (ModelState.IsValid)
             {
                 new PacienteDAO().Inserir(obj);
-                return RedirectToAction("Index", "Login");
+                return RedirectToAction("Index", "LoginP");
             }
             return RedirectToAction("Index", "CadastroPC");
         }
