@@ -1,6 +1,7 @@
 ﻿using PSIQ.Models;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -11,7 +12,7 @@ namespace PSIQ.DataAccess
         public void Inserir(PacienteXDiagnostico obj)
         {
             //Criando uma conexão com o banco de dados
-            using (SqlConnection conn = new SqlConnection(@"Initial Catalog=PSIQ; Data Source=localhost; Integrated Security=SSPI;"))
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))
             {
                 //Criando instrução sql para inserir na tabela de categorias
                 string strSQL = @"INSERT INTO PACIENTE_X_DIAGNOSTICO (COD_PACIENTE, COD_DIAGNOSTICO, DATA_HORA, DESCRICAO) 
@@ -40,7 +41,7 @@ namespace PSIQ.DataAccess
         public void Deletar(PacienteXDiagnostico obj)
         {
             //Criando uma conexão com o banco de dados
-            using (SqlConnection conn = new SqlConnection(@"Initial Catalog=PSIQ; Data Source=localhost; Integrated Security=SSPI;"))
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))
             {
                 //Criando instrução sql para inserir na tabela de categorias
                 string strSQL = @"DELETE FROM PACIENTE_X_DIAGNOSTICO WHERE COD = @COD;";
@@ -65,7 +66,7 @@ namespace PSIQ.DataAccess
         public PacienteXDiagnostico BuscarPorCod(int cod)
         {
             //Criando uma conexão com o banco de dados
-            using (SqlConnection conn = new SqlConnection(@"Initial Catalog=PSIQ; Data Source=localhost; Integrated Security=SSPI;"))
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))
             {
                 //Criando instrução sql para selecionar todos os registros na tabela de Categorias
                 string strSQL = @"SELECT
@@ -115,7 +116,7 @@ namespace PSIQ.DataAccess
             var lst = new List<PacienteXDiagnostico>();
 
             //Criando uma conexão com o banco de dados
-            using (SqlConnection conn = new SqlConnection(@"Initial Catalog=PSIQ; Data Source=localhost; Integrated Security=SSPI;"))
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))
             {
                 //Criando instrução sql para selecionar todos os registros na tabela de Categorias
                 string strSQL = @"SELECT * FROM PACIENTE_X_DIAGNOSTICO;";
@@ -159,7 +160,7 @@ namespace PSIQ.DataAccess
             var lst = new List<PacienteXDiagnostico>();
 
             //Criando uma conexão com o banco de dados
-            using (SqlConnection conn = new SqlConnection(@"Initial Catalog=PSIQ; Data Source=localhost; Integrated Security=SSPI;"))
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))
             {
                 //Criando instrução sql para selecionar todos os registros na tabela de Categorias
                 string strSQL = @"SELECT * FROM PACIENTE_X_DIAGNOSTICO WHERE COD_PACIENTE = @COD_PACIENTE;";

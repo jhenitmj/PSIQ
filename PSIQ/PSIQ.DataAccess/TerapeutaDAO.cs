@@ -1,6 +1,7 @@
 ﻿using PSIQ.Models;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -10,7 +11,7 @@ namespace PSIQ.DataAccess
     {
         public void Inserir(Terapeuta obj)
         {
-            using (SqlConnection conn = new SqlConnection(@"Initial Catalog=PSIQ; Data Source=localhost; Integrated Security=SSPI;"))
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))
             {
                 string strSQL = @"INSERT INTO TERAPEUTA (NOME, CRP, EMAIL, DATA_NASCIMENTO, SENHA, FOTO) 
                                   VALUES (@NOME, @CRP, @EMAIL, @DATA_NASCIMENTO, @SENHA, @FOTO);";
@@ -34,7 +35,7 @@ namespace PSIQ.DataAccess
 
         public Terapeuta Logar(Terapeuta obj)
         {
-            using (SqlConnection conn = new SqlConnection(@"Initial Catalog=PSIQ; Data Source=localhost; Integrated Security=SSPI;"))
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))
             {
                 string strSQL = @"SELECT * FROM TERAPEUTA WHERE EMAIL = @EMAIL AND SENHA = @SENHA;";
 
@@ -72,7 +73,7 @@ namespace PSIQ.DataAccess
 
         public Terapeuta BuscarPorId(int id)
         {
-            using (SqlConnection conn = new SqlConnection(@"Initial Catalog=PSIQ; Data Source=localhost; Integrated Security=SSPI;"))
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))
             {
                 string strSQL = @"SELECT * FROM TERAPEUTA WHERE COD = @COD;";
 
@@ -109,7 +110,7 @@ namespace PSIQ.DataAccess
 
         public List<Terapeuta> BuscarTodos()
         {
-            using (SqlConnection conn = new SqlConnection(@"Initial Catalog=PSIQ; Data Source=localhost; Integrated Security=SSPI;"))
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))
             {
                 var lst = new List<Terapeuta>();
                 string strSQL = @"SELECT * FROM TERAPEUTA;";

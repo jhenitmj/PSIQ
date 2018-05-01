@@ -1,6 +1,7 @@
 ﻿using PSIQ.Models;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -11,7 +12,7 @@ namespace PSIQ.DataAccess
         public void Inserir(Post obj)
         {
             //Criando uma conexão com o banco de dados
-            using (SqlConnection conn = new SqlConnection(@"Initial Catalog=PSIQ; Data Source=localhost; Integrated Security=SSPI;"))
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))
             {
                 //Criando instrução sql para inserir na tabela de posts
                 string strSQL = @"INSERT INTO POST (COD_PACIENTE, COD_TERAPEUTA, DATA_HORA, MENSAGEM) 
@@ -40,7 +41,7 @@ namespace PSIQ.DataAccess
         public Post BuscarPorId(int id)
         {
             //Criando uma conexão com o banco de dados
-            using (SqlConnection conn = new SqlConnection(@"Initial Catalog=Blog; Data Source=localhost; Integrated Security=SSPI;"))
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))
             {
                 //Criando instrução sql para selecionar todos os registros na tabela de posts
                 string strSQL = @"SELECT 
@@ -101,7 +102,7 @@ namespace PSIQ.DataAccess
             var lst = new List<Post>();
 
             //Criando uma conexão com o banco de dados
-            using (SqlConnection conn = new SqlConnection(@"Initial Catalog=PSIQ; Data Source=localhost; Integrated Security=SSPI;"))
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))
             {
                 //Criando instrução sql para selecionar todos os registros na tabela de posts
                 string strSQL = @"SELECT 
@@ -163,7 +164,7 @@ namespace PSIQ.DataAccess
             var lst = new List<Post>();
 
             //Criando uma conexão com o banco de dados
-            using (SqlConnection conn = new SqlConnection(@"Initial Catalog=PSIQ; Data Source=localhost; Integrated Security=SSPI;"))
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))
             {
                 //Criando instrução sql para selecionar todos os registros na tabela de posts
                 string strSQL = @"SELECT 

@@ -1,6 +1,7 @@
 ﻿using PSIQ.Models;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -10,7 +11,7 @@ namespace PSIQ.DataAccess
     {
         public void Inserir(Paciente obj)
         {
-            using (SqlConnection conn = new SqlConnection(@"Initial Catalog=PSIQ; Data Source=localhost; Integrated Security=SSPI;"))
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))
             {
                 string strSQL = @"INSERT INTO PACIENTE (NOME, CPF, EMAIL, SENHA, DATA_NASCIMENTO, FOTO, COD_ESTADO, COD_TERAPEUTA) 
                                 VALUES (@NOME, @CPF, @EMAIL, @SENHA, @DATA_NASCIMENTO, @FOTO, @COD_ESTADO, @COD_TERAPEUTA);";
@@ -36,7 +37,7 @@ namespace PSIQ.DataAccess
         public void Deletar(Paciente obj)
         {
             //Criando uma conexão com o banco de dados
-            using (SqlConnection conn = new SqlConnection(@"Initial Catalog=PSIQ; Data Source=localhost; Integrated Security=SSPI;"))
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))
             {
                 //Criando instrução sql para inserir na tabela de usuarios
                 string strSQL = @"DELETE FROM PACIENTE WHERE COD = @COD;";
@@ -60,7 +61,7 @@ namespace PSIQ.DataAccess
 
         public Paciente Logar(Paciente obj)
         {
-            using (SqlConnection conn = new SqlConnection(@"Initial Catalog=PSIQ; Data Source=localhost; Integrated Security=SSPI;"))
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))
             {
                 string strSQL = @"SELECT 
                                       P.*,
@@ -117,7 +118,7 @@ namespace PSIQ.DataAccess
 
         public Paciente BuscarPorId(int id)
         {
-            using (SqlConnection conn = new SqlConnection(@"Initial Catalog=PSIQ; Data Source=localhost; Integrated Security=SSPI;"))
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))
             {
                 string strSQL = @"SELECT 
                                       P.*,
@@ -173,7 +174,7 @@ namespace PSIQ.DataAccess
         public List<Paciente> BuscarTodos()
         {
             //Criando uma conexão com o banco de dados
-            using (SqlConnection conn = new SqlConnection(@"Initial Catalog=PSIQ; Data Source=localhost; Integrated Security=SSPI;"))
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))
             {
                 var lst = new List<Paciente>();
                 //Criando instrução sql para selecionar todos os registros na tabela de usuarios
@@ -235,7 +236,7 @@ namespace PSIQ.DataAccess
         public List<Paciente> BuscarPorTerapeuta(int terapeuta)
         {
             //Criando uma conexão com o banco de dados
-            using (SqlConnection conn = new SqlConnection(@"Initial Catalog=PSIQ; Data Source=localhost; Integrated Security=SSPI;"))
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))
             {
                 var lst = new List<Paciente>();
                 //Criando instrução sql para selecionar todos os registros na tabela de usuarios

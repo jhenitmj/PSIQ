@@ -1,6 +1,7 @@
 ﻿using PSIQ.Models;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -10,7 +11,7 @@ namespace PSIQ.DataAccess
     {
         public void Inserir(Diagnostico obj)
         {
-            using (SqlConnection conn = new SqlConnection(@"Initial Catalog=PSIQ; Data Source= localhost; Integrated Security = SSPI;"))
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))
             {
                 string strSQL = @"INSERT INTO DIAGNOSTICO (NOME) VALUES (@NOME);";
 
@@ -28,7 +29,7 @@ namespace PSIQ.DataAccess
 
         public List<Diagnostico> BuscarTodos()
         {
-            using (SqlConnection conn = new SqlConnection(@"Initial Catalog=PSIQ; Data Source= localhost; Integrated Security=SSPI;"))
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))
             {
                 var lst = new List<Diagnostico>();
                 string strSQL = @"SELECT * FROM DIAGNOSTICO;";
