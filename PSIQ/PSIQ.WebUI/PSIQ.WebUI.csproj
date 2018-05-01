@@ -158,6 +158,7 @@
     <Compile Include="Controllers\PerfilPacienteTController.cs" />
     <Compile Include="Controllers\PerfilTeraController.cs" />
     <Compile Include="Controllers\PreCadastroPacienteController.cs" />
+    <Compile Include="Controllers\RecuperarSenhaController.cs" />
     <Compile Include="CustomPrincipalSerializeModel.cs" />
     <Compile Include="FormsAuthenticationUtil.cs" />
     <Compile Include="Global.asax.cs">
@@ -237,6 +238,7 @@
     <Content Include="Views\Diagnostico\Index.cshtml" />
     <Content Include="Views\PerfilTera\Chat.cshtml" />
     <Content Include="Views\Diagnostico\Cadastro.cshtml" />
+    <Content Include="Views\RecuperarSenha\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PSIQ.DataAccess\PSIQ.DataAccess.csproj">

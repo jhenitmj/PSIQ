@@ -1,5 +1,6 @@
-﻿@using PSIQ.Models
-@model Paciente
+﻿
+@using PSIQ.Models
+@model Usuario
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -19,7 +20,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4 col-md-offset-4">
-                <form action="@Url.Action("Entrar", "LoginP")" class="form-horizontal">
+                <form action="@Url.Action("", "")" class="form-horizontal">
                     <div class="form-group">
                         <div class="col-md-12 text-center">
                             <img src="@Url.Content("~/Images/logo_psiq.png")" />
@@ -35,34 +36,15 @@
                         <div class="col-md-12">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <label class="control-label">E-mail:</label>
+                                    <label class="control-label">Digite seu e-mail:</label>
                                     @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <label class="control-label">Senha:</label>
-                                    @Html.PasswordFor(m => m.Senha, new { @class = "form-control" })
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <br />
-                                    <label><input type="checkbox" name="optradio">Lembrar a senha?</label>
-                                </div>
-                                <div class="col-md-4 text-right">
-                                    <br />
-                                    <a href="@Url.Action("Index", "CadastroP")">Cadastrar-se</a>
-                                </div>
-                                <div class="col-md-4">
-                                    <br />
-                                    <a href="@Url.Action("Index", "RecuperSenha")">Esqueci minha senha</a>
-                                </div>
-                            </div>
+                            
                             <div class="row">
                                 <div class="col-md-12 text-center">
                                     <br />
-                                    <button type="submit" class="btn btn-primary btn-block">Entrar</button>
+                                    <button type="submit" class="btn btn-primary btn-block">Enviar Senha</button>
                                 </div>
                             </div>
                         </div>
@@ -78,4 +60,5 @@
     @Scripts.Render("~/bundles/bootstrap")
 </body>
 </html>
+
 
