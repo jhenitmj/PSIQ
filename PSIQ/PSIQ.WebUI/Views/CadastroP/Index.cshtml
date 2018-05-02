@@ -13,6 +13,7 @@
 <div class="row">
     <div class="col-md-12">
         <form class="form-horizontal" action="@Url.Action("Salvar", "CadastroP")">
+            @Html.ValidationSummary(false, "", new { @class = "text-danger" })
             <div class="form-group">
                 <div class="col-md-12">
                     @Html.LabelFor(m => m.Nome, "Nome", new { @class = "control-label" })
@@ -22,7 +23,7 @@
             <div class="form-group">
                 <div class="col-md-6">
                     @Html.LabelFor(m => m.CPF, "CPF:", new { @class = "control-label" })
-                    @Html.TextBoxFor(m => m.CPF, new { @class = "form-control" })
+                    @Html.TextBoxFor(m => m.CPF, new { @id = "txtCpf", @class = "form-control", @placeholder = "000.000.000-00", @required = true })
                 </div>
                 <div class="col-md-6 ">
                     @Html.LabelFor(m => m.DtNascimento, "Data de nascimento:", new { @class = "control-label" })
@@ -70,8 +71,9 @@
     </div>
 </div>
 @section Scripts {
-    <script type="text/javascript">
-        $(document).ready(function () {
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#txtCpf").setMask("cpf");
             $("#txtDtNascimento").setMask("date");
             $('#datetimepicker1').datetimepicker({ format: "DD/MM/YYYY", pickTime: false, language: "pt-BR" });
 
@@ -104,4 +106,4 @@
                 });
             });
         });
-    </script>
+</script>}
