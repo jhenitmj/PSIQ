@@ -5,7 +5,7 @@
 }
 <div class="row">
     <div class="col-md-12">
-        <form class="form-horizontal">
+        <form class="form-horizontal" action="@Url.Action("EnviarMsg", "PerfilPacienteP")">
             <div class="form-group">
                 <div class="col-md-12 text-center">
                     <img src="@Url.Content("~/Images/logo_psiq.png")" />
@@ -42,56 +42,79 @@
                         </a>
                     </div>
                 </div>
-                <div class="col-md-8">
-                    <div class="form-group">
-                        <div class="col-md-12">
-                            <label class="control-label">Envie um comentário:</label>
-                            <textarea name="Mensagem" class="form-control" rows="5"></textarea>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-md-12">
-                            <input type="submit" class="btn btn-primary" value="Enviar" />
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-md-12">
-                            <hr />
-                            <div class="row">
-                                <div class="col-md-2 col-md-push-10 text-center-lg text-right-not-lg">
-                                    <img class="img-circle direita" src="@Url.Content("~/Images/perfil-blog.png")" width="100" height="100">
-                                </div>
-                                <div class="col-md-10 col-md-pull-2 text-right">
-                                    <h4 style="font-weight: bold;">HHLHHLOOFEMN</h4>
-                                    <h6 style="color: #808080;">hor</h6>
-                                </div>
-                            </div>
+            </div>
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="col-md-12">
 
-                            <hr />
-                            <div class="row">
-                                <div class="col-md-2 col-md-push-10 text-center-lg text-right-not-lg">
-                                    <img class="img-circle direita" src="@Url.Content("~/Images/perfil-blog.png")" width="100" height="100">
-                                </div>
-                                <div class="col-md-10 col-md-pull-2 text-right">
-                                    <h4 style="font-weight: bold;">HHLHHLOOFEMN</h4>
-                                    <h6 style="color: #808080;">hor</h6>
+                        <form action="@Url.Action("EnviarMsg", "PerfilPacienteP")" class="form-horizontal">
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <label class="control-label">Envie uma mensagem:</label>
+                                    <textarea name="Mensagem" class="form-control" rows="5"></textarea>
                                 </div>
                             </div>
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <input type="submit" class="btn btn-primary" value="Enviar" />
+                                </div>
+                            </div>
+                        </form>
 
-                            <hr />
-                            <div class="row">
-                                <div class="col-md-2 col-md-push-10 text-center-lg text-right-not-lg">
-                                    <img class="img-circle direita" src="@Url.Content("~/Images/perfil-blog.png")" width="100" height="100">
-                                </div>
-                                <div class="col-md-10 col-md-pull-2 text-right">
-                                    <h4 style="font-weight: bold;">HHLHHLOOFEMN</h4>
-                                    <h6 style="color: #808080;">hor</h6>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
+                @if (Model != null && Model.Count > 0)
+                {
+                    var rowIndex = 0;
+                    var lastUsuario = 0;
+                    var lastTipo = string.Empty;
+                    foreach (var post in Model)
+                    {
+                        if (lastUsuario > 0 && lastUsuario != post.IdUsuario || (lastUsuario > 0 && lastUsuario == post.IdUsuario && !string.IsNullOrWhiteSpace(lastTipo) && lastTipo != post.TipoUsuario))
+                        {
+                            rowIndex++;
+                        }
+                        if (rowIndex % 2 == 0)
+                        {
+                            <hr />
+                            <div class="row">
+                                <div class="col-md-2 text-center-lg">
+                                    <img class="img-circle" src="@Url.Content(string.Format("~/Images/{0}", post.FotoUsuario))" width="100" height="100">
+                                </div>
+                                <div class="col-md-10">
+                                    <h4 style="font-weight: bold;">@post.NomeUsuario</h4>
+                                    <h6 style="color: #ffffff; font-size: 10px;">@string.Format("{0:dd/MM/yyyy HH:mm}", post.DataHora)</h6>
+                                    <p>
+                                        @post.Mensagem
+                                    </p>
+                                </div>
+                            </div>
+                        }
+                        else
+                        {
+                            <hr />
+                            <div class="row">
+                                <div class="col-md-2 col-md-push-10 text-center-lg text-right-not-lg">
+                                    <img class="img-circle direita" src="@Url.Content(string.Format("~/Images/{0}", post.FotoUsuario))" width="100" height="100">
+                                </div>
+                                <div class="col-md-10 col-md-pull-2 text-right">
+                                    <h4 style="font-weight: bold;">@post.NomeUsuario</h4>
+                                    <h6 style="color: #ffffff; font-size: 10px;">@string.Format("{0:dd/MM/yyyy HH:mm}", post.DataHora)</h6>
+                                    <p>
+                                        @post.Mensagem
+                                    </p>
+                                </div>
+                            </div>
+                        }
+                        lastUsuario = post.IdUsuario;
+                        lastTipo = post.TipoUsuario;
+                    }
+                }
+
             </div>
+    </div>
+</div>
+
         </form>
     </div>
 </div>

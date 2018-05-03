@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using PSIQ.DataAccess;
 using System.Web.Mvc;
 
 namespace PSIQ.WebUI.Controllers
@@ -12,6 +9,13 @@ namespace PSIQ.WebUI.Controllers
         public ActionResult Index()
         {
             return View();
+        }
+
+
+        public ActionResult Chat(int terapeutaId)
+        {
+            var lst = new PostDAO().BuscarPorUsuario(terapeutaId);
+            return View(lst);
         }
     }
 }
