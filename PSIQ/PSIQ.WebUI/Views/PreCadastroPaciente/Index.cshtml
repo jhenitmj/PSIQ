@@ -55,19 +55,22 @@
                 </div>
             </div>
             <div class="form-group">
+                <div class="col-md-6">
+                    @Html.LabelFor(m => m.Senha, "Senha:", new { @class = "control-label" })
+                    @Html.PasswordFor(m => m.Senha, new { @class = "form-control" })
+                </div>
 
                 <div class="col-md-6">
                     @Html.LabelFor(m => m.Estado.Cod, "Estado:", new { @class = "control-label" })
                     @Html.DropDownListFor(m => m.Estado.Cod, new SelectList(ViewBag.Estados ?? new List<Estado>(), "Cod", "Nome"), "-- [SELECIONE] --", new { @class = "form-control" })
                 </div>
-                <br />
-                <br />
-                
+             
+                <div class="form-group">
                     <div class="col-md-6 text-right">
                         <button type="submit" class="btn btn-primary">Salvar</button>
                     </div>
                 </div>
-           
+           </div>
 
         </form>
     </div>

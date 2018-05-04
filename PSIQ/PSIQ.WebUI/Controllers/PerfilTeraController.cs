@@ -1,6 +1,7 @@
 ﻿using System.Web.Mvc;
 using PSIQ.Models;
 using PSIQ.DataAccess;
+using System;
 
 namespace PSIQ.WebUI.Controllers
 {
@@ -18,8 +19,19 @@ namespace PSIQ.WebUI.Controllers
 
         public ActionResult Chat(int pacienteId)
         {
+            ViewBag.Usuario = new Paciente() { Cod = pacienteId };
             var lst = new PostDAO().BuscarPorUsuario(pacienteId);
             return View(lst);
+        }
+
+        public ActionResult EnviarMsg(Post obj)
+        {
+            obj.DataHora = DateTime.Now;
+            obj.Terapeuta = new Terapeuta() { Cod = ((Usuario)User).Cod };
+
+            new PostDAO().Inserir(obj);
+
+            return RedirectToAction("Chat", "PerfilTera", new { @pacienteId = obj.IdUsuario });
         }
     }
 }

@@ -6,6 +6,7 @@
 <div class="row">
     <div class="col-md-12">
         <form action="@Url.Action("EnviarMsg", "PerfilTera")" class="form-horizontal">
+            <input name="Paciente.Cod" type="hidden" value="@(((Paciente)ViewBag.Usuario).Cod)" />
             <div class="form-group">
                 <div class="col-md-12">
                     <label class="control-label">Envie uma mensagem:</label>

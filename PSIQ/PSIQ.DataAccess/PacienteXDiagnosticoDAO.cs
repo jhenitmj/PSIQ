@@ -142,7 +142,11 @@ namespace PSIQ.DataAccess
                         {
                             Cod = Convert.ToInt32(row["COD"]),
                             Paciente = new Paciente() { Cod = Convert.ToInt32(row["COD_PACIENTE"]) },
-                            Diagnostico = new Diagnostico() { Cod = Convert.ToInt32(row["COD_DIAGNOSTICO"]) },
+                            Diagnostico = row["COD_DIAGNOSTICO"] is DBNull ? null : new Diagnostico()
+                            {
+                                Cod = Convert.ToInt32(row["COD_DIAGNOSTICO"]),
+                                Nome = row["NOME_DIAGNOSTICO"].ToString(),
+                            },
                             DataHora = Convert.ToDateTime(row["DATA_HORA"]),
                             Descricao = row["DESCRICAO"].ToString()
                         };
@@ -163,7 +167,13 @@ namespace PSIQ.DataAccess
             using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))
             {
                 //Criando instrução sql para selecionar todos os registros na tabela de Categorias
-                string strSQL = @"SELECT * FROM PACIENTE_X_DIAGNOSTICO WHERE COD_PACIENTE = @COD_PACIENTE;";
+                string strSQL = @"SELECT
+                                      PD.DATA_HORA,
+                                      PD.DESCRICAO,
+                                      D.NOME AS NOME_DIAGNOSTICO
+                                  FROM  PACIENTE_X_DIAGNOSTICO PD
+                                  INNER JOIN PACIENTE P ON P.COD = PD.COD_PACIENTE
+                                  INNER JOIN DIAGNOSTICO D ON D.COD = PD.COD_DIAGNOSTICO;";
 
                 //Criando um comando sql que será executado na base de dados
                 using (SqlCommand cmd = new SqlCommand(strSQL))
@@ -187,7 +197,11 @@ namespace PSIQ.DataAccess
                         {
                             Cod = Convert.ToInt32(row["COD"]),
                             Paciente = new Paciente() { Cod = Convert.ToInt32(row["COD_PACIENTE"]) },
-                            Diagnostico = new Diagnostico() { Cod = Convert.ToInt32(row["COD_DIAGNOSTICO"]) },
+                            //Diagnostico = row["COD_DIAGNOSTICO"] is DBNull ? null : new Diagnostico()
+                            //{
+                            //    Cod = Convert.ToInt32(row["COD_DIAGNOSTICO"]),
+                            //    Nome = row["NOME"].ToString(),
+                            //},
                             DataHora = Convert.ToDateTime(row["DATA_HORA"]),
                             Descricao = row["DESCRICAO"].ToString()
                         };
