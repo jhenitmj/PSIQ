@@ -28,12 +28,12 @@
                 <div class="col-md-6 ">
                     @Html.LabelFor(m => m.DtNascimento, "Data de nascimento:", new { @class = "control-label" })
                     @*<div class='input-group date' id='datetimepicker1'>
-                        @Html.TextBoxFor(m => m.DtNascimento, string.Format("{0:dd/MM/yyyy}", Model.DtNascimento), new { @id = "txtDtNascimento", @class = "form-control" })
-                        <span class="input-group-addon">
-                            <span class="glyphicon glyphicon-calendar">
+                            @Html.TextBoxFor(m => m.DtNascimento, string.Format("{0:dd/MM/yyyy}", Model.DtNascimento), new { @id = "txtDtNascimento", @class = "form-control" })
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar">
+                                </span>
                             </span>
-                        </span>
-                    </div>*@
+                        </div>*@
                 </div>
             </div>
             <div class="form-group">
@@ -55,20 +55,20 @@
                 </div>
             </div>
             <div class="form-group">
-                <div class="col-md-6">
-                    @Html.LabelFor(m => m.Senha, "Senha:", new { @class = "control-label" })
-                    @Html.PasswordFor(m => m.Senha, new { @class = "form-control" })
-                </div>
+
                 <div class="col-md-6">
                     @Html.LabelFor(m => m.Estado.Cod, "Estado:", new { @class = "control-label" })
                     @Html.DropDownListFor(m => m.Estado.Cod, new SelectList(ViewBag.Estados ?? new List<Estado>(), "Cod", "Nome"), "-- [SELECIONE] --", new { @class = "form-control" })
                 </div>
-            </div>
-            <div class="form-group">
-                <div class="col-md-12 text-right">
-                    <button type="submit" class="btn btn-primary">Salvar</button>
+                <br />
+                <br />
+                
+                    <div class="col-md-6 text-right">
+                        <button type="submit" class="btn btn-primary">Salvar</button>
+                    </div>
                 </div>
-            </div>
+           
+
         </form>
     </div>
 </div>

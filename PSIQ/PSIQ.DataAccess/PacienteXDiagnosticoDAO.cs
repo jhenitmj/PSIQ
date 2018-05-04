@@ -73,7 +73,7 @@ namespace PSIQ.DataAccess
                                       PD.DATA_HORA,
                                       PD.DESCRICAO,
                                       P.NOME_PACIENTE AS NOME_PACIENTE,
-                                      D.OME_DIAGNOSTICO AS NOME_DIAGNOSTICO
+                                      D.NOME_DIAGNOSTICO AS NOME_DIAGNOSTICO
                                   FROM  PACIENTE_X_DIAGNOSTICO PD
                                   INNER JOIN PACIENTE P ON P.COD = PD.COD_PACIENTE
                                   INNER JOIN DIAGNOSTICO D ON D.COD = PD.COD_DIAGNOSTICO;";
