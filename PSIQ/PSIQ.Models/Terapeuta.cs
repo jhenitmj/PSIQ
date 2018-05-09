@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace PSIQ.Models
@@ -9,5 +10,12 @@ namespace PSIQ.Models
         public string CRP { get; set; }
         [Required]
         public DateTime DtNascimento { get; set; }
+
+        public List<Paciente> Pacientes { get; set; }
+
+        public Terapeuta()
+        {
+            this.Pacientes = new List<Paciente>();
+        }
     }
 }

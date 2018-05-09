@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 
 namespace PSIQ.Models
 {
@@ -12,10 +11,12 @@ namespace PSIQ.Models
         public Terapeuta Terapeuta { get; set; }
         public Estado Estado { get; set; }
         public List<PacienteXDiagnostico> Diagnosticos { get; set; }
+        public List<Post> Posts { get; set; }
 
         public Paciente()
         {
             this.Diagnosticos = new List<PacienteXDiagnostico>();
+            this.Posts = new List<Post>();
         }
     }
 }
