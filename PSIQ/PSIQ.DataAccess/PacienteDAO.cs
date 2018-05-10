@@ -9,6 +9,43 @@ namespace PSIQ.DataAccess
 {
     public class PacienteDAO
     {
+
+
+        public void Atualizar(Paciente obj)
+        {
+            //Criando uma conexão com o banco de dados
+            using (SqlConnection conn = new SqlConnection(@"Initial Catalog=PSIQ; Data Source=localhost; Integrated Security=SSPI;"))
+            {
+                //Criando instrução sql para inserir na tabela de usuarios
+                string strSQL = @"UPDATE paciente set 
+                                    NOME = @NOME,
+                                    CPF = @CPF, 
+                                    DATA_NASCIMENTO = @DATA_NASCIMENTO,
+                                    EMAIL  = @EMAIL,
+                                    FOTO = @FOTO,
+                                  SENHA = @SENHA
+                                WHERE COD = @COD";
+
+                //Criando um comando sql que será executado na base de dados
+                using (SqlCommand cmd = new SqlCommand(strSQL))
+                {
+                    cmd.Connection = conn;
+                    cmd.Parameters.Add("@NOME", SqlDbType.VarChar).Value = obj.Nome;
+                    cmd.Parameters.Add("@CPF", SqlDbType.VarChar).Value = obj.CPF;
+                    cmd.Parameters.Add("@DATA_NASCIMENTO", SqlDbType.DateTime).Value = obj.DtNascimento == DateTime.MinValue ? DateTime.Now : obj.DtNascimento;
+                    cmd.Parameters.Add("@EMAIL", SqlDbType.VarChar).Value = obj.Email;
+                    cmd.Parameters.Add("@FOTO", SqlDbType.VarChar).Value = obj.Foto ?? string.Empty;
+                      cmd.Parameters.Add("@SENHA", SqlDbType.VarChar).Value = obj.Senha;
+                    cmd.Parameters.Add("@COD", SqlDbType.Int).Value =obj.Cod;
+
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                }
+            }
+        }
+
+       
         public void Inserir(Paciente obj)
         {
             using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))

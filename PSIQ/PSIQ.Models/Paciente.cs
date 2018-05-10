@@ -13,6 +13,7 @@ namespace PSIQ.Models
         public List<PacienteXDiagnostico> Diagnosticos { get; set; }
         public List<Post> Posts { get; set; }
 
+
         public Paciente()
         {
             this.Diagnosticos = new List<PacienteXDiagnostico>();
