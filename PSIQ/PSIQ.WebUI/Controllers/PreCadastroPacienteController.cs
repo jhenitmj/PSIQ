@@ -16,6 +16,7 @@ namespace PSIQ.WebUI.Controllers
             return View(obj);
         }
 
+        //RETORNANDO COD
         public ActionResult Salvar(Paciente obj)
         {
             obj.Terapeuta = new Terapeuta() { Cod = ((Usuario)User).Cod };

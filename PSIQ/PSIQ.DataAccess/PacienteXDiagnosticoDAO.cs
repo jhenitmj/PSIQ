@@ -68,7 +68,7 @@ namespace PSIQ.DataAccess
             //Criando uma conexão com o banco de dados
             using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))
             {
-                //Criando instrução sql para selecionar todos os registros na tabela de Categorias
+                //Criando instrução sql para selecionar todos os registros na tabela de DiagXPaicientes
                 string strSQL = @"SELECT
                                       PD.DATA_HORA,
                                       PD.DESCRICAO,
