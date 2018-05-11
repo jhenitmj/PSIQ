@@ -65,4 +65,4 @@ CREATE TABLE POST
 	MENSAGEM	   VARCHAR(MAX)
 );
 
-select * from DIAGNOSTICO
+select * from PACIENTE
