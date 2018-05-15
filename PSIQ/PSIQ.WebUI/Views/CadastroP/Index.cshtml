@@ -37,23 +37,11 @@
                 </div>
             </div>
             <div class="form-group">
-                <div class="col-md-6  ">
+                <div class="col-md-12  ">
                     @Html.LabelFor(m => m.Email, "Email:", new { @class = "control-label" })
                     @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
                 </div>
-                <div class="col-md-6">
-                    @Html.LabelFor(m => m.Foto, "Foto:", new { @id = "lblFoto", @class = "control-label" })
-                    <div class="input-group">
-
-                        @Html.TextBoxFor(m => m.Foto, new { @id = "txtFoto", @class = "form-control", @maxlength = 1000, @readonly = true })
-                        <span class="input-group-btn">
-                            <span class="btn btn-default fileinput-button">
-                                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                                <input id="fupArquivo" type="file" name="files[]" multiple="multiple" data-url="@Url.Action("Upload", "CadastroP")" />
-                            </span>
-                        </span>
-                    </div>
-                </div>
+              
               
             </div>
             <div class="form-group">
@@ -61,10 +49,21 @@
                     @Html.LabelFor(m => m.Senha, "Senha:", new { @class = "control-label" })
                     @Html.PasswordFor(m => m.Senha, new { @class = "form-control" })
                 </div>
-                <div class="col-md-6">
-                    @Html.LabelFor(m => m.Senha, "Confirmar Senha:", new { @class = "control-label" })
-                    @Html.PasswordFor(m => m.Senha, new { @class = "form-control" })
-                </div>
+                <div class="col-md-6 ">
+                    
+                        @Html.LabelFor(m => m.Foto, "Foto:", new { @id = "lblFoto", @class = "control-label" })
+                        <div class="input-group">
+
+                            @Html.TextBoxFor(m => m.Foto, new { @id = "txtFoto", @class = "form-control", @maxlength = 1000, @readonly = true })
+                            <span class="input-group-btn">
+                                <span class="btn btn-default fileinput-button">
+                                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                                    <input id="fupArquivo" type="file" name="files[]" multiple="multiple" data-url="@Url.Action("Upload", "CadastroP")" />
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+                
             </div>
             <div class="form-group">
                

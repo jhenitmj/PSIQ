@@ -36,9 +36,16 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <div class="col-md-6  ">
+                    <div class="col-md-12  ">
                         @Html.LabelFor(m => m.Email, "Email:", new { @class = "control-label" })
                         @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                    </div>
+                   
+                </div>
+                <div class="form-group">
+                    <div class="col-md-6">
+                        @Html.LabelFor(m => m.Senha, "Senha:", new { @class = "control-label" })
+                        @Html.PasswordFor(m => m.Senha, new { @class = "form-control" })
                     </div>
                     <div class="col-md-6">
                         @Html.LabelFor(m => m.Foto, "Foto:", new { @id = "lblFoto", @class = "control-label" })
@@ -51,16 +58,6 @@
                                 </span>
                             </span>
                         </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-md-6">
-                        @Html.LabelFor(m => m.Senha, "Senha:", new { @class = "control-label" })
-                        @Html.PasswordFor(m => m.Senha, new { @class = "form-control" })
-                    </div>
-                    <div class="col-md-6">
-                        @Html.LabelFor(m => m.Senha, "Confirmar senha:", new { @class = "control-label" })
-                        @Html.PasswordFor(m => m.Senha, new { @class = "form-control" })
                     </div>
                 </div>
                 <div class="form-group">
