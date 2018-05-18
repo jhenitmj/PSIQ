@@ -25,11 +25,18 @@
                     </div>
                 </div>
             </div>
-            <div class="form-group">
+            <div class="row">
                 <div class="col-md-4 text-center">
-                    <div class="form-group">
-                        <div class="col-md-12">
-                            <img class="img-circle" src="@Url.Content("~/Images/perfil-blog.png")" />
+                    <div class="form-group text-center">
+                        <div class="col-md-12 text-center">
+                            @if (!string.IsNullOrWhiteSpace(Model.Foto))
+                            {
+                                <img class="img-circle text-center" src="@Url.Content(string.Format("~/Fotos/{0}", Model.Foto))" style="width: 200px;" />
+                            }
+                            else
+                            {
+                                <img class="img-circle text-center" src="@Url.Content("~/Images/perfil-blog.png")" />
+                            }
                         </div>
                     </div>
                     <div class="form-group">
@@ -56,7 +63,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <div class="col-md-12">
+                        <div class="col-md-12" ">
                             @if (Model != null && Model.Posts.Count > 0)
                             {
                                 var rowIndex = 0;
@@ -71,13 +78,13 @@
                                     if (rowIndex % 2 == 0)
                                     {
                                         <hr />
-                                        <div class="row">
+                                        <div class="row" style="background-color:white; border-radius: 10px;">
                                             <div class="col-md-2 text-center-lg">
-                                                <img class="img-circle" src="@Url.Content(string.Format("~/Images/{0}", post.FotoUsuario))" width="100" height="100">
+                                                <img class="img-circle" src="@Url.Content(string.Format("~/Fotos/{0}", post.FotoUsuario))" width="100" height="100">
                                             </div>
-                                            <div class="col-md-10">
+                                            <div class="col-md-10" style="word-wrap: break-word;">
                                                 <h4 style="font-weight: bold;">@post.NomeUsuario</h4>
-                                                <h6 style="color: #ffffff; font-size: 10px;">@string.Format("{0:dd/MM/yyyy HH:mm}", post.DataHora)</h6>
+                                                <h6 style="color: black; font-size: 10px;">@string.Format("{0:dd/MM/yyyy HH:mm}", post.DataHora)</h6>
                                                 <p>
                                                     @post.Mensagem
                                                 </p>
