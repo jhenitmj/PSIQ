@@ -1,5 +1,5 @@
 ﻿@using PSIQ.Models
-@model Paciente
+@model Usuario
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -26,10 +26,10 @@
                     @Html.TextBoxFor(m => m.CPF, new { id = "txtCpf", @class = "form-control" })
                 </div>
                 <div class="col-md-6 ">
-                    @Html.LabelFor(m => m.DtNascimento, "Data de nascimento:", new { @class = "control-label" })
-                    @Html.TextBoxFor(m => m.DtNascimento, string.Format("{0:dd/MM/yyyy}", Model.DtNascimento), new { @id = "txtDtNascimento", @class = "form-control" })
+                    @Html.LabelFor(m => m.DataNasc, "Data de nascimento:", new { @class = "control-label" })
+                    @Html.TextBoxFor(m => m.DataNasc, string.Format("{0:dd/MM/yyyy}", Model.DataNasc), new { @id = "txtDataNasc", @class = "form-control" })
                     @*<div class='input-group date' id='datetimepicker1'>
-                            @Html.TextBoxFor(m => m.DtNascimento, string.Format("{0:dd/MM/yyyy}", Model.DtNascimento), new { @id = "txtDtNascimento", @class = "form-control" })
+                            @Html.TextBoxFor(m => m.DtNascimento, string.Format("{0:dd/MM/yyyy}", Model.DataNasc), new { @id = "txtDtNascimento", @class = "form-control" })
                             <span class="input-group-addon">
                                 <span class="glyphicon glyphicon-calendar">
                                 </span>
@@ -64,7 +64,7 @@
                     @Html.LabelFor(m => m.Estado.Cod, "Estado:", new { @class = "control-label" })
                     @Html.DropDownListFor(m => m.Estado.Cod, new SelectList(ViewBag.Estados ?? new List<Estado>(), "Cod", "Nome"), "-- [SELECIONE] --", new { @class = "form-control" })
                 </div>
-           </div>
+            </div>
             <div class="form-group">
                 <div class="col-md-12 text-right">
 
@@ -86,7 +86,7 @@
             });
 
             $("#txtCpf").setMask("cpf");
-            $("#txtDtNascimento").setMask("date");
+            $("#txtDataNasc").setMask("date");
             //$('#datetimepicker1').datetimepicker({ format: "DD/MM/YYYY", pickTime: false, language: "pt-BR" });
 
             $('#fupArquivo').change(function (e) {
@@ -118,8 +118,5 @@
                 });
             });
         });
-        @*function Enviarod(@Paciente paciente in Model) {
-            alert("Codigo do paciente é"+ @paciente.COD);
-        }*@
     </script>
 }

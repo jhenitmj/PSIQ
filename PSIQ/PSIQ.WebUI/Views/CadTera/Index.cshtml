@@ -1,5 +1,5 @@
 ﻿@using PSIQ.Models
-@model Terapeuta
+@model Usuario
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -25,9 +25,9 @@
                         @Html.TextBoxFor(m => m.CRP, new { @class = "form-control" })
                     </div>
                     <div class="col-md-6 ">
-                        @Html.LabelFor(m => m.DtNascimento, "Data de nascimento:", new { @class = "control-label" })
+                        @Html.LabelFor(m => m.DataNasc, "Data de nascimento:", new { @class = "control-label" })
                         <div class='input-group date' id='datetimepicker1'>
-                            @Html.TextBoxFor(m => m.DtNascimento, string.Format("{0:dd/MM/yyyy}", Model.DtNascimento), new { @id = "txtDtNascimento", @class = "form-control", @data_format = "dd/MM/yyyy", @maxlength = 10 })
+                            @Html.TextBoxFor(m => m.DataNasc, string.Format("{0:dd/MM/yyyy}", Model.DataNasc), new { @id = "txtDataNasc", @class = "form-control", @data_format = "dd/MM/yyyy", @maxlength = 10 })
                             <span class="input-group-addon">
                                 <span class="glyphicon glyphicon-calendar">
                                 </span>
@@ -73,7 +73,7 @@
 @section Scripts {
 <script type="text/javascript">
         $(document).ready(function () {
-            $("#txtDtNascimento").setMask("date");
+            $("#txtDataNasc").setMask("date");
             $('#datetimepicker1').datetimepicker({ format: "DD/MM/YYYY", pickTime: false, language: "pt-BR" });
 
             $('#fupArquivo').change(function (e) {

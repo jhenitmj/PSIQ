@@ -1,5 +1,5 @@
 ﻿@using PSIQ.Models
-@model Paciente
+@model Usuario
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -26,9 +26,9 @@
                     @Html.TextBoxFor(m => m.CPF, new { @id = "txtCpf", @class = "form-control", @placeholder = "000.000.000-00", @required = true })
                 </div>
                 <div class="col-md-6 ">
-                    @Html.LabelFor(m => m.DtNascimento, "Data de nascimento:", new { @class = "control-label" })
+                    @Html.LabelFor(m => m.DataNasc, "Data de nascimento:", new { @class = "control-label" })
                     <div class='input-group date' id='datetimepicker1'>
-                        @Html.TextBoxFor(m => m.DtNascimento, string.Format("{0:dd/MM/yyyy}", Model.DtNascimento), new { @id = "txtDtNascimento", @class = "form-control", @data_format = "dd/MM/yyyy", @maxlength = 10 })
+                        @Html.TextBoxFor(m => m.DataNasc, string.Format("{0:dd/MM/yyyy}", Model.DataNasc), new { @id = "txtDataNasc", @class = "form-control", @data_format = "dd/MM/yyyy", @maxlength = 10 })
                         <span class="input-group-addon">
                             <span class="glyphicon glyphicon-calendar">
                             </span>
@@ -41,8 +41,8 @@
                     @Html.LabelFor(m => m.Email, "Email:", new { @class = "control-label" })
                     @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
                 </div>
-              
-              
+
+
             </div>
             <div class="form-group">
                 <div class="col-md-6">
@@ -50,23 +50,23 @@
                     @Html.PasswordFor(m => m.Senha, new { @class = "form-control" })
                 </div>
                 <div class="col-md-6 ">
-                    
-                        @Html.LabelFor(m => m.Foto, "Foto:", new { @id = "lblFoto", @class = "control-label" })
-                        <div class="input-group">
 
-                            @Html.TextBoxFor(m => m.Foto, new { @id = "txtFoto", @class = "form-control", @maxlength = 1000, @readonly = true })
-                            <span class="input-group-btn">
-                                <span class="btn btn-default fileinput-button">
-                                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                                    <input id="fupArquivo" type="file" name="files[]" multiple="multiple" data-url="@Url.Action("Upload", "CadastroP")" />
-                                </span>
+                    @Html.LabelFor(m => m.Foto, "Foto:", new { @id = "lblFoto", @class = "control-label" })
+                    <div class="input-group">
+
+                        @Html.TextBoxFor(m => m.Foto, new { @id = "txtFoto", @class = "form-control", @maxlength = 1000, @readonly = true })
+                        <span class="input-group-btn">
+                            <span class="btn btn-default fileinput-button">
+                                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                                <input id="fupArquivo" type="file" name="files[]" multiple="multiple" data-url="@Url.Action("Upload", "CadastroP")" />
                             </span>
-                        </div>
+                        </span>
                     </div>
-                
+                </div>
+
             </div>
             <div class="form-group">
-               
+
                 <div class="col-md-12 text-right">
                     <button type="submit" class="btn btn-primary">Salvar</button>
                     <a class="btn btn-default" href="@Url.Action("Index", "PerfilPacienteP")">Cancelar</a>
@@ -77,10 +77,10 @@
     @Html.HiddenFor(m => m.Cod)
 </div>
 @section Scripts {
-<script type="text/javascript">
-    $(document).ready(function () {
-        $("#txtCpf").setMask("cpf");
-            $("#txtDtNascimento").setMask("date");
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#txtCpf").setMask("cpf");
+            $("#txtDataNasc").setMask("date");
             $('#datetimepicker1').datetimepicker({ format: "DD/MM/YYYY", pickTime: false, language: "pt-BR" });
 
             $('#fupArquivo').change(function (e) {
@@ -112,4 +112,4 @@
                 });
             });
         });
-</script>}
+    </script>}

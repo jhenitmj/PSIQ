@@ -15,17 +15,6 @@ namespace PSIQ.WebUI.Controllers
             return View(obj);
         }
 
-        //public ActionResult Salvar(Paciente obj)
-        //{
-        //    //var usuarioLogado = new TerapeutaDAO().BuscarPorId(((Usuario)User).Cod);
-
-        //    ////Chamando a classe de acesso ao banco de dados para buscar todos os registro salvos na tabela
-        //    //usuarioLogado.Pacientes = new PacienteDAO().Atualizar(((Usuario)User).Cod);
-
-        //    ////Retornando uma view chamada 'Index' com a lista de Pacientes carregados do banco de dados
-        //    //return View(usuarioLogado);
-        //}
-
         [HttpPost]
         public JsonResult Upload()
         {
