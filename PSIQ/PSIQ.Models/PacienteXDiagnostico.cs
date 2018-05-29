@@ -11,7 +11,7 @@ namespace PSIQ.Models
 
         public DateTime DataHora { get; set; }
 
-        public Paciente Paciente { get; set; }
+        public Usuario Paciente { get; set; }
 
         public Diagnostico Diagnostico { get; set; }
 

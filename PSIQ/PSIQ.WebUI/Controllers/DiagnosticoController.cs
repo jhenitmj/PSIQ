@@ -12,7 +12,7 @@ namespace PSIQ.WebUI.Controllers
         {
             ViewBag.Diagnosticos = new DiagnosticoDAO().BuscarTodos();
             ViewBag.PacXDiags = new PacienteXDiagnosticoDAO().BuscarPorPaciente(pacienteId);
-            var pxd = new PacienteXDiagnostico() { Paciente = new Paciente() { Cod = pacienteId } };
+            var pxd = new PacienteXDiagnostico() { Paciente = new Usuario() { Cod = pacienteId } };
             return View(pxd);
         }
 

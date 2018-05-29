@@ -15,16 +15,14 @@ namespace PSIQ.DataAccess
             using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))
             {
                 //Criando instrução sql para inserir na tabela de posts
-                string strSQL = @"INSERT INTO POST (COD_PACIENTE, COD_TERAPEUTA, DATA_HORA, MENSAGEM) 
-                                  VALUES (@COD_PACIENTE, @COD_TERAPEUTA, @DATA_HORA, @MENSAGEM);";
+                string strSQL = @"INSERT INTO POST (COD_USUARIO, DATA_HORA, MENSAGEM) VALUES (@COD_USUARIO, @DATA_HORA, @MENSAGEM);";
 
                 //Criando um comando sql que será executado na base de dados
                 using (SqlCommand cmd = new SqlCommand(strSQL))
                 {
                     cmd.Connection = conn;
                     //Preenchendo os parâmetros da instrução sql
-                    cmd.Parameters.Add("@COD_PACIENTE", SqlDbType.Int).Value = obj.Paciente != null ? obj.Paciente.Cod : new Nullable<int>();
-                    cmd.Parameters.Add("@COD_TERAPEUTA", SqlDbType.Int).Value = obj.Terapeuta != null ? obj.Terapeuta.Cod : new Nullable<int>();
+                    cmd.Parameters.Add("@COD_USUARIO", SqlDbType.Int).Value = obj.Usuario != null ? obj.Usuario.Cod : new Nullable<int>();
                     cmd.Parameters.Add("@DATA_HORA", SqlDbType.DateTime).Value = obj.DataHora;
                     cmd.Parameters.Add("@MENSAGEM", SqlDbType.VarChar).Value = obj.Mensagem;
 
@@ -46,13 +44,10 @@ namespace PSIQ.DataAccess
                 //Criando instrução sql para selecionar todos os registros na tabela de posts
                 string strSQL = @"SELECT 
                                     P.*,
-                                    T.NOME AS TERAPEUTA,
-                                    A.NOME AS PACIENTE,
-                                    T.FOTO AS FOTO_TERAPEUTA,
-                                    A.FOTO AS FOTO_PACIENTE
+                                    U.NOME AS NOME_USUARIO,
+                                    U.FOTO AS FOTO_USUARIO
                                 FROM POST P
-                                LEFT JOIN TERAPEUTA T ON (T.COD = P.COD_TERAPEUTA)
-                                LEFT JOIN PACIENTE A ON (A.COD = P.COD_PACIENTE)
+                                LEFT JOIN USUARIO U ON (U.COD = P.COD_USUARIO)
                                 WHERE P.COD = @COD;";
 
                 //Criando um comando sql que será executado na base de dados
@@ -76,17 +71,11 @@ namespace PSIQ.DataAccess
                     var post = new Post()
                     {
                         Cod = Convert.ToInt32(row["COD"]),
-                        Terapeuta = row["COD_TERAPEUTA"] is DBNull ? null : new Terapeuta()
+                        Usuario = row["COD_USUARIO"] is DBNull ? null : new Usuario()
                         {
-                            Cod = Convert.ToInt32(row["COD_TERAPEUTA"]),
-                            Nome = row["TERAPEUTA"].ToString(),
-                            Foto = row["FOTO_TERAPEUTA"].ToString()
-                        },
-                        Paciente = row["COD_PACIENTE"] is DBNull ? null : new Paciente()
-                        {
-                            Cod = Convert.ToInt32(row["COD_PACIENTE"]),
-                            Nome = row["PACIENTE"].ToString(),
-                            Foto = row["FOTO_PACIENTE"].ToString()
+                            Cod = Convert.ToInt32(row["COD_USUARIO"]),
+                            Nome = row["NOME_USUARIO"].ToString(),
+                            Foto = row["FOTO_USUARIO"].ToString()
                         },
                         DataHora = Convert.ToDateTime(row["DATA_HORA"]),
                         Mensagem = row["MENSAGEM"].ToString()
@@ -107,13 +96,10 @@ namespace PSIQ.DataAccess
                 //Criando instrução sql para selecionar todos os registros na tabela de posts
                 string strSQL = @"SELECT 
                                     P.*,
-                                    T.NOME AS TERAPEUTA,
-                                    A.NOME AS PACIENTE,
-                                    T.FOTO AS FOTO_TERAPEUTA,
-                                    A.FOTO AS FOTO_PACIENTE
+                                    U.NOME AS NOME_USUARIO,
+                                    U.FOTO AS FOTO_USUARIO
                                 FROM POST P
-                                LEFT JOIN TERAPEUTA T ON (T.COD = P.COD_TERAPEUTA)
-                                LEFT JOIN PACIENTE A ON (A.COD = P.COD_PACIENTE);";
+                                LEFT JOIN USUARIO U ON (U.COD = P.COD_USUARIO);";
 
                 //Criando um comando sql que será executado na base de dados
                 using (SqlCommand cmd = new SqlCommand(strSQL))
@@ -135,17 +121,11 @@ namespace PSIQ.DataAccess
                         var post = new Post()
                         {
                             Cod = Convert.ToInt32(row["COD"]),
-                            Terapeuta = row["COD_TERAPEUTA"] is DBNull ? null : new Terapeuta()
+                            Usuario = row["COD_USUARIO"] is DBNull ? null : new Usuario()
                             {
-                                Cod = Convert.ToInt32(row["COD_TERAPEUTA"]),
-                                Nome = row["TERAPEUTA"].ToString(),
-                                Foto = row["FOTO_TERAPEUTA"].ToString()
-                            },
-                            Paciente = row["COD_PACIENTE"] is DBNull ? null : new Paciente()
-                            {
-                                Cod = Convert.ToInt32(row["COD_PACIENTE"]),
-                                Nome = row["PACIENTE"].ToString(),
-                                Foto = row["FOTO_PACIENTE"].ToString()
+                                Cod = Convert.ToInt32(row["COD_USUARIO"]),
+                                Nome = row["NOME_USUARIO"].ToString(),
+                                Foto = row["FOTO_USUARIO"].ToString()
                             },
                             DataHora = Convert.ToDateTime(row["DATA_HORA"]),
                             Mensagem = row["MENSAGEM"].ToString()
@@ -159,7 +139,7 @@ namespace PSIQ.DataAccess
             return lst;
         }
 
-        public List<Post> BuscarPorUsuario(int paciente)
+        public List<Post> BuscarPorUsuario(int usuario)
         {
             var lst = new List<Post>();
 
@@ -169,14 +149,11 @@ namespace PSIQ.DataAccess
                 //Criando instrução sql para selecionar todos os registros na tabela de posts
                 string strSQL = @"SELECT 
                                     P.*,
-                                    T.NOME AS TERAPEUTA,
-                                    A.NOME AS PACIENTE,
-                                    T.FOTO AS FOTO_TERAPEUTA,
-                                    A.FOTO AS FOTO_PACIENTE
+                                    U.NOME AS NOME_USUARIO,
+                                    U.FOTO AS FOTO_USUARIO
                                 FROM POST P
-                                LEFT JOIN TERAPEUTA T ON (T.COD = P.COD_TERAPEUTA)
-                                LEFT JOIN PACIENTE A ON (A.COD = P.COD_PACIENTE)
-                                WHERE P.COD_PACIENTE = @COD_PACIENTE;";
+                                LEFT JOIN USUARIO U ON (U.COD = P.COD_USUARIO)
+                                WHERE P.COD_USUARIO = @COD_USUARIO;";
 
                 //Criando um comando sql que será executado na base de dados
                 using (SqlCommand cmd = new SqlCommand(strSQL))
@@ -184,7 +161,7 @@ namespace PSIQ.DataAccess
                     //Abrindo conexão com o banco de dados
                     conn.Open();
                     cmd.Connection = conn;
-                    cmd.Parameters.Add("@COD_PACIENTE", SqlDbType.Int).Value = paciente;
+                    cmd.Parameters.Add("@COD_USUARIO", SqlDbType.Int).Value = usuario;
                     cmd.CommandText = strSQL;
                     //Executando instrução sql
                     var dataReader = cmd.ExecuteReader();
@@ -199,17 +176,11 @@ namespace PSIQ.DataAccess
                         var post = new Post()
                         {
                             Cod = Convert.ToInt32(row["COD"]),
-                            Terapeuta = row["COD_TERAPEUTA"] is DBNull ? null : new Terapeuta()
+                            Usuario = row["COD_USUARIO"] is DBNull ? null : new Usuario()
                             {
-                                Cod = Convert.ToInt32(row["COD_TERAPEUTA"]),
-                                Nome = row["TERAPEUTA"].ToString(),
-                                Foto = row["FOTO_TERAPEUTA"].ToString()
-                            },
-                            Paciente = row["COD_PACIENTE"] is DBNull ? null : new Paciente()
-                            {
-                                Cod = Convert.ToInt32(row["COD_PACIENTE"]),
-                                Nome = row["PACIENTE"].ToString(),
-                                Foto = row["FOTO_PACIENTE"].ToString()
+                                Cod = Convert.ToInt32(row["COD_USUARIO"]),
+                                Nome = row["NOME_USUARIO"].ToString(),
+                                Foto = row["FOTO_USUARIO"].ToString()
                             },
                             DataHora = Convert.ToDateTime(row["DATA_HORA"]),
                             Mensagem = row["MENSAGEM"].ToString()

@@ -100,7 +100,7 @@ namespace PSIQ.DataAccess
                     var row = dt.Rows[0];
                     var pxd = new PacienteXDiagnostico()
                     {
-                        Paciente = new Paciente() { Cod = Convert.ToInt32(row["COD_PACIENTE"]) },
+                        Paciente = new Usuario() { Cod = Convert.ToInt32(row["COD_PACIENTE"]) },
                         Diagnostico = new Diagnostico() { Cod = Convert.ToInt32(row["COD_DIAGNOSTICO"]) },
                         DataHora = Convert.ToDateTime(row["DATA_HORA"]),
                         Descricao = row["DESCRICAO"].ToString()
@@ -141,7 +141,7 @@ namespace PSIQ.DataAccess
                         var pxd = new PacienteXDiagnostico()
                         {
                             Cod = Convert.ToInt32(row["COD"]),
-                            Paciente = new Paciente() { Cod = Convert.ToInt32(row["COD_PACIENTE"]) },
+                            Paciente = new Usuario() { Cod = Convert.ToInt32(row["COD_PACIENTE"]) },
                             Diagnostico = row["COD_DIAGNOSTICO"] is DBNull ? null : new Diagnostico()
                             {
                                 Cod = Convert.ToInt32(row["COD_DIAGNOSTICO"]),
@@ -195,7 +195,7 @@ namespace PSIQ.DataAccess
                         var pxd = new PacienteXDiagnostico()
                         {
                             Cod = Convert.ToInt32(row["COD"]),
-                            Paciente = new Paciente() { Cod = Convert.ToInt32(row["COD_PACIENTE"]) },
+                            Paciente = new Usuario() { Cod = Convert.ToInt32(row["COD_PACIENTE"]) },
                             Diagnostico = row["COD_DIAGNOSTICO"] is DBNull ? null : new Diagnostico()
                             {
                                 Cod = Convert.ToInt32(row["COD_DIAGNOSTICO"]),

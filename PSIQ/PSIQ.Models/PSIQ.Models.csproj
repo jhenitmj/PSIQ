@@ -46,11 +46,10 @@
     <Compile Include="Diagnostico.cs" />
     <Compile Include="Estado.cs" />
     <Compile Include="ICustomPrincipal.cs" />
-    <Compile Include="Paciente.cs" />
     <Compile Include="PacienteXDiagnostico.cs" />
-    <Compile Include="Terapeuta.cs" />
     <Compile Include="Post.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TIPO_USUARIO.cs" />
     <Compile Include="Usuario.cs" />
   </ItemGroup>
   <ItemGroup />

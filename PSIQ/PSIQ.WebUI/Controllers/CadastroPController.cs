@@ -9,12 +9,9 @@ namespace PSIQ.WebUI.Controllers
 {
     public class CadastroPController : Controller
     {
-
         public ActionResult Index()
         {
-          
-     
-            var obj = new Paciente() { DtNascimento = System.DateTime.Now };
+            var obj = new Usuario() { DataNasc = System.DateTime.Now };
             return View(obj);
         }
 
@@ -27,9 +24,6 @@ namespace PSIQ.WebUI.Controllers
 
         //    ////Retornando uma view chamada 'Index' com a lista de Pacientes carregados do banco de dados
         //    //return View(usuarioLogado);
-
-
-
         //}
 
         [HttpPost]

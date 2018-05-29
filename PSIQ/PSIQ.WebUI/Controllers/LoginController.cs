@@ -16,9 +16,9 @@ namespace PSIQ.WebUI.Controllers
             return View();
         }
 
-        public ActionResult Entrar(Terapeuta obj)
+        public ActionResult Entrar(Usuario obj)
         {
-            var usuarioLogado = new TerapeutaDAO().Logar(obj);
+            var usuarioLogado = new UsuarioDAO().Logar(obj);
 
             if (usuarioLogado == null)
             {

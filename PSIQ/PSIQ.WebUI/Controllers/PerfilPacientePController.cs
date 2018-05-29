@@ -10,7 +10,7 @@ namespace PSIQ.WebUI.Controllers
     {
         public ActionResult Index()
         {
-            var usuarioLogado = new PacienteDAO().BuscarPorId(((Usuario)User).Cod);
+            var usuarioLogado = new UsuarioDAO().BuscarPorId(((Usuario)User).Cod);
             usuarioLogado.Posts = new PostDAO().BuscarPorUsuario(((Usuario)User).Cod);
             return View(usuarioLogado);
         }
@@ -18,9 +18,8 @@ namespace PSIQ.WebUI.Controllers
         public ActionResult EnviarMsg(Post obj)
         {
             obj.DataHora = DateTime.Now;
-            var usuarioLogado = new PacienteDAO().BuscarPorId(((Usuario)User).Cod);
-            obj.Terapeuta = new Terapeuta() { Cod = usuarioLogado.Terapeuta.Cod };
-            obj.Paciente = new Paciente() { Cod = usuarioLogado.Cod };
+            var usuarioLogado = new UsuarioDAO().BuscarPorId(((Usuario)User).Cod);
+            obj.Usuario = new Usuario() { Cod = usuarioLogado.Cod };
 
             new PostDAO().Inserir(obj);
 

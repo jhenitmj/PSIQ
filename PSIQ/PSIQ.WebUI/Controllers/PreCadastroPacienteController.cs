@@ -11,17 +11,16 @@ namespace PSIQ.WebUI.Controllers
     {
         public ActionResult Index()
         {
-            var obj = new Paciente() { DtNascimento = DateTime.Now };
+            var obj = new Usuario() { DataNasc = DateTime.Now };
             ViewBag.Estados = new EstadoDAO().BuscarTodos();
             return View(obj);
         }
 
-        //RETORNANDO COD
-        public ActionResult Salvar(Paciente obj)
+        public ActionResult Salvar(Usuario obj)
         {
-            obj.Terapeuta = new Terapeuta() { Cod = ((Usuario)User).Cod };
+            obj.Terapeuta = new Usuario() { Cod = ((Usuario)User).Cod };
 
-            new PacienteDAO().Inserir(obj);
+            new UsuarioDAO().Inserir(obj);
 
             return RedirectToAction("Index", "PerfilTera");
         }
