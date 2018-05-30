@@ -46,6 +46,47 @@ namespace PSIQ.DataAccess
             }
         }
 
+        public void Atualizar(Usuario obj)
+        {
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))
+            {
+                string strSQL = @"UPDATE USUARIO SET 
+                                      TIPO = @TIPO, 
+                                      NOME = @NOME, 
+                                      EMAIL = @EMAIL, 
+                                      SENHA = @SENHA, 
+                                      CPF = @CPF, 
+                                      DATA_NASCIMENTO = @DATA_NASCIMENTO, 
+                                      FOTO = @FOTO
+                                  WHERE COD = @COD;";
+
+                using (SqlCommand cmd = new SqlCommand(strSQL))
+                {
+                    cmd.Connection = conn;
+                    cmd.Parameters.Add("@TIPO", SqlDbType.Int).Value = obj.Tipo;
+                    cmd.Parameters.Add("@NOME", SqlDbType.VarChar).Value = obj.Nome;
+                    cmd.Parameters.Add("@EMAIL", SqlDbType.VarChar).Value = obj.Email;
+                    cmd.Parameters.Add("@SENHA", SqlDbType.VarChar).Value = obj.Senha;
+                    cmd.Parameters.Add("@CPF", SqlDbType.VarChar).Value = obj.CPF;
+                    cmd.Parameters.Add("@DATA_NASCIMENTO", SqlDbType.DateTime).Value = obj.DataNasc;
+                    cmd.Parameters.Add("@FOTO", SqlDbType.VarChar).Value = obj.Foto;
+                    cmd.Parameters.Add("@COD", SqlDbType.Int).Value = obj.Cod;
+
+                    foreach (SqlParameter parameter in cmd.Parameters)
+                    {
+                        if (parameter.Value == null)
+                        {
+                            parameter.Value = DBNull.Value;
+                        }
+                    }
+
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                }
+            }
+        }
+
         public Usuario Logar(Usuario obj)
         {
             using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))
@@ -89,7 +130,7 @@ namespace PSIQ.DataAccess
             }
         }
 
-        public Usuario BuscarPorId(int id)
+        public Usuario BuscarPorCod(int id)
         {
             using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))
             {

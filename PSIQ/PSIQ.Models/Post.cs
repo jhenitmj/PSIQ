@@ -8,6 +8,7 @@ namespace PSIQ.Models
     public class Post
     {
         public int Cod { get; set; }
+        public Usuario Paciente { get; set; }
         public Usuario Usuario { get; set; }
         public DateTime DataHora { get; set; }
         public string Mensagem { get; set; }

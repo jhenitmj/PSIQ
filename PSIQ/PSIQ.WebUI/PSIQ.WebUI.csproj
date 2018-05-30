@@ -170,6 +170,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\PaciViewModel.cs" />
     <Compile Include="ViewModels\TeraViewModel.cs" />
   </ItemGroup>
   <ItemGroup>

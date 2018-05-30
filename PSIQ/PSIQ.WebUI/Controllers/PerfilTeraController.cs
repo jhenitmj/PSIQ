@@ -10,7 +10,7 @@ namespace PSIQ.WebUI.Controllers
     {
         public ActionResult Index()
         {
-            var usuarioLogado = new UsuarioDAO().BuscarPorId(((Usuario)User).Cod);
+            var usuarioLogado = new UsuarioDAO().BuscarPorCod(((Usuario)User).Cod);
 
             //Chamando a classe de acesso ao banco de dados para buscar todos os registro salvos na tabela
             usuarioLogado.Pacientes = new UsuarioDAO().BuscarPorTerapeuta(((Usuario)User).Cod);
@@ -22,7 +22,7 @@ namespace PSIQ.WebUI.Controllers
         public ActionResult Chat(int pacienteId)
         {
             ViewBag.Usuario = new Usuario() { Cod = pacienteId };
-            var lst = new PostDAO().BuscarPorUsuario(pacienteId);
+            var lst = new PostDAO().BuscarPorPaciente(pacienteId);
             return View(lst);
         }
 
@@ -33,7 +33,7 @@ namespace PSIQ.WebUI.Controllers
 
             new PostDAO().Inserir(obj);
 
-            return RedirectToAction("Chat", "PerfilTera", new { @pacienteId = obj.Usuario.Cod });
+            return RedirectToAction("Chat", "PerfilTera", new { @pacienteId = obj.Paciente.Cod });
         }
     }
 }

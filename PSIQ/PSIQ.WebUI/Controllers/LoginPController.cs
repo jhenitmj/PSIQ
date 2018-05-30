@@ -21,14 +21,7 @@ namespace PSIQ.WebUI.Controllers
                 return View("Index");
             }
 
-            var userData = new JavaScriptSerializer().Serialize(new Usuario()
-            {
-                Cod = usuarioLogado.Cod,
-                Nome = usuarioLogado.Nome,
-                Email = usuarioLogado.Email,
-                Senha = usuarioLogado.Senha,
-                Foto = usuarioLogado.Foto
-            });
+            var userData = new JavaScriptSerializer().Serialize(usuarioLogado);
             FormsAuthenticationUtil.SetCustomAuthCookie(usuarioLogado.Email, userData, false);
 
             return RedirectToAction("Index", "PerfilPacienteP");

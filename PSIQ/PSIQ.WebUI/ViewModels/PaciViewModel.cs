@@ -5,14 +5,14 @@ using System.Web;
 
 namespace PSIQ.WebUI.ViewModels
 {
-    public class TeraViewModel
+    public class PaciViewModel
     {
         public int Cod { get; set; }
         public string Nome { get; set; }
         public string Email { get; set; }
         public string Senha { get; set; }
         public string Foto { get; set; }
-        public string CRP { get; set; }
+        public string CPF { get; set; }
         public DateTime? DataNasc { get; set; }
     }
 }

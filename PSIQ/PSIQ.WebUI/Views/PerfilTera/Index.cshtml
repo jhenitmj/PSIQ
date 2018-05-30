@@ -1,5 +1,5 @@
 ﻿@using PSIQ.Models
-@model  Terapeuta
+@model  Usuario
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -16,7 +16,7 @@
                 <div class="masthead">
                     <nav>
                         <ul class="nav nav-justified">
-                            <li><a href="#">Perfil</a></li>
+                            <li><a href="@Url.Action("Index", "PerfilTera")">Perfil</a></li>
                             <li><a href="@Url.Action("Index", "PreCadastroPaciente")"> Cadastrar Pacientes</a></li>
                             <li><a href="@Url.Action("Cadastro", "Diagnostico")"> Cadastrar Diagnósticos</a></li>
                             <li><a href="@Url.Action("LogOff", "Login")">Sair</a></li>
@@ -27,13 +27,11 @@
         </div>
         <div class="form-group">
             <div class="col-md-4 text-center">
-
                 @if (!string.IsNullOrWhiteSpace(Model.Foto))
                 {
-                    <img src="@Url.Content(string.Format("~/Uploads/{0}", Model.Foto))" class="img-circle"/>
+                    <img src="@Url.Content(string.Format("~/Fotos/{0}", Model.Foto))" class="img-circle"/>
                 }
                 else
-
                 {
                     <img class="img-circle" src="@Url.Content("~/Images/perfil-blog.png")" />
                 }
@@ -69,12 +67,12 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach (Paciente paciente in Model.Pacientes)
+                                @foreach (Usuario paciente in Model.Pacientes)
                                 {
                                     <tr style="background-color: #f9f9f9 !important;">
                                         <td style="width:45%">@paciente.Nome</td>
                                         <td style="width:20%">@string.Format("{0:dd/MM/yyyy}", paciente.DataNasc)</td>
-                                        <td style="width:20%">@paciente.Estado.Nome</td>
+                                        <td style="width:20%">@(paciente.Estado != null ? paciente.Estado.Nome : string.Empty)</td>
                                         <td class="text-center" style="width:15%">
                                             <a href="@Url.Action("Index", "Diagnostico", new { @pacienteId = paciente.Cod })">
                                                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>

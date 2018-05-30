@@ -23,6 +23,7 @@ namespace PSIQ.WebUI
             Mapper.Initialize(cfg =>
             {
                 cfg.CreateMap<TeraViewModel, Usuario>();
+                cfg.CreateMap<PaciViewModel, Usuario>();
             });
         }
 

@@ -4,9 +4,29 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div class="row">
+    <div class="col-md-12 text-center">
+        <img src="@Url.Content("~/Images/logo_psiq.png")" />
+        <p><b>A rede social para o lado mais expressivo do ser</b></p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="masthead">
+            <nav>
+                <ul class="nav nav-justified">
+                    <li><a href="@Url.Action("Index", "PerfilTera")">Perfil</a></li>
+                    <li><a href="@Url.Action("Index", "PreCadastroPaciente")"> Cadastrar Pacientes</a></li>
+                    <li><a href="@Url.Action("Cadastro", "Diagnostico")"> Cadastrar Diagnósticos</a></li>
+                    <li><a href="@Url.Action("LogOff", "Login")">Sair</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+<div class="row">
     <div class="col-md-12">
         <form action="@Url.Action("EnviarMsg", "PerfilTera")" class="form-horizontal">
-            <input name="Paciente.Cod" type="hidden" value="@(((Paciente)ViewBag.Usuario).Cod)" />
+            <input name="Paciente.Cod" type="hidden" value="@(((Usuario)ViewBag.Usuario).Cod)" />
             <div class="form-group">
                 <div class="col-md-12">
                     <label class="control-label">Envie uma mensagem:</label>
@@ -26,10 +46,9 @@
 {
     var rowIndex = 0;
     var lastUsuario = 0;
-    var lastTipo = string.Empty;
     foreach (var post in Model)
     {
-        if (lastUsuario > 0 && lastUsuario != post.IdUsuario || (lastUsuario > 0 && lastUsuario == post.IdUsuario && !string.IsNullOrWhiteSpace(lastTipo) && lastTipo != post.TipoUsuario))
+        if (lastUsuario > 0 && lastUsuario != post.Usuario.Cod)
         {
             rowIndex++;
         }
@@ -38,10 +57,10 @@
             <hr />
             <div class="row" style="background-color:aliceblue ; border-radius: 10px;">
                 <div class="col-md-2 text-center-lg">
-                    <img class="img-circle" src="@Url.Content(string.Format("~/Images/{0}", post.FotoUsuario))" width="100" height="100">
+                    <img class="img-circle" src="@Url.Content(string.Format("~/Images/{0}", post.Usuario.Foto))" width="100" height="100">
                 </div>
                 <div class="col-md-10">
-                    <h4 style="font-weight: bold;">@post.NomeUsuario</h4>
+                    <h4 style="font-weight: bold;">@post.Usuario.Nome</h4>
                     <h6 style="color: black; font-size: 10px;">@string.Format("{0:dd/MM/yyyy HH:mm}", post.DataHora)</h6>
                     <p>
                         @post.Mensagem
@@ -54,10 +73,10 @@
             <hr />
             <div class="row">
                 <div class="col-md-2 col-md-push-10 text-center-lg text-right-not-lg">
-                    <img class="img-circle direita" src="@Url.Content(string.Format("~/Images/{0}", post.FotoUsuario))" width="100" height="100">
+                    <img class="img-circle direita" src="@Url.Content(string.Format("~/Images/{0}", post.Usuario.Foto))" width="100" height="100">
                 </div>
                 <div class="col-md-10 col-md-pull-2 text-right">
-                    <h4 style="font-weight: bold;">@post.NomeUsuario</h4>
+                    <h4 style="font-weight: bold;">@post.Usuario.Nome</h4>
                     <h6 style="color: #ffffff; font-size: 10px;">@string.Format("{0:dd/MM/yyyy HH:mm}", post.DataHora)</h6>
                     <p>
                         @post.Mensagem
@@ -65,7 +84,6 @@
                 </div>
             </div>
         }
-        lastUsuario = post.IdUsuario;
-        lastTipo = post.TipoUsuario;
+        lastUsuario = post.Usuario.Cod;
     }
 }
