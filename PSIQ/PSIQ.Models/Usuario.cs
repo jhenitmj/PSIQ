@@ -17,7 +17,7 @@ namespace PSIQ.Models
 
         public string CPF { get; set; }
         public string CRP { get; set; }
-        public DateTime DataNasc { get; set; }
+        public DateTime? DataNasc { get; set; }
         public string Descricao { get; set; }
         public Usuario Terapeuta { get; set; }
         public Estado Estado { get; set; }

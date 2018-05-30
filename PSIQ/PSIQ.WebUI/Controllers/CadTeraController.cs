@@ -1,5 +1,7 @@
-﻿using PSIQ.DataAccess;
+﻿using AutoMapper;
+using PSIQ.DataAccess;
 using PSIQ.Models;
+using PSIQ.WebUI.ViewModels;
 using System;
 using System.IO;
 using System.Web;
@@ -11,15 +13,17 @@ namespace PSIQ.WebUI.Controllers
     {
         public ActionResult Index()
         {
-            var obj = new Usuario() { DataNasc = DateTime.Now };
+            var obj = new TeraViewModel() { DataNasc = DateTime.Now };
             return View(obj);
         }
 
-        public ActionResult Salvar(Usuario obj)
+        public ActionResult Salvar(TeraViewModel obj)
         {
             if (ModelState.IsValid)
             {
-                new UsuarioDAO().Inserir(obj);
+                var u = Mapper.Map<TeraViewModel, Usuario>(obj);
+                u.Tipo = TIPO_USUARIO.TERAPEUTA;
+                new UsuarioDAO().Inserir(u);
                 return RedirectToAction("Index", "Login");
             }
             return RedirectToAction("Index", "CadTera");

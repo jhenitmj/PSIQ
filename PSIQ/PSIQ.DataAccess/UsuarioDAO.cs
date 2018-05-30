@@ -23,13 +23,21 @@ namespace PSIQ.DataAccess
                     cmd.Parameters.Add("@NOME", SqlDbType.VarChar).Value = obj.Nome;
                     cmd.Parameters.Add("@EMAIL", SqlDbType.VarChar).Value = obj.Email;
                     cmd.Parameters.Add("@SENHA", SqlDbType.VarChar).Value = obj.Senha;
-                    cmd.Parameters.Add("@CPF", SqlDbType.VarChar).Value = obj.CPF ?? string.Empty;
-                    cmd.Parameters.Add("@CRP", SqlDbType.VarChar).Value = obj.CRP ?? string.Empty;
-                    cmd.Parameters.Add("@DATA_NASCIMENTO", SqlDbType.DateTime).Value = obj.DataNasc == DateTime.MinValue ? DateTime.Now : obj.DataNasc;
-                    cmd.Parameters.Add("@FOTO", SqlDbType.VarChar).Value = obj.Foto ?? string.Empty;
-                    cmd.Parameters.Add("@DESCRICAO", SqlDbType.VarChar).Value = obj.Descricao ?? string.Empty;
+                    cmd.Parameters.Add("@CPF", SqlDbType.VarChar).Value = obj.CPF;
+                    cmd.Parameters.Add("@CRP", SqlDbType.VarChar).Value = obj.CRP;
+                    cmd.Parameters.Add("@DATA_NASCIMENTO", SqlDbType.DateTime).Value = obj.DataNasc;
+                    cmd.Parameters.Add("@FOTO", SqlDbType.VarChar).Value = obj.Foto;
+                    cmd.Parameters.Add("@DESCRICAO", SqlDbType.VarChar).Value = obj.Descricao;
                     cmd.Parameters.Add("@COD_TERAPEUTA", SqlDbType.Int).Value = obj.Terapeuta != null && obj.Terapeuta.Cod > 0 ? obj.Terapeuta.Cod : new Nullable<int>();
                     cmd.Parameters.Add("@COD_ESTADO", SqlDbType.Int).Value = obj.Estado != null && obj.Estado.Cod > 0 ? obj.Estado.Cod : new Nullable<int>();
+
+                    foreach (SqlParameter parameter in cmd.Parameters)
+                    {
+                        if (parameter.Value == null)
+                        {
+                            parameter.Value = DBNull.Value;
+                        }
+                    }
 
                     conn.Open();
                     cmd.ExecuteNonQuery();
@@ -48,8 +56,8 @@ namespace PSIQ.DataAccess
                 {
                     conn.Open();
                     cmd.Connection = conn;
-                    cmd.Parameters.Add("@EMAIL", SqlDbType.VarChar).Value = obj.Email ?? string.Empty;
-                    cmd.Parameters.Add("@SENHA", SqlDbType.VarChar).Value = obj.Senha ?? string.Empty;
+                    cmd.Parameters.Add("@EMAIL", SqlDbType.VarChar).Value = obj.Email;
+                    cmd.Parameters.Add("@SENHA", SqlDbType.VarChar).Value = obj.Senha;
                     cmd.CommandText = strSQL;
                     var dataReader = cmd.ExecuteReader();
                     var dt = new DataTable();

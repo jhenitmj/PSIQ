@@ -1,4 +1,6 @@
-﻿using PSIQ.Models;
+﻿using AutoMapper;
+using PSIQ.Models;
+using PSIQ.WebUI.ViewModels;
 using System;
 using System.Security.Cryptography;
 using System.Web;
@@ -18,6 +20,10 @@ namespace PSIQ.WebUI
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            Mapper.Initialize(cfg =>
+            {
+                cfg.CreateMap<TeraViewModel, Usuario>();
+            });
         }
 
         protected void Application_PostAuthenticateRequest(Object sender, EventArgs e)
