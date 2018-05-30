@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PSIQ.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -14,5 +15,6 @@ namespace PSIQ.WebUI.ViewModels
         public string Foto { get; set; }
         public string CPF { get; set; }
         public DateTime? DataNasc { get; set; }
+        public Estado Estado { get; set; }
     }
 }
