@@ -29,7 +29,7 @@
             <div class="col-md-4 text-center">
                 @if (!string.IsNullOrWhiteSpace(Model.Foto))
                 {
-                    <img src="@Url.Content(string.Format("~/Fotos/{0}", Model.Foto))" class="img-circle"/>
+                    <img src="@Url.Content(string.Format("~/Fotos/{0}", Model.Foto))" class="img-circle" style="width: 200px;"/>
                 }
                 else
                 {
@@ -78,8 +78,11 @@
                                                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                                             </a>
                                             <a href="@Url.Action("Chat", "PerfilTera", new { @pacienteId = paciente.Cod })">
-                                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                                <span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
                                             </a>
+                                            @*<a href="@Url.Action("Index", "CadRemedio", new { @pacienteId = paciente.Cod })">
+                                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                            </a>*@
                                         </td>
                                     </tr>
                                 }

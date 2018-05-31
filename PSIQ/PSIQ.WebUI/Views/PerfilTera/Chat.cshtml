@@ -57,9 +57,16 @@
             <hr />
             <div class="row" style="background-color:aliceblue ; border-radius: 10px;">
                 <div class="col-md-2 text-center-lg">
-                    <img class="img-circle" src="@Url.Content(string.Format("~/Images/{0}", post.Usuario.Foto))" width="100" height="100">
+                    @if (!string.IsNullOrWhiteSpace(post.Usuario.Foto))
+                    {
+                        <img src="@Url.Content(string.Format("~/Fotos/{0}", post.Usuario.Foto))" style="width: 100px;" />
+                    }
+                    else
+                    {
+                        <img class="img-circle" src="@Url.Content("~/Images/perfil-blog.png")" style="width: 100px;"/>
+                    }
                 </div>
-                <div class="col-md-10">
+                <div class="col-md-10" style="word-wrap: break-word;">
                     <h4 style="font-weight: bold;">@post.Usuario.Nome</h4>
                     <h6 style="color: black; font-size: 10px;">@string.Format("{0:dd/MM/yyyy HH:mm}", post.DataHora)</h6>
                     <p>
@@ -71,13 +78,20 @@
         else
         {
             <hr />
-            <div class="row">
-                <div class="col-md-2 col-md-push-10 text-center-lg text-right-not-lg">
-                    <img class="img-circle direita" src="@Url.Content(string.Format("~/Images/{0}", post.Usuario.Foto))" width="100" height="100">
+            <div class="row" style="background-color:aliceblue ; border-radius: 10px;">
+                <div class="col-md-2 col-md-push-10 text-center-lg text-right-not-lg ">
+               @if (!string.IsNullOrWhiteSpace(post.Usuario.Foto))
+               {
+                <img class="img-circle" src="@Url.Content(string.Format("~/Fotos/{0}", post.Usuario.Foto))"  style="width: 100px;"/>
+               }
+               else
+               {
+                <img class="img-circle" src="@Url.Content("~/Images/perfil-blog.png")" style="width: 100px;" />
+               }
                 </div>
-                <div class="col-md-10 col-md-pull-2 text-right">
+                <div class="col-md-10 col-md-pull-2 text-right" style="word-wrap: break-word;">
                     <h4 style="font-weight: bold;">@post.Usuario.Nome</h4>
-                    <h6 style="color: #ffffff; font-size: 10px;">@string.Format("{0:dd/MM/yyyy HH:mm}", post.DataHora)</h6>
+                    <h6 style="color: black; font-size: 10px;">@string.Format("{0:dd/MM/yyyy HH:mm}", post.DataHora)</h6>
                     <p>
                         @post.Mensagem
                     </p>

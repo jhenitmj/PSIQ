@@ -130,6 +130,49 @@ namespace PSIQ.DataAccess
             }
         }
 
+        public Usuario LogarP(Usuario obj)
+        {
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))
+            {
+                string strSQL = @"SELECT * FROM USUARIO WHERE EMAIL = @EMAIL AND SENHA = @SENHA WHERE TIPO = 3;";
+
+                using (SqlCommand cmd = new SqlCommand(strSQL))
+                {
+                    conn.Open();
+                    cmd.Connection = conn;
+                    cmd.Parameters.Add("@EMAIL", SqlDbType.VarChar).Value = obj.Email;
+                    cmd.Parameters.Add("@SENHA", SqlDbType.VarChar).Value = obj.Senha;
+                    cmd.CommandText = strSQL;
+                    var dataReader = cmd.ExecuteReader();
+                    var dt = new DataTable();
+                    dt.Load(dataReader);
+                    conn.Close();
+
+                    if (!(dt != null && dt.Rows.Count > 0))
+                        return null;
+
+                    var row = dt.Rows[0];
+                    var usuario = new Usuario()
+                    {
+                        Cod = Convert.ToInt32(row["COD"]),
+                        Tipo = (TIPO_USUARIO)Convert.ToInt32(row["TIPO"]),
+                        Nome = row["NOME"].ToString(),
+                        Email = row["EMAIL"].ToString(),
+                        Senha = row["SENHA"].ToString(),
+                        CPF = row["CPF"].ToString(),
+                        CRP = row["CRP"].ToString(),
+                        DataNasc = Convert.ToDateTime(row["DATA_NASCIMENTO"]),
+                        Foto = row["FOTO"].ToString(),
+                        Descricao = row["DESCRICAO"].ToString(),
+                        Terapeuta = row["COD_TERAPEUTA"] is DBNull ? null : new Usuario() { Cod = Convert.ToInt32(row["COD_TERAPEUTA"]) },
+                        Estado = row["COD_ESTADO"] is DBNull ? null : new Estado() { Cod = Convert.ToInt32(row["COD_ESTADO"]) }
+                    };
+
+                    return usuario;
+                }
+            }
+        }
+
         public Usuario BuscarPorCod(int id)
         {
             using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))
