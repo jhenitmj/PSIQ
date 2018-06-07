@@ -7,7 +7,7 @@
 <div class="row">
     <div class="col-md-12 text-center">
         <img src="@Url.Content("~/Images/logo_psiq.png")" />
-        <p><b>A rede social para o lado mais expressivo do ser</b></p>
+       
     </div>
 </div>
 <div class="row">
@@ -27,7 +27,7 @@
 <div class="row">
     <div class="col-md-12 text-center">
         <hr />
-        <h3>Pré-Cadastro Paciente</h3>
+        <h3 style="font-family:Stencil Std, fantasy">Pré-Cadastro Paciente</h3>
         <hr />
     </div>
 </div>
@@ -37,27 +37,27 @@
             @Html.ValidationSummary(false, "", new { @class = "text-danger" })
             <div class="form-group">
                 <div class="col-md-12">
-                    @Html.LabelFor(m => m.Nome, "Nome", new { @class = "control-label" })
+                    @Html.LabelFor(m => m.Nome, "Nome", new { @class = "control-label", @style = "font-family:Stencil Std, fantasy" })
                     @Html.TextBoxFor(m => m.Nome, new { @class = "form-control" })
                 </div>
             </div>
             <div class="form-group">
                 <div class="col-md-6">
-                    @Html.LabelFor(m => m.CPF, "CPF:", new { @class = "control-label" })
+                    @Html.LabelFor(m => m.CPF, "CPF:", new { @class = "control-label", @style = "font-family:Stencil Std, fantasy" })
                     @Html.TextBoxFor(m => m.CPF, new { id = "txtCpf", @class = "form-control" })
                 </div>
                 <div class="col-md-6 ">
-                    @Html.LabelFor(m => m.DataNasc, "Data de nascimento:", new { @class = "control-label" })
+                    @Html.LabelFor(m => m.DataNasc, "Data de nascimento:", new { @class = "control-label", @style = "font-family:Stencil Std, fantasy" })
                     @Html.TextBoxFor(m => m.DataNasc, string.Format("{0:dd/MM/yyyy}", Model.DataNasc), new { @id = "txtDataNasc", @class = "form-control" })
                 </div>
             </div>
             <div class="form-group">
                 <div class="col-md-6  ">
-                    @Html.LabelFor(m => m.Email, "Email:", new { @class = "control-label" })
-                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                    @Html.LabelFor(m => m.Email, "Email:", new { @class = "control-label", @style = "font-family:Stencil Std, fantasy" })
+                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control",  })
                 </div>
                 <div class="col-md-6">
-                    @Html.LabelFor(m => m.Foto, "Foto:", new { @id = "lblFoto", @class = "control-label" })
+                    @Html.LabelFor(m => m.Foto, "Foto:", new { @id = "lblFoto", @class = "control-label", @style = "font-family:Stencil Std, fantasy" })
                     <div class="input-group">
                         @Html.TextBoxFor(m => m.Foto, new { @id = "txtFoto", @class = "form-control", @maxlength = 1000, @readonly = true })
                         <span class="input-group-btn">
@@ -71,11 +71,11 @@
             </div>
             <div class="form-group">
                 <div class="col-md-6">
-                    @Html.LabelFor(m => m.Senha, "Senha:", new { @class = "control-label" })
+                    @Html.LabelFor(m => m.Senha, "Senha:", new { @class = "control-label", @style = "font-family:Stencil Std, fantasy" })
                     @Html.PasswordFor(m => m.Senha, new { @class = "form-control" })
                 </div>
                 <div class="col-md-6">
-                    @Html.LabelFor(m => m.Estado.Cod, "Estado:", new { @class = "control-label" })
+                    @Html.LabelFor(m => m.Estado.Cod, "Estado:", new { @class = "control-label",  @style = "font-family:Stencil Std, fantasy"  })
                     @Html.DropDownListFor(m => m.Estado.Cod, new SelectList(ViewBag.Estados ?? new List<Estado>(), "Cod", "Nome"), "-- [SELECIONE] --", new { @class = "form-control" })
                 </div>
             </div>

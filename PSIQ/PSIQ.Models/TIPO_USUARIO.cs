@@ -7,7 +7,7 @@ namespace PSIQ.Models
 {
     public enum TIPO_USUARIO
     {
-
+        USUARIO = 1,
         TERAPEUTA = 2,
 
         PACIENTE = 3

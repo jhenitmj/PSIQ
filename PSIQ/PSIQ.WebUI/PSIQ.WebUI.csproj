@@ -247,7 +247,6 @@
     <Content Include="Views\PerfilTera\Chat.cshtml" />
     <Content Include="Views\Diagnostico\Cadastro.cshtml" />
     <Content Include="Views\RecuperarSenha\Index.cshtml" />
-    <Content Include="Views\CadRemedio\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PSIQ.DataAccess\PSIQ.DataAccess.csproj">

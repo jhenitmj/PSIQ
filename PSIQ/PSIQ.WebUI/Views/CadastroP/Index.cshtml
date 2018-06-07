@@ -6,7 +6,7 @@
 <div class="row">
     <div class="col-md-12 text-center">
         <img src="@Url.Content("~/Images/logo_psiq.png")" />
-        <p><b>A rede social para o lado mais expressivo do ser</b></p>
+        <p style="font-family:Stencil Std, fantasy">A rede social para o lado mais expressivo do ser</p>
     </div>
 </div>
 <div class="row">
@@ -25,7 +25,7 @@
 <div class="row">
     <div class="col-md-12 text-center">
         <hr />
-        <h3>Cadastro Paciente</h3>
+        <h3 style="font-family:Stencil Std, fantasy">Cadastro Paciente</h3>
         <hr />
     </div>
 </div>
@@ -42,29 +42,29 @@
             </div>
             <div class="form-group">
                 <div class="col-md-6">
-                    @Html.LabelFor(m => m.CPF, "CPF:", new { @class = "control-label" })
+                    @Html.LabelFor(m => m.CPF, "CPF:", new { @class = "control-label", @style = "font-family:Stencil Std, fantasy" })
                     @Html.TextBoxFor(m => m.CPF, new { @id = "txtCpf", @class = "form-control", @placeholder = "000.000.000-00", @required = true })
                 </div>
                 <div class="col-md-6 ">
-                    @Html.LabelFor(m => m.DataNasc, "Data de nascimento:", new { @class = "control-label" })
+                    @Html.LabelFor(m => m.DataNasc, "Data de nascimento:", new { @class = "control-label", , @style = "font-family:Stencil Std, fantasy" })
                     @Html.TextBoxFor(m => m.DataNasc, string.Format("{0:dd/MM/yyyy}", Model.DataNasc), new { @id = "txtDataNasc", @class = "form-control", @data_format = "dd/MM/yyyy", @maxlength = 10 })
                 </div>
             </div>
             <div class="form-group">
                 <div class="col-md-12  ">
-                    @Html.LabelFor(m => m.Email, "Email:", new { @class = "control-label" })
+                    @Html.LabelFor(m => m.Email, "Email:", new { @class = "control-label",  @style = "font-family:Stencil Std, fantasy" })
                     @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
                 </div>
             </div>
             <div class="form-group">
                 <div class="col-md-6">
-                    @Html.LabelFor(m => m.Senha, "Senha:", new { @class = "control-label" })
+                    @Html.LabelFor(m => m.Senha, "Senha:", new { @class = "control-label", , @style = "font-family:Stencil Std, fantasy" })
                     @Html.PasswordFor(m => m.Senha, new { @class = "form-control" })
                 </div>
                 <div class="col-md-6 ">
-                    @Html.LabelFor(m => m.Foto, "Foto:", new { @id = "lblFoto", @class = "control-label" })
+                    @Html.LabelFor(m => m.Foto, "Foto:", new { @id = "lblFoto", @class = "control-label" , @style = "font-family:Stencil Std, fantasy" })
                     <div class="input-group">
-                        @Html.TextBoxFor(m => m.Foto, new { @id = "txtFoto", @class = "form-control", @maxlength = 1000, @readonly = true })
+                        @Html.TextBoxFor(m => m.Foto, new { @id = "txtFoto", @class = "form-control", @maxlength = 1000, @readonly = true, @style = "font-family:Stencil Std, fantasy" })
                         <span class="input-group-btn">
                             <span class="btn btn-default fileinput-button">
                                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
@@ -76,8 +76,8 @@
             </div>
             <div class="form-group">
                 <div class="col-md-12 text-right">
-                    <button type="submit" class="btn btn-primary">Salvar</button>
-                    <a class="btn btn-default" href="@Url.Action("Index", "PerfilPacienteP")">Cancelar</a>
+                    <button type="submit" class="btn btn-primary", style = "font-family:Stencil Std, fantasy">Salvar</button>
+                    <a class="btn btn-default" href="@Url.Action("Index", "PerfilPacienteP"), @style = "font-family:Stencil Std, fantasy"">Cancelar</a>
                 </div>
             </div>
         </form>

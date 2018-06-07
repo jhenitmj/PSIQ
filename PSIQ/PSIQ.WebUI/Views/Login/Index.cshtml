@@ -23,54 +23,54 @@
                     <div class="form-group">
                         <div class="col-md-12 text-center">
                             <img src="@Url.Content("~/Images/logo_psiq.png")" />
-                            <p><b>A rede social para o lado mais expressivo do ser</b></p>
+                            <p style="font-family:Stencil Std, fantasy">A rede social para o lado mais expressivo do ser</p>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-md-12 text-center">
-                            <h1>PSIQ</h1>
+                            <h1 style="font-family:Stencil Std, fantasy">PSIQ</h1>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-md-12">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <label class="control-label">E-mail:</label>
-                                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                                    <label class="control-label",  style = "font-family:Stencil Std, fantasy">E-mail:</label>
+                                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control", })
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-12">
-                                    <label class="control-label">Senha:</label>
-                                    @Html.PasswordFor(m => m.Senha, new { @class = "form-control" })
+                                    <label class="control-label",  style = "font-family:Stencil Std, fantasy">Senha:</label>
+                                    @Html.PasswordFor(m => m.Senha, new { @class = "form-control"})
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
                                     <br />
-                                    <label><input type="checkbox" name="optradio">Lembrar a senha?</label>
+                                    <label style = "font-family:Stencil Std, fantasy"><input type="checkbox" name="optradio",  >Lembrar a senha?</label>
                                 </div>
                                 <div class="col-md-6 text-right">
                                     <br />
-                                    <a href="@Url.Action("Index", "CadTera")">Cadastrar-se</a>
+                                    <a href="@Url.Action("Index", "CadTera")" style="font-family:Stencil Std, fantasy">Cadastrar-se</a>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-12 text-center">
                                     <br />
-                                    <a href="@Url.Action("Index", "RecuperarSenha")">Esqueceu sua senha?</a>
+                                    <a href="@Url.Action("Index", "RecuperarSenha")" style="font-family:Stencil Std, fantasy">Esqueceu sua senha?</a>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-12 text-center">
                                     <br />
-                                    <button type="submit" class="btn btn-primary btn-block">Entrar</button>
+                                    <button type="submit" class="btn btn-primary btn-block" style="font-family:Stencil Std, fantasy">Entrar</button>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-12 text-center ">
                                     <br />
-                                    <a href="@Url.Action("Index", "Home")" >Página inicial   </a>
+                                    <a href="@Url.Action("Index", "Home")" , style="font-family:Stencil Std, fantasy">Página inicial   </a>
                                  
                                 </div>
                             </div>

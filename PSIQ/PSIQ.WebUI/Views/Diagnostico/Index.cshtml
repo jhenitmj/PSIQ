@@ -6,7 +6,7 @@
 <div class="row">
     <div class="col-md-12 text-center">
         <img src="@Url.Content("~/Images/logo_psiq.png")" />
-        <h3>Diagnóstico</h3>
+        <h3 style = "font-family:Stencil Std, fantasy">Diagnóstico</h3>
         <hr />
     </div>
 </div>
@@ -16,7 +16,7 @@
             @Html.HiddenFor(m => m.Paciente.Cod)
             <div class="form-group">
                 <div class="col-md-12">
-                    @Html.LabelFor(m => m.Diagnostico.Cod, "Diagnóstico", new { @class = "control-label" })
+                    @Html.LabelFor(m => m.Diagnostico.Cod, "Diagnóstico", new { @class = "control-label", @style = "font-family:Stencil Std, fantasy" })
                     @Html.DropDownListFor(m => m.Diagnostico.Cod, new SelectList(ViewBag.Diagnosticos ?? new List<Diagnostico>(), "Cod", "Nome"), "-- [SELECIONE] --", new { @class = "form-control" })
                 </div>
                 <div class="col-md-12">
@@ -38,18 +38,18 @@
                     <table class="table table-hover table-striped">
                         <thead>
                             <tr>
-                                <th style="width:20%">DATA/HORA</th>
-                                <th style="width:30%">DIAGNÓSTICO</th>
-                                <th style="width:50%">DESCRIÇÃO</th>
+                                <th style="width:20%; font-family:Stencil Std, fantasy">DATA/HORA</th>
+                                <th style="width:30%; font-family:Stencil Std, fantasy">DIAGNÓSTICO</th>
+                                <th style="width:50%; font-family:Stencil Std, fantasy">DESCRIÇÃO</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach (PacienteXDiagnostico pxd in (List<PacienteXDiagnostico>)ViewBag.PacXDiags)
                             {
                                 <tr style="background-color: #f9f9f9 !important; word-wrap: break-word;">
-                                    <td style="width:20%">@string.Format("{0:dd/MM/yyyy HH:mm}", pxd.DataHora)</td>
-                                    <td style="width:30%">@pxd.Diagnostico.Nome</td>
-                                    <td style="width:50%; word-wrap: break-word !important; max-width: 800px;">@pxd.Descricao</td>
+                                    <td style="width:20%; font-family:monospace">@string.Format("{0:dd/MM/yyyy HH:mm}", pxd.DataHora)</td>
+                                    <td style="width:30%; font-family:monospace">@pxd.Diagnostico.Nome</td>
+                                    <td style="width:50%; word-wrap: break-word !important; max-width: 800px; font-family:monospace">@pxd.Descricao</td>
                                 </tr>
                             }
                         </tbody>

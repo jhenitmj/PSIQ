@@ -247,7 +247,7 @@ namespace PSIQ.DataAccess
                             Foto = row["FOTO"].ToString(),
                             Descricao = row["DESCRICAO"].ToString(),
                             Terapeuta = row["COD_TERAPEUTA"] is DBNull ? null : new Usuario() { Cod = Convert.ToInt32(row["COD_TERAPEUTA"]) },
-                            Estado = row["COD_ESTADO"] is DBNull ? null : new Estado() { Cod = Convert.ToInt32(row["COD_ESTADO"]) }
+                            Estado = row["COD_ESTADO"] is DBNull ? null : new Estado() { Cod = Convert.ToInt32(row["COD_ESTADO"]), Nome = row["NOME"].ToString(), }
                         };
 
                         lst.Add(usuario);

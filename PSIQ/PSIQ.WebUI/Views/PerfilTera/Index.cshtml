@@ -8,7 +8,7 @@
         <div class="form-group">
             <div class="col-md-12 text-center">
                 <img src="@Url.Content("~/Images/logo_psiq.png")" />
-                <p><b>A rede social para o lado mais expressivo do ser</b></p>
+                <p style="font-family:Stencil Std, fantasy">A rede social para o lado mais expressivo do ser</p>
             </div>
         </div>
         <div class="form-group">
@@ -37,9 +37,9 @@
                 }
                 </div>
                 <div class="col-md-4 text-left">
-                    <label class="control-label" id="h2">@Model.Nome</label>
+                    <label class="control-label" id="h2" style="font-family:Stencil Std, fantasy">@Model.Nome</label>
                     <br />
-                    <label class="control-label" id="h2">@Model.CRP</label>
+                    <label class="control-label" id="h2" style="font-family:Stencil Std, fantasy">@Model.CRP</label>
                 </div>
                 <div class="col-md-4 text-right">
                     <div class="input-group">
@@ -60,9 +60,9 @@
                         <table class="table table-hover table-striped">
                             <thead>
                                 <tr>
-                                    <th style="width:50%">NOME</th>
-                                    <th style="width:20%">DATA DE NASCIMENTO</th>
-                                    <th style="width:20%">ESTADO</th>
+                                    <th style="width:50%; font-family:Stencil Std, fantasy">NOME</th>
+                                    <th style="width:20%; font-family:Stencil Std, fantasy">DATA DE NASCIMENTO</th>
+                                    <th style="width:20%; font-family:Stencil Std, fantasy">ESTADO</th>
                                     <th style="width:10%">&nbsp;</th>
                                 </tr>
                             </thead>
@@ -70,9 +70,9 @@
                                 @foreach (Usuario paciente in Model.Pacientes)
                                 {
                                     <tr style="background-color: #f9f9f9 !important;">
-                                        <td style="width:45%">@paciente.Nome</td>
-                                        <td style="width:20%">@string.Format("{0:dd/MM/yyyy}", paciente.DataNasc)</td>
-                                        <td style="width:20%">@(paciente.Estado != null ? paciente.Estado.Nome : string.Empty)</td>
+                                        <td style="width:45%; font-family:monospace">@paciente.Nome</td>
+                                        <td style="width:20%; font-family:monospace">@string.Format("{0:dd/MM/yyyy}", paciente.DataNasc)</td>
+                                        <td style="width:20%; font-family:monospace">@(paciente.Estado != null ? paciente.Estado.Nome : string.Empty)</td>
                                         <td class="text-center" style="width:15%">
                                             <a href="@Url.Action("Index", "Diagnostico", new { @pacienteId = paciente.Cod })">
                                                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
@@ -80,9 +80,7 @@
                                             <a href="@Url.Action("Chat", "PerfilTera", new { @pacienteId = paciente.Cod })">
                                                 <span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
                                             </a>
-                                            @*<a href="@Url.Action("Index", "CadRemedio", new { @pacienteId = paciente.Cod })">
-                                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-                                            </a>*@
+                                           
                                         </td>
                                     </tr>
                                 }
