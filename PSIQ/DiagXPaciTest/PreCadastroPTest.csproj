@@ -50,8 +50,23 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Test1.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PSIQ.DataAccess\PSIQ.DataAccess.csproj">
+      <Project>{457b74bf-2825-43b7-970b-d14589248038}</Project>
+      <Name>PSIQ.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PSIQ.Models\PSIQ.Models.csproj">
+      <Project>{aedca8ad-1aca-47ca-b0ea-344e5c0cc133}</Project>
+      <Name>PSIQ.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PSIQ.WebUI\PSIQ.WebUI.csproj">
+      <Project>{3f76aaa7-7213-4bbd-b79c-78d77a5ba5be}</Project>
+      <Name>PSIQ.WebUI</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

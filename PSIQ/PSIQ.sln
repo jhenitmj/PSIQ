@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PSIQ.Models", "PSIQ.Models\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PSIQ.DataAccess", "PSIQ.DataAccess\PSIQ.DataAccess.csproj", "{457B74BF-2825-43B7-970B-D14589248038}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PreCadastroPTest", "DiagXPaciTest\PreCadastroPTest.csproj", "{81D06C41-0FEF-4634-A81A-DF7C0A5AD78A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{457B74BF-2825-43B7-970B-D14589248038}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{457B74BF-2825-43B7-970B-D14589248038}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{457B74BF-2825-43B7-970B-D14589248038}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81D06C41-0FEF-4634-A81A-DF7C0A5AD78A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81D06C41-0FEF-4634-A81A-DF7C0A5AD78A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81D06C41-0FEF-4634-A81A-DF7C0A5AD78A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81D06C41-0FEF-4634-A81A-DF7C0A5AD78A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
