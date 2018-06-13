@@ -9,7 +9,7 @@
             <div class="form-group">
                 <div class="col-md-12 text-center">
                     <img src="@Url.Content("~/Images/logo_psiq.png")" />
-                    <p><b>A rede social para o lado mais expressivo do ser</b></p>
+                    <p style = "font-family: Courier, monospace; font-size:20px" >A rede social para o lado mais expressivo do ser</p>
                 </div>
             </div>
             <div class="form-group">
@@ -17,9 +17,9 @@
                     <div class="masthead">
                         <nav>
                             <ul class="nav nav-justified">
-                                <li><a href="@Url.Action("Index", "PerfilPacienteP")">Início</a></li>
-                                <li><a href="@Url.Action("Index", "CadastroP")">Meus Dados</a></li>
-                                <li><a href="@Url.Action("LogOff", "LoginP")">Sair</a></li>
+                                <li><a href="@Url.Action("Index", "PerfilPacienteP")", style = "font-family: Courier, monospace; font-size:20px" >Início</a></li>
+                                <li><a href="@Url.Action("Index", "CadastroP")" style = "font-family: Courier, monospace; font-size:20px" >Meus Dados</a></li>
+                                <li><a href="@Url.Action("LogOff", "LoginP")" style = "font-family: Courier, monospace; font-size:20px" >Sair</a></li>
                             </ul>
                         </nav>
                     </div>
@@ -41,20 +41,20 @@
                     </div>
                     <div class="form-group">
                         <div class="col-md-12">
-                            <label class="control-label"> @Model.Nome</label>
+                            <label class="control-label" style = "font-family: Courier, monospace; font-size:20px" > @Model.Nome</label>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-md-12">
-                            <label class="control-label"> @Model.Terapeuta.Nome</label>
+                            <label class="control-label" style = "font-family: Courier, monospace; font-size:20px" > @Model.Terapeuta.Nome</label>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-8" style="border-left: 2px solid black;">
                     <div class="form-group">
                         <div class="col-md-12">
-                            <label class="control-label">Envie uma mensagem:</label>
-                            <textarea name="Mensagem" class="form-control" rows="5"></textarea>
+                            <label class="control-label", style = "font-family: Courier, monospace; font-size:20px" >Envie uma mensagem:</label>
+                            <textarea name="Mensagem" class="form-control" rows="5", style = "font-family: Courier, monospace;" ></textarea>
                         </div>
                     </div>
                     <div class="form-group">
@@ -85,7 +85,7 @@
                                             <div class="col-md-10" style="word-wrap: break-word;">
                                                 <h4 style="font-weight: bold;">@post.Usuario.Nome</h4>
                                                 <h6 style="color: black; font-size: 10px;">@string.Format("{0:dd/MM/yyyy HH:mm}", post.DataHora)</h6>
-                                                <p>
+                                                <p style = "font-family: Courier, monospace" >
                                                     @post.Mensagem
                                                 </p>
                                             </div>
@@ -94,14 +94,14 @@
                                     else
                                     {
                                         <hr />
-                                        <div class="row">
+                                        <div class="row", style="background-color:white; border-radius: 10px;">
                                             <div class="col-md-2 col-md-push-10 text-center-lg text-right-not-lg">
-                                                <img class="img-circle direita" src="@Url.Content(string.Format("~/Images/{0}", post.Usuario.Foto))" width="100" height="100">
+                                                <img class="img-circle direita" src="@Url.Content(string.Format("~/Fotos/{0}", post.Usuario.Foto))" width="100" height="100">
                                             </div>
                                             <div class="col-md-10 col-md-pull-2 text-right">
                                                 <h4 style="font-weight: bold;">@post.Usuario.Nome</h4>
-                                                <h6 style="color: #ffffff; font-size: 10px;">@string.Format("{0:dd/MM/yyyy HH:mm}", post.DataHora)</h6>
-                                                <p>
+                                                <h6 style="color: black; font-size: 10px;">@string.Format("{0:dd/MM/yyyy HH:mm}", post.DataHora)</h6>
+                                                <p style = "font-family: Courier, monospace" >
                                                     @post.Mensagem
                                                 </p>
                                             </div>

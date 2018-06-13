@@ -23,7 +23,8 @@ namespace PSIQ.WebUI.Controllers
             {
                 var u = Mapper.Map<TeraViewModel, Usuario>(obj);
                 u.Tipo = TIPO_USUARIO.TERAPEUTA;
-                new UsuarioDAO().Inserir(u);
+              
+                    new UsuarioDAO().Inserir(u);
                 return RedirectToAction("Index", "Login");
             }
             return RedirectToAction("Index", "CadTera");

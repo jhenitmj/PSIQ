@@ -6,7 +6,7 @@
 <div class="row">
     <div class="col-md-12 text-center">
         <img src="@Url.Content("~/Images/logo_psiq.png")" />
-        <p><b>A rede social para o lado mais expressivo do ser</b></p>
+        <p style = "font-family: Courier, monospace; font-size:20px">A rede social para o lado mais expressivo do ser</p>
     </div>
 </div>
 <div class="row">
@@ -14,10 +14,10 @@
         <div class="masthead">
             <nav>
                 <ul class="nav nav-justified">
-                    <li><a href="@Url.Action("Index", "PerfilTera")">Perfil</a></li>
-                    <li><a href="@Url.Action("Index", "PreCadastroPaciente")"> Cadastrar Pacientes</a></li>
-                    <li><a href="@Url.Action("Cadastro", "Diagnostico")"> Cadastrar Diagnósticos</a></li>
-                    <li><a href="@Url.Action("LogOff", "Login")">Sair</a></li>
+                    <li><a href="@Url.Action("Index", "PerfilTera")", style = "font-family: Courier, monospace; font-size:20px">Perfil</a></li>
+                    <li><a href="@Url.Action("Index", "PreCadastroPaciente")", style = "font-family: Courier, monospace; font-size:20px"> Cadastrar Pacientes</a></li>
+                    <li><a href="@Url.Action("Cadastro", "Diagnostico")", style = "font-family: Courier, monospace; font-size:20px"> Cadastrar Diagnósticos</a></li>
+                    <li><a href="@Url.Action("LogOff", "Login")", style = "font-family: Courier, monospace; font-size:20px">Sair</a></li>
                 </ul>
             </nav>
         </div>
@@ -29,14 +29,14 @@
             <input name="Paciente.Cod" type="hidden" value="@(((Usuario)ViewBag.Usuario).Cod)" />
             <div class="form-group">
                 <div class="col-md-12">
-                    <label class="control-label">Envie uma mensagem:</label>
-                    <textarea style="font-family:DejaVu Sans Mono, monospace" name="Mensagem" class="form-control" rows="5"></textarea>
+                    <label class="control-label", style = "font-family: Courier, monospace; font-size:20px">Envie uma mensagem:</label>
+                    <textarea style = "font-family: Courier, monospace" name="Mensagem" class="form-control" rows="5"></textarea>
                 </div>
             </div>
             <div class="form-group">
                 <div class="col-md-12">
-                    <input type="submit" class="btn btn-primary" value="Enviar" />
-                    <a class="btn btn-default" href="@Url.Action("Index", "PerfilTera")">Cancelar</a>
+                    <input type="submit" class="btn btn-primary" value="Enviar"  style = "font-family: Courier, monospace; font-size:20px"/>
+                    <a class="btn btn-default" href="@Url.Action("Index", "PerfilTera")", style = "font-family: Courier, monospace; font-size:20px">Cancelar</a>
                 </div>
             </div>
         </form>

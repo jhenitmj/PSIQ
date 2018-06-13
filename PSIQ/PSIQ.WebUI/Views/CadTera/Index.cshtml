@@ -17,22 +17,24 @@
     </div>
     <div class="row">
         <div class="col-md-12">
-            <form action="@Url.Action("Salvar", "CadTera")" class="form-horizontal", >
+            <form action="@Url.Action("Salvar", "CadTera")" class="form-horizontal">        
+                @Html.HiddenFor(m => m.Cod)
+                @Html.ValidationSummary(false, "", new { @class = "text-danger" })
                 @Html.ValidationSummary(false, "", new { @class = "text-danger" })
                 <div class="form-group">
                     <div class="col-md-12">
-                        @Html.LabelFor(m => m.Nome, "Nome", new { @class = "control-label", @style = "font-family:Stencil Std, fantasy" })
+                        @Html.LabelFor(m => m.Nome, "Nome", new { @class = "control-label", @style = "font-family:Courier, monospace; font-size:20px" })
                         @Html.TextBoxFor(m => m.Nome, new { @class = "form-control" })
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="col-md-6">
-                        @Html.LabelFor(m => m.CRP, "CRP:", new { @class = "control-label", @style = "font-family:Stencil Std, fantasy" })
+                        @Html.LabelFor(m => m.CRP, "CRP:", new { @class = "control-label", @style = "font-family:Courier, monospace; font-size:20px" })
                         @Html.TextBoxFor(m => m.CRP, new { @class = "form-control" })
                     </div>
                     <div class="col-md-6 ">
-                        @Html.LabelFor(m => m.DataNasc, "Data de nascimento:", new { @class = "control-label", @style = "font-family:Stencil Std, fantasy" })
-                        @Html.TextBoxFor(m => m.DataNasc, string.Format("{0:dd/MM/yyyy}", Model.DataNasc), new { @id = "txtDataNasc", @class = "form-control", @data_format = "dd/MM/yyyy", @maxlength = 10, @style = "font-family:Stencil Std, fantasy" })
+                        @Html.LabelFor(m => m.DataNasc, "Data de nascimento:", new { @class = "control-label", @style = "font-family:Courier, monospace; font-size:20px" })
+                        @Html.TextBoxFor(m => m.DataNasc, string.Format("{0:dd/MM/yyyy}", Model.DataNasc), new { @id = "txtDataNasc", @class = "form-control", @data_format = "dd/MM/yyyy", @maxlength = 10, @style = "font-family:Courier, monospace; font-size:20px" })
                         @*<div class='input-group date' id='datetimepicker1'>
                             @Html.TextBoxFor(m => m.DataNasc, string.Format("{0:dd/MM/yyyy}", Model.DataNasc), new { @id = "txtDataNasc", @class = "form-control", @data_format = "dd/MM/yyyy", @maxlength = 10 })
                             <span class="input-group-addon">
@@ -44,19 +46,19 @@
                 </div>
                 <div class="form-group">
                     <div class="col-md-12  ">
-                        @Html.LabelFor(m => m.Email, "Email:", new { @class = "control-label", @style = "font-family:Stencil Std, fantasy" })
+                        @Html.LabelFor(m => m.Email, "Email:", new { @class = "control-label", @style = "font-family:Courier, monospace; font-size:20px" })
                         @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="col-md-6">
-                        @Html.LabelFor(m => m.Senha, "Senha:", new { @class = "control-label", @style = "font-family:Stencil Std, fantasy" })
+                        @Html.LabelFor(m => m.Senha, "Senha:", new { @class = "control-label", @style = "font-family:Courier, monospace; font-size:20px" })
                         @Html.PasswordFor(m => m.Senha, new { @class = "form-control" })
                     </div>
                     <div class="col-md-6">
-                        @Html.LabelFor(m => m.Foto, "Foto:", new { @id = "lblFoto", @class = "control-label", @style = "font-family:Stencil Std, fantasy" })
+                        @Html.LabelFor(m => m.Foto, "Foto:", new { @id = "lblFoto", @class = "control-label", @style = "font-family:Courier, monospace; font-size:20px" })
                         <div class="input-group">
-                            @Html.TextBoxFor(m => m.Foto, new { @id = "txtFoto", @class = "form-control", @maxlength = 1000, @readonly = true, @style = "font-family:Stencil Std, fantasy" })
+                            @Html.TextBoxFor(m => m.Foto, new { @id = "txtFoto", @class = "form-control", @maxlength = 1000, @readonly = true, @style = "font-family:Courier, monospace; font-size:20px" })
                             <span class="input-group-btn">
                                 <span class="btn btn-default fileinput-button">
                                     <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
@@ -68,8 +70,8 @@
                 </div>
                 <div class="form-group">
                     <div class="col-md-12 text-right">
-                        <button type="submit" class="btn btn-primary", style = "font-family:Stencil Std, fantasy">Salvar</button>
-                        <a class="btn btn-default", style = "font-family:Stencil Std, fantasy" href="@Url.Action("Index", "Login")">Cancelar</a>
+                        <button type="submit" class="btn btn-primary", style="font-family:Courier, monospace; font-size:20px">Salvar</button>
+                        <a class="btn btn-default", style="font-family:Courier, monospace; font-size:20px" href="@Url.Action("Index", "Login")">Cancelar</a>
                     </div>
                 </div>
             </form>

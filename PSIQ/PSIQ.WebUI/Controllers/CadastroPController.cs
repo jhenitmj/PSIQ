@@ -38,10 +38,10 @@ namespace PSIQ.WebUI.Controllers
                 else
                     new UsuarioDAO().Inserir(u);
 
-                return RedirectToAction("Index", "Login");
+                return RedirectToAction("Index", "LoginP");
             }
 
-            return RedirectToAction("Index", "CadTera");
+            return RedirectToAction("Index", "LoginP");
         }
 
         [HttpPost]

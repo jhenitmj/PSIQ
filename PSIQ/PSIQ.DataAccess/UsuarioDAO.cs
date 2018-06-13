@@ -247,7 +247,7 @@ namespace PSIQ.DataAccess
                             Foto = row["FOTO"].ToString(),
                             Descricao = row["DESCRICAO"].ToString(),
                             Terapeuta = row["COD_TERAPEUTA"] is DBNull ? null : new Usuario() { Cod = Convert.ToInt32(row["COD_TERAPEUTA"]) },
-                            Estado = row["COD_ESTADO"] is DBNull ? null : new Estado() { Cod = Convert.ToInt32(row["COD_ESTADO"]), Nome = row["NOME"].ToString(), }
+                            Estado = row["COD_ESTADO"] is DBNull ? null : new Estado() { Cod = Convert.ToInt32(row["COD_ESTADO"])}
                         };
 
                         lst.Add(usuario);
@@ -262,7 +262,11 @@ namespace PSIQ.DataAccess
             using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))
             {
                 var lst = new List<Usuario>();
-                string strSQL = @"SELECT * FROM USUARIO WHERE COD_TERAPEUTA = @COD_TERAPEUTA;";
+
+                string strSQL = @"SELECT U.*, E.NOME AS NOME_ESTADO FROM USUARIO U
+                                 INNER JOIN ESTADO E
+                                 ON U.COD_ESTADO = E.COD           
+                                WHERE COD_TERAPEUTA = @COD_TERAPEUTA;";
 
                 using (SqlCommand cmd = new SqlCommand(strSQL))
                 {
@@ -290,7 +294,7 @@ namespace PSIQ.DataAccess
                             Foto = row["FOTO"].ToString(),
                             Descricao = row["DESCRICAO"].ToString(),
                             Terapeuta = row["COD_TERAPEUTA"] is DBNull ? null : new Usuario() { Cod = Convert.ToInt32(row["COD_TERAPEUTA"]) },
-                            Estado = row["COD_ESTADO"] is DBNull ? null : new Estado() { Cod = Convert.ToInt32(row["COD_ESTADO"]) }
+                            Estado = row["COD_ESTADO"] is DBNull ? null : new Estado() { Cod = Convert.ToInt32(row["COD_ESTADO"]), Nome = row["NOME_ESTADO"].ToString() }
                         };
 
                         lst.Add(usuario);
