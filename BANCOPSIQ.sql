@@ -56,6 +56,8 @@ CREATE TABLE POST
 	MENSAGEM	   VARCHAR(MAX)
 );
 
-
-select*from USUARIO
+SELECT U.*, E.NOME FROM USUARIO U
+                                 INNER JOIN ESTADO E
+                                 ON U.COD_ESTADO = E.COD           
+                               
 
