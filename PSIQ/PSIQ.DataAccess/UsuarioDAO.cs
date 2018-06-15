@@ -91,12 +91,13 @@ namespace PSIQ.DataAccess
         {
             using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))
             {
-                string strSQL = @"SELECT * FROM USUARIO WHERE EMAIL = @EMAIL AND SENHA = @SENHA;";
+                string strSQL = @"SELECT * FROM USUARIO WHERE TIPO = @TIPO AND EMAIL = @EMAIL AND SENHA = @SENHA;";
 
                 using (SqlCommand cmd = new SqlCommand(strSQL))
                 {
                     conn.Open();
                     cmd.Connection = conn;
+                    cmd.Parameters.Add("@TIPO", SqlDbType.Int).Value = Convert.ToInt32(TIPO_USUARIO.TERAPEUTA);
                     cmd.Parameters.Add("@EMAIL", SqlDbType.VarChar).Value = obj.Email;
                     cmd.Parameters.Add("@SENHA", SqlDbType.VarChar).Value = obj.Senha;
                     cmd.CommandText = strSQL;
@@ -134,12 +135,13 @@ namespace PSIQ.DataAccess
         {
             using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))
             {
-                string strSQL = @"SELECT * FROM USUARIO WHERE EMAIL = @EMAIL AND SENHA = @SENHA WHERE TIPO = 3;";
+                string strSQL = @"SELECT * FROM USUARIO WHERE TIPO = @TIPO AND EMAIL = @EMAIL AND SENHA = @SENHA WHERE TIPO = 3;";
 
                 using (SqlCommand cmd = new SqlCommand(strSQL))
                 {
                     conn.Open();
                     cmd.Connection = conn;
+                    cmd.Parameters.Add("@TIPO", SqlDbType.Int).Value = Convert.ToInt32(TIPO_USUARIO.PACIENTE);
                     cmd.Parameters.Add("@EMAIL", SqlDbType.VarChar).Value = obj.Email;
                     cmd.Parameters.Add("@SENHA", SqlDbType.VarChar).Value = obj.Senha;
                     cmd.CommandText = strSQL;

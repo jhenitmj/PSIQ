@@ -56,8 +56,10 @@ CREATE TABLE POST
 	MENSAGEM	   VARCHAR(MAX)
 );
 
-SELECT U.*, E.NOME FROM USUARIO U
-                                 INNER JOIN ESTADO E
-                                 ON U.COD_ESTADO = E.COD           
+SELECT *from USUARIO       
                                
 
+--SELECT * FROM USUARIO WHERE EMAIL = 'jhe' AND SENHA = '12333';
+
+
+update usuario set tipo = case when cpf is null then 1 else 2 end
