@@ -135,7 +135,7 @@ namespace PSIQ.DataAccess
         {
             using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Db"].ConnectionString))
             {
-                string strSQL = @"SELECT * FROM USUARIO WHERE TIPO = @TIPO AND EMAIL = @EMAIL AND SENHA = @SENHA WHERE TIPO = 3;";
+                string strSQL = @"SELECT * FROM USUARIO WHERE TIPO = @TIPO AND EMAIL = @EMAIL AND SENHA = @SENHA ;";
 
                 using (SqlCommand cmd = new SqlCommand(strSQL))
                 {

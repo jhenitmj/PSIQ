@@ -14,7 +14,7 @@ namespace PSIQ.WebUI.Controllers
 
         public ActionResult Entrar(Usuario obj)
         {
-            var usuarioLogado = new UsuarioDAO().Logar(obj);
+            var usuarioLogado = new UsuarioDAO().LogarP(obj);
 
             if (usuarioLogado == null)
             {
