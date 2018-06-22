@@ -115,5 +115,13 @@ namespace PSIQ.WebUI.Controllers
 
             return true;
         }
+
+        //public ActionResult Buscar(string campoTexto)
+        //{
+        //    var lst = new UsuarioDAO().BuscarPorTerapeuta().Where(p => p.Nome.Contains(campoTexto)).ToList();
+        //    return View("ProjetoU", lst);
+        //}
+
     }
 }
+
