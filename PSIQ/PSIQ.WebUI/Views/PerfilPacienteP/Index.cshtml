@@ -80,7 +80,14 @@
                                         <hr />
                                         <div class="row" style="background-color:white; border-radius: 10px;">
                                             <div class="col-md-2 text-center-lg">
-                                                <img class="img-circle" src="@Url.Content(string.Format("~/Fotos/{0}", post.Usuario.Foto))" width="100" height="100">
+                                                @if (!string.IsNullOrWhiteSpace(Model.Foto))
+                                                {
+                                                    <img src="@Url.Content(string.Format("~/Fotos/{0}", Model.Foto))" class="img-circle" style="width: 100px;;" />
+                                                }
+                                                else
+                                                {
+                                                    <img class="img-circle" src="@Url.Content("~/Images/perfil-blog.png")" />
+                                                }
                                             </div>
                                             <div class="col-md-10" style="word-wrap: break-word;">
                                                 <h4 style="font-weight: bold;">@post.Usuario.Nome</h4>
@@ -96,7 +103,14 @@
                                         <hr />
                                         <div class="row", style="background-color:white; border-radius: 10px;">
                                             <div class="col-md-2 col-md-push-10 text-center-lg text-right-not-lg">
-                                                <img class="img-circle direita" src="@Url.Content(string.Format("~/Fotos/{0}", post.Usuario.Foto))" width="100" height="100">
+                                                @if (!string.IsNullOrWhiteSpace(Model.Foto))
+                                                {
+                                                    <img src="@Url.Content(string.Format("~/Fotos/{0}", Model.Foto))" class="img-circle" style="width: 100px;;" />
+                                                }
+                                                else
+                                                {
+                                                    <img class="img-circle" src="@Url.Content("~/Images/perfil-blog.png")" />
+                                                }
                                             </div>
                                             <div class="col-md-10 col-md-pull-2 text-right">
                                                 <h4 style="font-weight: bold;">@post.Usuario.Nome</h4>

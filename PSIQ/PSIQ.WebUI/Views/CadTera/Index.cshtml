@@ -21,6 +21,17 @@
                 @Html.HiddenFor(m => m.Cod)
                 @Html.ValidationSummary(false, "", new { @class = "text-danger" })
                 @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+
+                @if (!string.IsNullOrWhiteSpace(ViewBag.MsgErro))
+            {
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <div class="alert alert-danger" role="alert">
+                                @ViewBag.MsgErro
+                            </div>
+                        </div>
+                    </div>
+                }
                 <div class="form-group">
                     <div class="col-md-12">
                         @Html.LabelFor(m => m.Nome, "Nome", new { @class = "control-label", @style = "font-family:Courier, monospace; font-size:20px" })
@@ -34,7 +45,7 @@
                     </div>
                     <div class="col-md-6 ">
                         @Html.LabelFor(m => m.DataNasc, "Data de nascimento:", new { @class = "control-label", @style = "font-family:Courier, monospace; font-size:20px" })
-                        @Html.TextBoxFor(m => m.DataNasc, string.Format("{0:dd/MM/yyyy}", Model.DataNasc), new { @id = "txtDataNasc", @class = "form-control", @type = "date", @style = "font-family:Courier, monospace; font-size:20px" })
+                        @Html.TextBoxFor(m => m.DataNasc, "{0:dd/MM/yyyy}", new { @id = "txtDataNasc", @class = "form-control", @type = "date" })
                     </div>
                 </div>
                 <div class="form-group">

@@ -34,53 +34,64 @@
         <form class="form-horizontal" action="@Url.Action("Salvar", "CadastroP")">
             @Html.HiddenFor(m => m.Cod)
             @Html.ValidationSummary(false, "", new { @class = "text-danger" })
-            <div class="form-group">
-                <div class="col-md-12">
-                    @Html.LabelFor(m => m.Nome, "Nome", new { @class = "control-label", @style = "font-family:Courier, monospace; font-size:20px" })
-                    @Html.TextBoxFor(m => m.Nome, new { @class = "form-control" })
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-md-6">
-                    @Html.LabelFor(m => m.CPF, "CPF:", new { @class = "control-label", @style = "font-family:Courier, monospace; font-size:20px" })
-                    @Html.TextBoxFor(m => m.CPF, new { @id = "txtCpf", @class = "form-control", @placeholder = "000.000.000-00", @required = true })
-                </div>
-                <div class="col-md-6 ">
-                    @Html.LabelFor(m => m.DataNasc, "Data de nascimento:", new { @class = "control-label", @style = "font-family:Courier, monospace; font-size:20px" })
-                    @Html.TextBoxFor(m => m.DataNasc, string.Format("{0:dd/MM/yyyy}", Model.DataNasc), new { @id = "txtDataNasc", @class = "form-control", @type = "date" })
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-md-12  ">
-                    @Html.LabelFor(m => m.Email, "Email:", new { @class = "control-label", style = "font-family:Courier, monospace; font-size:20px" })
-                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-md-6">
-                    @Html.LabelFor(m => m.Senha, "Senha:", new { @class = "control-label", @style = "font-family:Courier, monospace; font-size:20px" })
-                    @Html.PasswordFor(m => m.Senha, new { @class = "form-control" })
-                </div>
-                <div class="col-md-6 ">
-                    @Html.LabelFor(m => m.Foto, "Foto:", new { @id = "lblFoto", @class = "control-label", @style = "font-family:Courier, monospace; font-size:20px" })
-                    <div class="input-group">
-                        @Html.TextBoxFor(m => m.Foto, new { @id = "txtFoto", @class = "form-control", @maxlength = 1000, @readonly = true, @style = "font-family:Courier, monospace; font-size:20px" })
-                        <span class="input-group-btn">
-                            <span class="btn btn-default fileinput-button">
-                                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                                <input id="fupArquivo" type="file" name="files[]" multiple="multiple" data-url="@Url.Action("Upload", "CadastroP")" />
-                            </span>
-                        </span>
+            @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+                @if (!string.IsNullOrWhiteSpace(ViewBag.MsgErro))
+            {
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <div class="alert alert-danger" role="alert">
+                                @ViewBag.MsgErro
+                            </div>
+                        </div>
+                    </div>
+                }
+                <div class="form-group">
+                    <div class="col-md-12">
+                        @Html.LabelFor(m => m.Nome, "Nome", new { @class = "control-label", @style = "font-family:Courier, monospace; font-size:20px" })
+                        @Html.TextBoxFor(m => m.Nome, new { @class = "form-control" })
                     </div>
                 </div>
-            </div>
-            <div class="form-group">
-                <div class="col-md-12 text-right">
-                    <button type="submit" class="btn btn-primary" , style="font-family: Courier, monospace; font-size:20px">Salvar</button>
-                    <a class="btn btn-default" href="@Url.Action("Index", "PerfilPacienteP")" , style="font-family:Courier, monospace; font-size:20px">Cancelar</a>
+                <div class="form-group">
+                    <div class="col-md-6">
+                        @Html.LabelFor(m => m.CPF, "CPF:", new { @class = "control-label", @style = "font-family:Courier, monospace; font-size:20px" })
+                        @Html.TextBoxFor(m => m.CPF, new { @id = "txtCpf", @class = "form-control", @placeholder = "000.000.000-00", @required = true })
+                    </div>
+                    <div class="col-md-6 ">
+                        @Html.LabelFor(m => m.DataNasc, "Data de nascimento:", new { @class = "control-label", @style = "font-family:Courier, monospace; font-size:20px" })
+                        @Html.TextBoxFor(m => m.DataNasc, "{0:dd/MM/yyyy}", new { @id = "txtDataNasc", @class = "form-control", @type = "date" })
+                    </div>
                 </div>
-            </div>
-        </form>
+                <div class="form-group">
+                    <div class="col-md-12  ">
+                        @Html.LabelFor(m => m.Email, "Email:", new { @class = "control-label", style = "font-family:Courier, monospace; font-size:20px" })
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-6">
+                        @Html.LabelFor(m => m.Senha, "Senha:", new { @class = "control-label", @style = "font-family:Courier, monospace; font-size:20px" })
+                        @Html.PasswordFor(m => m.Senha, new { @class = "form-control" })
+                    </div>
+                    <div class="col-md-6 ">
+                        @Html.LabelFor(m => m.Foto, "Foto:", new { @id = "lblFoto", @class = "control-label", @style = "font-family:Courier, monospace; font-size:20px" })
+                        <div class="input-group">
+                            @Html.TextBoxFor(m => m.Foto, new { @id = "txtFoto", @class = "form-control", @maxlength = 1000, @readonly = true, @style = "font-family:Courier, monospace; font-size:20px" })
+                            <span class="input-group-btn">
+                                <span class="btn btn-default fileinput-button">
+                                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                                    <input id="fupArquivo" type="file" name="files[]" multiple="multiple" data-url="@Url.Action("Upload", "CadastroP")" />
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12 text-right">
+                        <button type="submit" class="btn btn-primary" , style="font-family: Courier, monospace; font-size:20px">Salvar</button>
+                        <a class="btn btn-default" href="@Url.Action("Index", "PerfilPacienteP")" , style="font-family:Courier, monospace; font-size:20px">Cancelar</a>
+                    </div>
+                </div>
+            </form>
     </div>
 </div>
 @section Scripts {
