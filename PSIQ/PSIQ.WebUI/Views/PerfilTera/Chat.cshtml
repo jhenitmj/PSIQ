@@ -59,7 +59,7 @@
                 <div class="col-md-2 text-center-lg">
                     @if (!string.IsNullOrWhiteSpace(post.Usuario.Foto))
                     {
-                        <img src="@Url.Content(string.Format("~/Fotos/{0}", post.Usuario.Foto))" style="width: 100px;" />
+                        <img class="img-circle" src="@Url.Content(string.Format("~/Fotos/{0}", post.Usuario.Foto))" style="width: 100px;" />
                     }
                     else
                     {
