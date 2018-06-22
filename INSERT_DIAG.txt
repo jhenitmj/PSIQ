@@ -1,0 +1,24 @@
+1	Transtorno delirante persistente
+2	Transtornos psicóticos agudos e transitórios
+3	Transtornos esquizoafetivos
+4	Episódios depressivos
+5	Episódios maníacos
+6	Transtorno bipolar
+7	Episódios depressivos recorrentes
+8	Trastornos persistentes do humor
+9	Fobias
+10	Pânico
+11	Ansiedade generalizada
+12	Transtorno obsessivo-compulsivo
+13	Dissociações e conversões
+14	Transtorno somatoforme
+15	Reações ao estresse e transtornos de ajustamento
+16	Paranóica
+17	Esquizóide
+18	Anti-social
+19	Instável
+20	Histriônica
+21	Anancástica
+22	Evitativa
+23	Dependente
+24	Outros

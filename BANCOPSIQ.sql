@@ -63,3 +63,7 @@ SELECT *from USUARIO
 
 
 update usuario set tipo = case when cpf is null then 1 else 2 end
+
+BULK INSERT DIAGNOSTICO
+FROM 'C:\Users\Aluno\Documents\GitHub\PSIQ\INSERT_DIAG.txt'
+WITH( CODEPAGE='ACP')
