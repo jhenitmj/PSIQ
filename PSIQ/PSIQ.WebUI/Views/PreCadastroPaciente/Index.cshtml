@@ -58,7 +58,7 @@
                 </div>
                 <div class="col-md-6 ">
                     @Html.LabelFor(m => m.DataNasc, "Data de nascimento:", new { @class = "control-label", @style = "font-family: monospace; font-size:20px" })
-                    @Html.TextBoxFor(m => m.DataNasc, "{0:dd/MM/yyyy}", new { @id = "txtDataNasc", @class = "form-control" })
+                    @Html.TextBoxFor(m => m.DataNasc, "{0:dd/MM/yyyy}", new { @id = "txtDataNasc", @class = "form-control", @type = "date" })
                 </div>
             </div>
             <div class="form-group">
@@ -110,8 +110,6 @@
             });
 
             $("#txtCpf").setMask("cpf");
-            $("#txtDataNasc").setMask("date");
-            //$('#datetimepicker1').datetimepicker({ format: "DD/MM/YYYY", pickTime: false, language: "pt-BR" });
 
             $('#fupArquivo').change(function (e) {
                 e.preventDefault();

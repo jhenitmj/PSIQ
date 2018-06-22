@@ -13,11 +13,11 @@
                 <hr />
             </div>
         </div>
-       
+
     </div>
     <div class="row">
         <div class="col-md-12">
-            <form action="@Url.Action("Salvar", "CadTera")" class="form-horizontal">        
+            <form action="@Url.Action("Salvar", "CadTera")" class="form-horizontal">
                 @Html.HiddenFor(m => m.Cod)
                 @Html.ValidationSummary(false, "", new { @class = "text-danger" })
                 @Html.ValidationSummary(false, "", new { @class = "text-danger" })
@@ -34,14 +34,7 @@
                     </div>
                     <div class="col-md-6 ">
                         @Html.LabelFor(m => m.DataNasc, "Data de nascimento:", new { @class = "control-label", @style = "font-family:Courier, monospace; font-size:20px" })
-                        @Html.TextBoxFor(m => m.DataNasc, string.Format("{0:dd/MM/yyyy}", Model.DataNasc), new { @id = "txtDataNasc", @class = "form-control", @data_format = "dd/MM/yyyy", @maxlength = 10, @style = "font-family:Courier, monospace; font-size:20px" })
-                        @*<div class='input-group date' id='datetimepicker1'>
-                            @Html.TextBoxFor(m => m.DataNasc, string.Format("{0:dd/MM/yyyy}", Model.DataNasc), new { @id = "txtDataNasc", @class = "form-control", @data_format = "dd/MM/yyyy", @maxlength = 10 })
-                            <span class="input-group-addon">
-                                <span class="glyphicon glyphicon-calendar">
-                                </span>
-                            </span>
-                        </div>*@
+                        @Html.TextBoxFor(m => m.DataNasc, string.Format("{0:dd/MM/yyyy}", Model.DataNasc), new { @id = "txtDataNasc", @class = "form-control", @type = "date", @style = "font-family:Courier, monospace; font-size:20px" })
                     </div>
                 </div>
                 <div class="form-group">
@@ -70,8 +63,8 @@
                 </div>
                 <div class="form-group">
                     <div class="col-md-12 text-right">
-                        <button type="submit" class="btn btn-primary", style="font-family:Courier, monospace; font-size:20px">Salvar</button>
-                        <a class="btn btn-default", style="font-family:Courier, monospace; font-size:20px" href="@Url.Action("Index", "Login")">Cancelar</a>
+                        <button type="submit" class="btn btn-primary" , style="font-family:Courier, monospace; font-size:20px">Salvar</button>
+                        <a class="btn btn-default" , style="font-family:Courier, monospace; font-size:20px" href="@Url.Action("Index", "Login")">Cancelar</a>
                     </div>
                 </div>
             </form>
@@ -81,9 +74,6 @@
 @section Scripts {
     <script type="text/javascript">
         $(document).ready(function () {
-            $("#txtDataNasc").setMask("date");
-            $('#datetimepicker1').datetimepicker({ format: "DD/MM/YYYY", pickTime: false, language: "pt-BR" });
-
             $('#fupArquivo').change(function (e) {
                 e.preventDefault();
                 e.stopPropagation();

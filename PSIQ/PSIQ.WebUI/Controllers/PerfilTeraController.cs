@@ -2,6 +2,7 @@
 using PSIQ.Models;
 using PSIQ.DataAccess;
 using System;
+using System.Linq;
 
 namespace PSIQ.WebUI.Controllers
 {
@@ -34,6 +35,12 @@ namespace PSIQ.WebUI.Controllers
             new PostDAO().Inserir(obj);
 
             return RedirectToAction("Chat", "PerfilTera", new { @pacienteId = obj.Paciente.Cod });
+        }
+
+        public ActionResult Buscar(string campoTexto)
+        {
+            usuarioLogado.Pacientes = new UsuarioDAO().BuscarPorTerapeuta(((Usuario)User).Cod).Where(p => p.Nome.Contains(campoTexto)).ToList();
+            return View("Index", usuarioLogado);
         }
     }
 }

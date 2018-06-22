@@ -33,6 +33,12 @@ namespace PSIQ.WebUI.Controllers
                     return View("Index");
                 }
 
+                if (!ValidarEmail(obj.Email))
+                {
+                    ViewBag.MsgErro = "E-mail inválido!";
+                    return View("Index");
+                }
+
                 new UsuarioDAO().Inserir(u);
 
                 return RedirectToAction("Index", "PerfilTera");
@@ -116,11 +122,26 @@ namespace PSIQ.WebUI.Controllers
             return true;
         }
 
-        //public ActionResult Buscar(string campoTexto)
-        //{
-        //    var lst = new UsuarioDAO().BuscarPorTerapeuta().Where(p => p.Nome.Contains(campoTexto)).ToList();
-        //    return View("ProjetoU", lst);
-        //}
+        public bool ValidarEmail(string email)
+        {
+            if (String.IsNullOrEmpty(email))
+                return false;
+            if (!email.Contains("@") || !email.Contains("."))
+                return false;
+            string[] strCamposEmail = email.Split(new String[] { "@" }, StringSplitOptions.RemoveEmptyEntries);
+            if (strCamposEmail.Length != 2)
+                return false;
+            if (strCamposEmail[0].Length < 3)
+                return false;
+            if (!strCamposEmail[1].Contains("."))
+                return false;
+            strCamposEmail = strCamposEmail[1].Split(new String[] { "." }, StringSplitOptions.RemoveEmptyEntries);
+            if (strCamposEmail.Length < 2)
+                return false;
+            if (strCamposEmail[0].Length < 1)
+                return false;
+            return true;
+        }
 
     }
 }
