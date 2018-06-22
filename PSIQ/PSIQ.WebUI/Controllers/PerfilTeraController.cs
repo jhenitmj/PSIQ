@@ -39,6 +39,7 @@ namespace PSIQ.WebUI.Controllers
 
         public ActionResult Buscar(string campoTexto)
         {
+            var usuarioLogado = new UsuarioDAO().BuscarPorCod(((Usuario)User).Cod);
             usuarioLogado.Pacientes = new UsuarioDAO().BuscarPorTerapeuta(((Usuario)User).Cod).Where(p => p.Nome.Contains(campoTexto)).ToList();
             return View("Index", usuarioLogado);
         }
