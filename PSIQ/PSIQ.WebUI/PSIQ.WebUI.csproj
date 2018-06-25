@@ -154,7 +154,6 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CadastroPController.cs" />
-    <Compile Include="Controllers\CadRemedioController.cs" />
     <Compile Include="Controllers\CadTeraController.cs" />
     <Compile Include="Controllers\DiagnosticoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
