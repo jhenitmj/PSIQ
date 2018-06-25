@@ -58,12 +58,10 @@ CREATE TABLE POST
 
 SELECT *from USUARIO       
                                
-
 --SELECT * FROM USUARIO WHERE EMAIL = 'jhe' AND SENHA = '12333';
 
+UPDATE USUARIO SET TIPO = CASE WHEN CPF IS NULL THEN 1 ELSE 2 END;
 
-update usuario set tipo = case when cpf is null then 1 else 2 end
-
-BULK INSERT DIAGNOSTICO
-FROM 'C:\Users\Aluno\Documents\GitHub\PSIQ\INSERT_DIAG.txt'
-WITH( CODEPAGE='ACP')
+--BULK INSERT DIAGNOSTICO
+--FROM 'C:\Users\Aluno\Documents\GitHub\PSIQ\INSERT_DIAG.txt'
+--WITH( CODEPAGE='ACP')
