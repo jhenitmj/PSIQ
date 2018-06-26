@@ -119,7 +119,7 @@ namespace PSIQ.DataAccess
                         Senha = row["SENHA"].ToString(),
                         CPF = row["CPF"].ToString(),
                         CRP = row["CRP"].ToString(),
-                        DataNasc = Convert.ToDateTime(row["DATA_NASCIMENTO"]),
+                        DataNasc = row["DATA_NASCIMENTO"] is DBNull ? new Nullable<DateTime>() : Convert.ToDateTime(row["DATA_NASCIMENTO"]),
                         Foto = row["FOTO"].ToString(),
                         Descricao = row["DESCRICAO"].ToString(),
                         Terapeuta = row["COD_TERAPEUTA"] is DBNull ? null : new Usuario() { Cod = Convert.ToInt32(row["COD_TERAPEUTA"]) },
@@ -163,7 +163,7 @@ namespace PSIQ.DataAccess
                         Senha = row["SENHA"].ToString(),
                         CPF = row["CPF"].ToString(),
                         CRP = row["CRP"].ToString(),
-                        DataNasc = Convert.ToDateTime(row["DATA_NASCIMENTO"]),
+                        DataNasc = row["DATA_NASCIMENTO"] is DBNull ? new Nullable<DateTime>() : Convert.ToDateTime(row["DATA_NASCIMENTO"]),
                         Foto = row["FOTO"].ToString(),
                         Descricao = row["DESCRICAO"].ToString(),
                         Terapeuta = row["COD_TERAPEUTA"] is DBNull ? null : new Usuario() { Cod = Convert.ToInt32(row["COD_TERAPEUTA"]) },
@@ -205,7 +205,7 @@ namespace PSIQ.DataAccess
                         Senha = row["SENHA"].ToString(),
                         CPF = row["CPF"].ToString(),
                         CRP = row["CRP"].ToString(),
-                        DataNasc = Convert.ToDateTime(row["DATA_NASCIMENTO"]),
+                        DataNasc = row["DATA_NASCIMENTO"] is DBNull ? new Nullable<DateTime>() : Convert.ToDateTime(row["DATA_NASCIMENTO"]),
                         Foto = row["FOTO"].ToString(),
                         Descricao = row["DESCRICAO"].ToString(),
                         Terapeuta = row["COD_TERAPEUTA"] is DBNull ? null : new Usuario() { Cod = Convert.ToInt32(row["COD_TERAPEUTA"]) },
@@ -245,11 +245,11 @@ namespace PSIQ.DataAccess
                             Senha = row["SENHA"].ToString(),
                             CPF = row["CPF"].ToString(),
                             CRP = row["CRP"].ToString(),
-                            DataNasc = Convert.ToDateTime(row["DATA_NASCIMENTO"]),
+                            DataNasc = row["DATA_NASCIMENTO"] is DBNull ? new Nullable<DateTime>() : Convert.ToDateTime(row["DATA_NASCIMENTO"]),
                             Foto = row["FOTO"].ToString(),
                             Descricao = row["DESCRICAO"].ToString(),
                             Terapeuta = row["COD_TERAPEUTA"] is DBNull ? null : new Usuario() { Cod = Convert.ToInt32(row["COD_TERAPEUTA"]) },
-                            Estado = row["COD_ESTADO"] is DBNull ? null : new Estado() { Cod = Convert.ToInt32(row["COD_ESTADO"])}
+                            Estado = row["COD_ESTADO"] is DBNull ? null : new Estado() { Cod = Convert.ToInt32(row["COD_ESTADO"]) }
                         };
 
                         lst.Add(usuario);
@@ -292,7 +292,7 @@ namespace PSIQ.DataAccess
                             Senha = row["SENHA"].ToString(),
                             CPF = row["CPF"].ToString(),
                             CRP = row["CRP"].ToString(),
-                            DataNasc = Convert.ToDateTime(row["DATA_NASCIMENTO"]),
+                            DataNasc = row["DATA_NASCIMENTO"] is DBNull ? new Nullable<DateTime>() : Convert.ToDateTime(row["DATA_NASCIMENTO"]),
                             Foto = row["FOTO"].ToString(),
                             Descricao = row["DESCRICAO"].ToString(),
                             Terapeuta = row["COD_TERAPEUTA"] is DBNull ? null : new Usuario() { Cod = Convert.ToInt32(row["COD_TERAPEUTA"]) },
