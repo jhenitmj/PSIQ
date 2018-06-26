@@ -82,7 +82,7 @@
                                             <div class="col-md-2 text-center-lg">
                                                 @if (!string.IsNullOrWhiteSpace(Model.Foto))
                                                 {
-                                                    <img src="@Url.Content(string.Format("~/Fotos/{0}", Model.Foto))" class="img-circle" style="width: 100px;;" />
+                                                    <img src="@Url.Content(string.Format("~/Fotos/{0}",post.Usuario.Foto))" class="img-circle" style="width: 100px;;" />
                                                 }
                                                 else
                                                 {
@@ -105,7 +105,7 @@
                                             <div class="col-md-2 col-md-push-10 text-center-lg text-right-not-lg">
                                                 @if (!string.IsNullOrWhiteSpace(Model.Foto))
                                                 {
-                                                    <img src="@Url.Content(string.Format("~/Fotos/{0}", Model.Foto))" class="img-circle" style="width: 100px;;" />
+                                                    <img src="@Url.Content(string.Format("~/Fotos/{0}", post.Usuario.Foto))" class="img-circle" style="width: 100px;" />
                                                 }
                                                 else
                                                 {
