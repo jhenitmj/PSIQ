@@ -54,7 +54,7 @@ namespace PSIQ.DataAccess
                                       TIPO = @TIPO, 
                                       NOME = @NOME, 
                                       EMAIL = @EMAIL, 
-                                      SENHA = @SENHA, 
+                                      SENHA = COALESCE(@SENHA, SENHA), 
                                       CPF = @CPF, 
                                       DATA_NASCIMENTO = @DATA_NASCIMENTO, 
                                       FOTO = @FOTO

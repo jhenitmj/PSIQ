@@ -41,6 +41,7 @@ namespace PSIQ.WebUI.Controllers
                     ViewBag.MsgErro = "E-mail inválido!";
                     return View("Index");
                 }
+
                 var u = Mapper.Map<PaciViewModel, Usuario>(obj);
                 u.Tipo = TIPO_USUARIO.PACIENTE;
 
@@ -48,11 +49,9 @@ namespace PSIQ.WebUI.Controllers
                     new UsuarioDAO().Atualizar(u);
                 else
                     new UsuarioDAO().Inserir(u);
-
-                return RedirectToAction("Index", "LoginP");
             }
 
-            return RedirectToAction("Index", "LoginP");
+            return RedirectToAction("Index", "PerfilPacienteP");
         }
 
         [HttpPost]
